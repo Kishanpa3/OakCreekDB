@@ -1,8 +1,8 @@
-%h3 Details about #{@animal.commonName}
+%h3 Details about #{@animal.common_name}
 %ul#details
   %li
-    Exhibit:
-    = @animal.exhibit
+    Habitat #:
+    = @animal.habitat_num
 %h4 Description:
 
 = link_to 'Back to animal list', animals_path
