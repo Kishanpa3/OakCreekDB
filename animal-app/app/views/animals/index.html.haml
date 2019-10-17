@@ -1,2 +1,16 @@
-<h1>Animals#index</h1>
-<p>Find me in app/views/animals/index.html.haml</p>
+%h2 All Animals
+
+%table#animals.table.table-striped.col-md-12
+  %thead
+    %tr
+      %th Exhibit
+      %th Common Name
+      %th More Info
+  %tbody
+    - @animals.each do |animal|
+      %tr
+        %td= animal.exhibit
+        %td= animal.commonName
+        %td= link_to "More about #{animal.commonName}", animal_path(animal)
+
+

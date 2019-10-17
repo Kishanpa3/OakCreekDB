@@ -1,0 +1,8 @@
+Feature: Index the database
+    As a user
+    So I can have a high-level overview of the database.
+    I want to see all the entries in my database
+    
+Scenario: Index Entries
+    Given I am on the Oak Creek home page
+    Then I should see the "Animal Table"

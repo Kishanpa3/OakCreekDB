@@ -1,2 +1,12 @@
-<h1>Animals#show</h1>
-<p>Find me in app/views/animals/show.html.haml</p>
+%h3 Details about #{@animal.commonName}
+
+%ul#details
+  %li
+    Exhibit:
+    = @animal.exhibit
+
+%h4 Description:
+
+
+
+= link_to 'Back to animal list', animals_path

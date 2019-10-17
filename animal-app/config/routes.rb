@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :animals
   
+  #GET '/animals/showEntry'
+  
   # Example resource route with options:
   #   resources :products do
   #     member do

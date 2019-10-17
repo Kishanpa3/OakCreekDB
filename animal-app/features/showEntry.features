@@ -1,0 +1,11 @@
+Feature: Read an Animal Entry
+    As a user
+    So that I can obtain information about the animals
+    I want to read animal entries from the database
+    
+Scenario: Try to read entry
+    Given I am on the Oak Creek home page
+    Then I should see "More info about Black Bear"
+    When I follow "More info about Black Bear"
+    Then I should be on the Black Bear page
+    Then I should I see "Black Bear"
