@@ -14,14 +14,14 @@ class AddAttributesToAnimals < ActiveRecord::Migration[6.0]
       t.column :vaccination, :string #LOOK AT ACTIVE STORAGE - https://edgeguides.rubyonrails.org/active_storage_overview.html
     end
     
-    create_table :diets do |t|
-      t.string :dish
-      t.text :instructions
-      t.text :am
-      t.text :pm
-    end
+    #create_table :diets do |t|
+    #  t.string :dish
+    #  t.text :instructions
+    #  t.text :am
+    #  t.text :pm
+    #end
     
-    add_column :animals, :diet_id, :integer
-    add_foreign_key :animals, :diets
+    #add_column :animals, :diet_id, :integer
+    #add_foreign_key :animals, :diets
   end
 end

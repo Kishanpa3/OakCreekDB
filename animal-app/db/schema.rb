@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_155750) do
+ActiveRecord::Schema.define(version: 2019_10_18_165748) do
 
   create_table "animals", force: :cascade do |t|
     t.string "habitat_num"
@@ -26,15 +26,18 @@ ActiveRecord::Schema.define(version: 2019_10_17_155750) do
     t.string "tag"
     t.string "enrichment"
     t.string "vaccination"
-    t.integer "diet_id"
   end
 
   create_table "diets", force: :cascade do |t|
-    t.string "dish"
     t.text "instructions"
     t.text "am"
     t.text "pm"
+    t.string "dish"
+    t.integer "animal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_diets_on_animal_id"
   end
 
-  add_foreign_key "animals", "diets"
+  add_foreign_key "diets", "animals"
 end
