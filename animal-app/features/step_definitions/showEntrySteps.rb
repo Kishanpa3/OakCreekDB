@@ -1,7 +1,7 @@
 
 
 Given("the following exists") do |table|
-  @animals = Animal.create!(exhibit: table.rows[0][0], commonName: table.rows[0][1])
+  @animals = Animal.create!(habitat_num: table.rows[0][0], common_name: table.rows[0][1])
 end
 
 Given("I am on the Oak Creek home page") do

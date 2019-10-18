@@ -8,6 +8,6 @@ Scenario: Index Entries
         | Exhibit       | Common Name   |
         | 32            | Black Bear    |
     Given I am on the Oak Creek home page
-    Then I should see "Oak Creek Animal Manager"
+    Then I should see "All Animals"
     And I should see "32"
     And I should see "Black Bear"
