@@ -23,7 +23,7 @@ $ bundle install --without production
 
 ## Configuration
 
-Local first-time database creation:
+Local first-time database creation and initialization:
 
 ```bash
 $ rails db:migrate
@@ -52,6 +52,7 @@ Finally, deploy the app to Heroku:
 $ git push heroku master
 ```
 
+If you have problems deploying to Heroku, please see this [post](https://stackoverflow.com/questions/13083399/heroku-deployment-failed-because-of-sqlite3-gem-error).
 Just as we ran `rails db:migrate` and `rails db:seed` to do first-time database creation locally, we must also cause a database to be created on the Heroku side:
 
 ```bash
@@ -63,6 +64,8 @@ and
 ```bash
 $ heroku run rails db:seed
 ```
+
+Now you should be able to navigate to your app's URL. 
 
 [Source](https://github.com/saasbook/rottenpotatoes-rails-intro/blob/master/instructions/docs/part_0_B.md)
 
@@ -89,6 +92,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+<!--
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -111,5 +115,4 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
+-->
