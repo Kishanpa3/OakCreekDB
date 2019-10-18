@@ -4,8 +4,10 @@ Feature: Read an Animal Entry
     I want to read animal entries from the database
     
 Scenario: Try to read entry
-    Given I am on the Oak Creek home page
-    Then I should see "More info about Black Bear"
-    When I follow "More info about Black Bear"
-    Then I should be on the Black Bear page
-    Then I should I see "Black Bear"
+    Given the following exists
+        | Exhibit       | Common Name   |
+        | 32            | Black Bear    |
+    Given I am on the Oak Creek home page    
+    When I follow the link "More about Black Bear"
+    Then I should be on the "Black Bear" page
+    

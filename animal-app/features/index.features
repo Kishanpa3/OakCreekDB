@@ -4,5 +4,10 @@ Feature: Index the database
     I want to see all the entries in my database
     
 Scenario: Index Entries
+    Given the following exists
+        | Exhibit       | Common Name   |
+        | 32            | Black Bear    |
     Given I am on the Oak Creek home page
-    Then I should see the "Animal Table"
+    Then I should see "Oak Creek Animal Manager"
+    And I should see "32"
+    And I should see "Black Bear"
