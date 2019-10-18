@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   def animals_params
-    params.require(:animal).permit(:exhibit, :commonName)
+    params.require(:animal).permit(:habitat_num, :common_name)
   end
   
   def index
