@@ -6,8 +6,8 @@ Feature: Index the database
 Scenario: Index Entries
     Given the following exists
         | Exhibit       | Common Name   |
-        | 32            | Black Bear    |
+        | 32            | Brown Bear    |
     Given I am on the Oak Creek home page
     Then I should see "All Animals"
     And I should see "32"
-    And I should see "Black Bear"
+    And I should see "Brown Bear"
