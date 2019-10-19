@@ -53,6 +53,7 @@ $ git push heroku master
 ```
 
 If you have problems deploying to Heroku, please see this [post](https://stackoverflow.com/questions/13083399/heroku-deployment-failed-because-of-sqlite3-gem-error).
+
 Just as we ran `rails db:migrate` and `rails db:seed` to do first-time database creation locally, we must also cause a database to be created on the Heroku side:
 
 ```bash
