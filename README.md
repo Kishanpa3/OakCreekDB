@@ -23,7 +23,7 @@ $ bundle install --without production
 
 ## Configuration
 
-Local first-time database creation and initialization:
+First-time local database creation and initialization:
 
 ```bash
 $ rails db:migrate
@@ -73,7 +73,7 @@ Now you should be able to navigate to your app's URL.
 ## License
 MIT License
 
-Copyright (c) [2019] [fullname]
+Copyright (c) [2019] [Andrew Wong and Justin John and Durian Nguyen and Kishan Patel and Aisha Cabrera and Branden Thevanh]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
