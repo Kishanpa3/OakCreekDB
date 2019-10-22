@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_165748) do
+ActiveRecord::Schema.define(version: 2019_10_22_202856) do
 
   create_table "animals", force: :cascade do |t|
-    t.string "habitat_num"
+    t.integer "habitat_num"
     t.string "common_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
     t.string "species"
     t.string "sex", limit: 6
     t.string "neutered", limit: 3
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_165748) do
     t.string "tag"
     t.string "enrichment"
     t.string "vaccination"
+    t.string "name"
   end
 
   create_table "diets", force: :cascade do |t|
