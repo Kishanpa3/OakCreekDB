@@ -7,16 +7,20 @@
 
 %table#dtSearch.table.table-striped.table-bordered.table-lg
   %thead
-    %tr 
-      %th Habitat #
+    %tr
+      %th Tag
+      %th Name
       %th Common Name
+      %th Habitat #
       %th More Info
   %tbody
     - @animals.each do |animal|
       %tr
-        %td= animal.habitat_num
+        %td= animal.tag
+        %td= animal.name
         %td= animal.common_name
-        %td= link_to "More about #{animal.common_name}", animal_path(animal)
+        %td= animal.habitat_num
+        %td= link_to "More about #{animal.name}", animal_path(animal)
 
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}

@@ -22,3 +22,6 @@ puts 'STARTING TO SEED'
     end
   end
 puts 'DONE SEEDING'
+
+Animal.create([   {habitat_num:"32", common_name:"Brown Bear", name:"Otto", tag: "BBO001", species: "Ursus Arctos", weight: 325, sex: "Male", neutered: "Yes", age: 3, dob: Time.new(2016,1,20) },
+                  {habitat_num:"30", common_name:"Raccoon", name:"Larry", tag: "RCC001"}])
