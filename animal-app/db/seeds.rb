@@ -6,4 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-animals = Animal.create([{habitat_num:"32", common_name:"Brown Bear"}, {habitat_num:"30", common_name:"Raccoon"}])
+animals = Animal.create([   {habitat_num:"32", common_name:"Brown Bear", name:"Otto", tag: "BBO001", species: "Ursus Arctos", weight: 325, sex: "Male", neutered: "Yes", age: 3, dob: Time.new(2016,1,20) },
+                            {habitat_num:"30", common_name:"Raccoon", name:"Larry", tag: "RCC001"}])

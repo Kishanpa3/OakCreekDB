@@ -5,9 +5,9 @@ Feature: Read an Animal Entry
     
 Scenario: Try to read entry
     Given the following exists
-        | Exhibit       | Common Name   |
-        | 32            | Brown Bear    |
+        | Exhibit       | Common Name   | Name      |
+        | 32            | Brown Bear    | Otto      |
     Given I am on the Oak Creek home page    
-    When I follow the link "More about Brown Bear"
-    Then I should be on the "Brown Bear" page
+    When I follow the link "More about Otto"
+    Then I should be on the "Otto" page
     

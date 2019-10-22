@@ -5,9 +5,10 @@ Feature: Index the database
     
 Scenario: Index Entries
     Given the following exists
-        | Exhibit       | Common Name   |
-        | 32            | Brown Bear    |
+        | Exhibit       | Common Name   | Name      |
+        | 32            | Brown Bear    | Otto      |
     Given I am on the Oak Creek home page
     Then I should see "All Animals"
     And I should see "32"
     And I should see "Brown Bear"
+    And I should see "Otto"
