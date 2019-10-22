@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-animals = Animal.create([{exhibit:"32", commonName:"Black Bear"}, {exhibit:"30", commonName:"Raccoon"}])
+animals = Animal.create([{habitat_num:"32", common_name:"Brown Bear"}, {habitat_num:"30", common_name:"Raccoon"}])
