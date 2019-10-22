@@ -26,7 +26,7 @@
     = @animal.age
   %li 
     DOB:
-    = @animal.dob.strftime("%m/%d/%Y")
+    = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
   %li 
     Weight:
     = "#{@animal.weight} lbs"
