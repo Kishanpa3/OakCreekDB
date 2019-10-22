@@ -1,8 +1,32 @@
-%h3 Details about #{@animal.common_name}
+%h3 Details about #{@animal.name}
 %ul#details
+  %li 
+    Tag:
+    = @animal.tag
   %li
     Habitat #:
     = @animal.habitat_num
+  %li 
+    Common Name:
+    = @animal.common_name
+  %li 
+    Species:
+    = @animal.species
+  %li 
+    Sex:
+    = @animal.sex
+  %li 
+    Neutered:
+    = @animal.neutered
+  %li 
+    Age:
+    = @animal.age
+  %li 
+    DOB:
+    = @animal.dob.strftime("%m/%d/%Y")
+  %li 
+    Weight:
+    = "#{@animal.weight} lbs"
 %h4 Description:
 
 = link_to 'Back to animal list', animals_path

@@ -3,14 +3,18 @@
 %table#animals.table.table-striped.col-md-12 
   %thead
     %tr
-      %th Habitat #
+      %th Name
+      %th Tag
       %th Common Name
+      %th Habitat #
       %th More Info
   %tbody
     - @animals.each do |animal|
       %tr
-        %td= animal.habitat_num
+        %td= animal.name
+        %td= animal.tag
         %td= animal.common_name
-        %td= link_to "More about #{animal.common_name}", animal_path(animal)
+        %td= animal.habitat_num
+        %td= link_to "More about #{animal.name}", animal_path(animal)
 
 

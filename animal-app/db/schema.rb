@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_165748) do
     t.string "common_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.string "species"
     t.string "sex", limit: 6
     t.string "neutered", limit: 3
