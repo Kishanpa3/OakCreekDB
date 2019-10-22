@@ -18,6 +18,8 @@ body {
     font-size: 15px;
     color: #808080;
     background:#f9f9f9;
+    
+    overflow-x: hidden;
 }
 
 #dtSearch tr:hover {background-color:#cccccc;}
