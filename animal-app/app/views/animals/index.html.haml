@@ -23,8 +23,9 @@
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-    $('#dtSearch').DataTable({ 
-    
+    $('#dtSearch').DataTable({
+      // default show value
+      "iDisplayLength": 50
     });
     $('.dataTables_length').addClass('bs-select');
   });
