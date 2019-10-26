@@ -9,36 +9,39 @@
     
 %h2 All Animals
 
-%table#dtSearch.table.table-striped.table-bordered.table-lg
-  %thead
-    %tr
-      %th Tag
-      %th Name
-      %th Common Name
-      %th Habitat #
-      %th More Info
-  %tbody
-    - @animals.each do |animal|
+- cache @animals do
+  %table#dtSearch.table.table-striped.table-bordered.table-lg
+    %thead
       %tr
-        %td= animal.tag
-        %td= animal.name
-        %td= animal.common_name
-        %td= animal.habitat_num
-        %td= link_to "More about #{animal.name}", animal_path(animal)
+        %th Tag
+        %th Name
+        %th Common Name
+        %th Habitat #
+        %th More Info
+    %tbody
+      - @animals.each do |animal|
+        %tr
+          %td= animal.tag
+          %td= animal.name
+          %td= animal.common_name
+          %td= animal.habitat_num
+          %td= link_to "More about #{animal.name}", animal_path(animal)
 
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-    $('#dtSearch').DataTable({
-      // default show value
-      iDisplayLength: 50,
-      stateSave: true
-    });
-    $('.dataTables_length').addClass('bs-select');
-    
-    $(document.body).css( "display", "block");
+    if ($('#dtSearch_wrapper').length === 0) {
+      console.log("loading dataTable");
+      $('#dtSearch').dataTable({
+        // default show value
+        iDisplayLength: 50,
+        stateSave: true
+      });
+      $('.dataTables_length').addClass('bs-select');
+      $(document.body).css( "display", "block");
+    }
   });
   
   
