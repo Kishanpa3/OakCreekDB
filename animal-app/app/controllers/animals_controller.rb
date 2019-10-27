@@ -17,4 +17,8 @@ class AnimalsController < ApplicationController
 
   def edit
   end
+  
+  def get_dataset
+    render json: AnimalDatatable.new(view_context)
+  end
 end

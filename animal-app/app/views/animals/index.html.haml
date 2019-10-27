@@ -3,45 +3,27 @@
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
-  :javascript
-    $(document.body).css( "display", "none");
-    
-    
+
 %h2 All Animals
 
-- cache @animals do
-  %table#dtSearch.table.table-striped.table-bordered.table-lg
-    %thead
-      %tr
-        %th Tag
-        %th Name
-        %th Common Name
-        %th Habitat #
-        %th More Info
-    %tbody
-      - @animals.each do |animal|
-        %tr
-          %td= animal.tag
-          %td= animal.name
-          %td= animal.common_name
-          %td= animal.habitat_num
-          %td= link_to "More about #{animal.name}", animal_path(animal)
-
+%table#dtSearch.table.table-striped.table-bordered.table-lg
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-    if ($('#dtSearch_wrapper').length === 0) {
-      console.log("loading dataTable");
-      $('#dtSearch').dataTable({
-        // default show value
-        iDisplayLength: 50,
-        stateSave: true
+     $('#dtSearch').dataTable({
+        // "processing": true,
+        "serverSide": true,
+        "pageLength": 50,
+        "ajax": '/get_dataset',
+        "columns": [
+          {title: 'Tag'},
+          {title: 'Name'},
+          {title: 'Common Name'},
+          {title: 'Habitat #'},
+        ],
+        "saveState" : true
       });
       $('.dataTables_length').addClass('bs-select');
-      $(document.body).css( "display", "block");
-    }
   });
-  
-  
