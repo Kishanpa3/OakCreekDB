@@ -3,7 +3,7 @@
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
-
+    
 %h2 All Animals
 
 %table#dtSearch.table.table-striped.table-bordered.table-lg
@@ -23,7 +23,18 @@
           {title: 'Common Name'},
           {title: 'Habitat #'},
         ],
-        "saveState" : true
+        "saveState" : true,
+        "drawCallback": function( settings ) {
+          alert( 'DataTables has redrawn the table' );
+          
+          $('#dtSearch tbody tr').click(function () {
+            // console.log($(this).html());
+      
+            // redirect
+            var href = $(this).find("a")[0].getAttribute('href');
+            window.location = window.location.origin + href;
+          });
+        }
       });
       $('.dataTables_length').addClass('bs-select');
   });
