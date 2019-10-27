@@ -12,7 +12,7 @@
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-     $('#dtSearch').dataTable({
+     var dataTable = $('#dtSearch').dataTable({
         // "processing": true,
         "serverSide": true,
         "pageLength": 50,
@@ -23,9 +23,9 @@
           {title: 'Common Name'},
           {title: 'Habitat #'},
         ],
-        "saveState" : true,
+        "stateSave" : true,
         "drawCallback": function( settings ) {
-          alert( 'DataTables has redrawn the table' );
+          // alert( 'DataTables has redrawn the table' );
           
           $('#dtSearch tbody tr').click(function () {
             // console.log($(this).html());
