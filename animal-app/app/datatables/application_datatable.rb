@@ -6,7 +6,6 @@ class ApplicationDatatable
     @view = view
   end
   
-  
   def as_json(options = {})
     {
       recordsTotal: count,
