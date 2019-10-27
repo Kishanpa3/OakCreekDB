@@ -4,7 +4,11 @@ class AnimalsController < ApplicationController
   end
   
   def index
-    @animals = Animal.all
+    respond_to do |format|
+      format.html
+      format.json { render json: AnimalDatatable.new(view_context) }
+    end
+    # @animals = Animal.all
   end
 
   def show
@@ -19,6 +23,6 @@ class AnimalsController < ApplicationController
   end
   
   def get_dataset
-    render json: AnimalDatatable.new(view_context)
+    
   end
 end
