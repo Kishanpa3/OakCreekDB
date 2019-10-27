@@ -17,7 +17,6 @@ class ApplicationDatatable
 
 
 private
-
   def page
     params[:start].to_i / per_page + 1
   end

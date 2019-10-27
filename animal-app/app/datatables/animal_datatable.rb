@@ -1,6 +1,6 @@
 class AnimalDatatable < ApplicationDatatable
-  private
-
+  
+private
   def data
     animals.map do |animal|
       [].tap do |column|
