@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   
   #GET '/animals/showEntry'
   
-  get 'get_dataset', to: 'animals#get_dataset'
-  
   # Example resource route with options:
   #   resources :products do
   #     member do

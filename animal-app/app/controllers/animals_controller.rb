@@ -17,12 +17,30 @@ class AnimalsController < ApplicationController
   end
 
   def new
+    # default: render 'new' template
+  end
+  
+  def create
+    @animal = Animal.create!(animals_params)
+    flash[:notice] = "#{@animal.tag} was successfully created."
+    redirect_to animals_path
   end
 
   def edit
+    @animal = Animal.find params[:id]
   end
   
-  def get_dataset
-    
+  def update
+    @animal = Animal.find params[:id]
+    @animal.update_attributes!(animals_params)
+    flash[:notice] = "#{@animal.tag} was successfully updated."
+    redirect_to animal_path(@animal)
+  end
+  
+  def destroy
+    @animal = Animal.find(params[:id])
+    @animal.destroy
+    flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' deleted."
+    redirect_to animals_path
   end
 end

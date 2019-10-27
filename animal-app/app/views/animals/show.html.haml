@@ -26,13 +26,14 @@
     = @animal.age
   %li 
     DOB:
-    = @animal.dob.strftime("%m/%d/%Y")
+    = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
   %li 
     Weight:
     = "#{@animal.weight} lbs"
 %h4 Description:
 
 = link_to 'Back to animal list', animals_path
+= button_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
 
 
 %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
