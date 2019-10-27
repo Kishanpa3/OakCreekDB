@@ -24,6 +24,11 @@ body {
 
 #dtSearch tr:hover {background-color:#cccccc;}
 
+#dtSearch tr a {
+    color: #000000;
+    text-decoration: none;
+}
+
 th {
     color: #f9f9f9;
     background-color: #3A95FF;
