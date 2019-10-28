@@ -38,7 +38,7 @@ gem "fastimage"                     # analyze image dimensions
 gem "image_processing", "~> 1.8"
 gem "marcel", "~> 0.3"              # extract MIME type from file content 
 gem "aws-sdk-s3", "~> 1.14"         # for AWS S3 storage
-# gem "uppy-s3_multipart", "~> 0.3" # resumable direct upload - Uppy S3 Multipart or Tus protocol
+gem "uppy-s3_multipart", "~> 0.3" # resumable direct upload - Uppy S3 Multipart or Tus protocol
 # gem "streamio-ffmpeg"             # transcoding videos - https://shrinerb.com/docs/processing#processing-other-filetypes
 # https://shrinerb.com/docs/plugins/backgrounding - maybe need background processing for images
 # USEFUL SHRINE LINKS:
