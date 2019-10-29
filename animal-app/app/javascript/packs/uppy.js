@@ -44,8 +44,22 @@ const uppy = Uppy({
 .use(Facebook, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
 .use(Instagram, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
 .use(Webcam, { target: Dashboard, facingMode: 'environment' })
+.use(AwsS3Multipart, { companionUrl: '/' })
 
 uppy.on('complete', result => {
   console.log('successful files:', result.successful)
   console.log('failed files:', result.failed)
 })
+
+// uppy.on('upload-success', function (file, response) {
+//   var uploadedFileData = JSON.stringify({
+//     id: response.uploadURL.match(/\/cache\/([^\?]+)/)[1], // extract key without prefix
+//     storage: 'cache',
+//     metadata: {
+//       size:      file.size,
+//       filename:  file.name,
+//       mime_type: file.type,
+//     }
+//   })
+//   // ...
+// })
