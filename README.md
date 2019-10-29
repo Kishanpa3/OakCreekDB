@@ -18,6 +18,10 @@ Install [Bundler](https://bundler.io/) 2:
 
 ```bash
 $ gem install bundler
+```
+Install the gems:
+
+```bash
 $ bundle install --without production
 ```
 
@@ -28,6 +32,16 @@ First-time local database creation and initialization:
 ```bash
 $ rails db:migrate
 $ rails db:seed
+```
+
+If you'll be using Amazon S3, run `rails credentials:edit` and put your S3 credentials, and [setup CORS]:
+
+```yaml
+s3:
+  access_key_id: "..."
+  secret_access_key: "..."
+  region: "..."
+  bucket: "..."
 ```
 
 ## Deployment
