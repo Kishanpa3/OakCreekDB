@@ -1,2 +1,14 @@
-<h1>Animals#edit</h1>
-<p>Find me in app/views/animals/edit.html.haml</p>
+%h2 Edit Existing Animal
+
+= form_tag animal_path(@animal), :method => :put do
+
+  = label :animal, :name, 'Name'
+  = text_field :animal, 'name'
+
+  //= label :movie, :rating, 'Rating'
+  //= select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+
+  = label :animal, :dob, 'Date of Birth'
+  = date_select :animal, :dob
+
+  = submit_tag 'Update Animal Info'

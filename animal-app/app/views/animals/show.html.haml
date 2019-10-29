@@ -32,6 +32,7 @@
     = "#{@animal.weight} lbs"
 %h4 Description:
 
+= link_to 'Edit', edit_animal_path(@animal)
 = link_to 'Back to animal list', animals_path
 
 
