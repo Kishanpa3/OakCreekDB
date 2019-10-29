@@ -33,6 +33,7 @@
 %h4 Description:
 
 = link_to 'Back to animal list', animals_path
+= button_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
 
 = form_for @animal, html: { enctype: "multipart/form-data" } do |f|
   = f.text_field :tag
