@@ -35,14 +35,14 @@
 = link_to 'Back to animal list', animals_path
 = button_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
 
-= form_for @animal, html: { enctype: "multipart/form-data" } do |f|
-  = f.text_field :tag
-  = f.fields_for :documents do |p|
-    = p.hidden_field :file, value: p.object.cached_image_data
-    = p.file_field   :file
-    = p.check_box    :_destroy unless p.object.new_record?
-  = file_field_tag "files[]", multiple: true
-  = f.submit "Create"
+// = form_for @animal, html: { enctype: "multipart/form-data" } do |f|
+//   = f.text_field :tag
+//   = f.fields_for :documents do |p|
+//     = p.hidden_field :file, value: p.object.cached_image_data
+//     = p.file_field   :file
+//     = p.check_box    :_destroy unless p.object.new_record?
+//   = file_field_tag "files[]", multiple: true
+//   = f.submit "Create"
 
 %button.UppyOpenerBtn Open Dashboard
 
@@ -51,4 +51,4 @@
 
 %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
 
-%script{:type => "text/javascript", :src=> "assets/appuppy.js"}
+= javascript_pack_tag 'uppy'

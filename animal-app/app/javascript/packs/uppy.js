@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 // Import the plugins
 const Uppy = require('@uppy/core')
 const AwsS3Multipart = require('@uppy/aws-s3-multipart')
