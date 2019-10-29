@@ -18,7 +18,7 @@ gem 'haml'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -38,7 +38,7 @@ gem "fastimage"                     # analyze image dimensions
 gem "image_processing", "~> 1.8"
 gem "marcel", "~> 0.3"              # extract MIME type from file content 
 gem "aws-sdk-s3", "~> 1.14"         # for AWS S3 storage
-gem "uppy-s3_multipart", "~> 0.3" # resumable direct upload - Uppy S3 Multipart or Tus protocol
+gem "uppy-s3_multipart", "~> 0.3"   # resumable direct upload
 # gem "streamio-ffmpeg"             # transcoding videos - https://shrinerb.com/docs/processing#processing-other-filetypes
 # https://shrinerb.com/docs/plugins/backgrounding - maybe need background processing for images
 # USEFUL SHRINE LINKS:
@@ -46,6 +46,10 @@ gem "uppy-s3_multipart", "~> 0.3" # resumable direct upload - Uppy S3 Multipart 
 # https://shrinerb.com/docs/processing#libvips
 
 gem 'webpacker', '~> 4.0'
+
+#testing -> datatable
+gem 'will_paginate'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -4,7 +4,11 @@ class AnimalsController < ApplicationController
   end
   
   def index
-    @animals = Animal.all
+    respond_to do |format|
+      format.html
+      format.json { render json: AnimalDatatable.new(view_context) }
+    end
+    # @animals = Animal.all
   end
 
   def show
@@ -17,7 +21,7 @@ class AnimalsController < ApplicationController
   end
   
   def create
-    @animal = Animal.create!(movie_params)
+    @animal = Animal.create!(animals_params)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path
   end

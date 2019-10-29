@@ -1,35 +1,40 @@
-%script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
-%script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
-%link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
-%link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
-
+%head
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
+    
 %h2 All Animals
 
 %table#dtSearch.table.table-striped.table-bordered.table-lg
-  %thead
-    %tr
-      %th Tag
-      %th Name
-      %th Common Name
-      %th Habitat #
-      %th More Info
-  %tbody
-    - @animals.each do |animal|
-      %tr
-        %td= animal.tag
-        %td= animal.name
-        %td= animal.common_name
-        %td= animal.habitat_num
-        %td= link_to "More about #{animal.name}", animal_path(animal)
-
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-    $('#dtSearch').DataTable({
-      // default show value
-      "iDisplayLength": 50
-    });
-    $('.dataTables_length').addClass('bs-select');
+     var dataTable = $('#dtSearch').dataTable({
+        // "processing": true,
+        "serverSide": true,
+        "pageLength": 50,
+        "ajax": '/animals',
+        "columns": [
+          {title: 'Tag'},
+          {title: 'Name'},
+          {title: 'Common Name'},
+          {title: 'Habitat #'},
+        ],
+        "stateSave" : true,
+        "drawCallback": function( settings ) {
+          // alert( 'DataTables has redrawn the table' );
+          
+          $('#dtSearch tbody tr').click(function () {
+            // console.log($(this).html());
+      
+            // redirect
+            var href = $(this).find("a")[0].getAttribute('href');
+            window.location = window.location.origin + href;
+          });
+        }
+      });
+      $('.dataTables_length').addClass('bs-select');
   });
