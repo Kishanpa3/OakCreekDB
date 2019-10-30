@@ -1,6 +1,6 @@
 
 
-When("I edit {string} to be {string}") do |string, string2|
+When("I fill text field {string} with {string}") do |string, string2|
   fill_in(string, with: string2)
 end
 
