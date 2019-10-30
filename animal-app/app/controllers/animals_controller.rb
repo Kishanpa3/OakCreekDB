@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
   end
   
   def create
-    @animal = Animal.create!(movie_params)
+    @animal = Animal.create!(animals_params)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path
   end
@@ -28,7 +28,7 @@ class AnimalsController < ApplicationController
   
   def update
     @animal = Animal.find params[:id]
-    @animal.update_attributes!(animals_params)
+    @animal.update!(animals_params)
     flash[:notice] = "#{@animal.tag} was successfully updated."
     redirect_to animal_path(@animal)
   end
