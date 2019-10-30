@@ -1,6 +1,7 @@
 Feature: Create an Animal Entry
-    
-    
+  As a user
+  So that I can add animals to the database
+  I want to create new animal entries in the database
     
 Scenario: Create Animal
   Given I am on the Oak Creek home page
