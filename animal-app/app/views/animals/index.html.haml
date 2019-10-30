@@ -25,13 +25,13 @@
         %td= link_to "More about #{animal.name}", animal_path(animal)
 
 
-%script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
-%script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
-:javascript
-  $(document).ready(function () {
-    $('#dtSearch').DataTable({
-      // default show value
-      "iDisplayLength": 50
-    });
-    $('.dataTables_length').addClass('bs-select');
-  });
+// %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
+// %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
+// :javascript
+//   $(document).ready(function () {
+//     $('#dtSearch').DataTable({
+//       // default show value
+//       "iDisplayLength": 50
+//     });
+//     $('.dataTables_length').addClass('bs-select');
+//   });
