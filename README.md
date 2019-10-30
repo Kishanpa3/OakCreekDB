@@ -34,7 +34,7 @@ $ rails db:migrate
 $ rails db:seed
 ```
 
-If you'll be using Amazon S3, run `rails credentials:edit` and put your S3 credentials, and [setup CORS]:
+If you'll be using Amazon S3, run `rails credentials:edit` and put your S3 credentials, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
 
 ```yaml
 s3:
