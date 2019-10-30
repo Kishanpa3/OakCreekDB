@@ -17,9 +17,13 @@ Shrine.storages = {
 Shrine.plugin :activerecord 
 Shrine.plugin :cached_attachment_data # for retaining the cached file across form redisplays 
 Shrine.plugin :restore_cached_data # re-extract metadata when attaching a cached file 
+Shrine.plugin :derivatives          # up front processing
+Shrine.plugin :derivation_endpoint, # on-the-fly processing
+  secret_key: "test" #Rails.application.credentials.secret_key_base
 
 Shrine.plugin :uppy_s3_multipart
 
+# delay promoting and deleting files to a background job (`backgrounding` plugin)
 Shrine.plugin :backgrounding
 Shrine::Attacher.promote_block do
   Attachment::PromoteJob.perform_later(self.class.name, record, name, file_data)
