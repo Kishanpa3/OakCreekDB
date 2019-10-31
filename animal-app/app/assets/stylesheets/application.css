@@ -62,4 +62,9 @@ th {
 
 #dtSearch{
     padding: 0px 0px 0px 0px;
+    background-color: #C880E5;
+}
+
+#aniForm{
+    padding: 10px 0px 0px 10px;
 }
