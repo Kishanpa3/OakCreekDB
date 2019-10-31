@@ -9,9 +9,7 @@ Given("I am on the Oak Creek home page") do
 end
 
 When("I follow the link {string}") do |string|
-    within_table('animals') do
-        click_link string
-    end
+    click_link string
 end
 
 Then("I should be on the {string} page") do |string|
