@@ -5,5 +5,5 @@ end
 
 
 When("I click on the row {string}") do |string|
-    page.find(string)
+   click_on('Elisha')
 end
