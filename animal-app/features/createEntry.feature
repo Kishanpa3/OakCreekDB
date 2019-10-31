@@ -5,7 +5,7 @@ Feature: Create an Animal Entry
     
 Scenario: Create Animal
   Given I am on the Oak Creek home page
-  When I follow the link "Add new animal"
+  When I follow the link "Add New Animal"
   Then I should see "Create New Animal"
   When I fill text field "Tag" with "1337"
   And I fill text field "Name" with "Scott"
