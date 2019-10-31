@@ -6,6 +6,8 @@
   = stylesheet_link_tag "application"
 %h2 All Animals
 
+= link_to 'Add New Animal', new_animal_path, :class => "btn btn-success"
+
 %table#dtSearch.table.table-striped.table-bordered.table-lg
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
