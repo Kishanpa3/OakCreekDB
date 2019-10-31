@@ -1,2 +1,35 @@
-<h1>Animals#new</h1>
-<p>Find me in app/views/animals/new.html.haml</p>
+%h2 Create New Animal
+
+= form_tag animals_path do
+
+  = label :animal, :name, 'Name'
+  = text_field :animal, 'name'
+  
+  = label :animal, :tag, 'Tag'
+  = text_field :animal, 'tag'
+  
+  = label :animal, :common_name, 'Common Name'
+  = text_field :animal, 'common_name'
+  
+  = label :animal, :habitat_num, 'Habitat #'
+  = text_field :animal, 'habitat_num'
+  
+  = label :animal, :species, 'Species'
+  = text_field :animal, 'species'
+  
+  = label :animal, :sex, 'Sex'
+  = select :animal, :sex, ['Male', 'Female', 'N\A']
+  
+  = label :animal, :neutered, 'Neutered'
+  = select :animal, :neutered, ['Yes','No','N\A']
+  
+  = label :animal, :age, 'Age'
+  = text_field :animal, 'age'
+
+  = label :animal, :dob, 'Date of Birth'
+  = date_select :animal, :dob
+  
+  = label :animal, :weight, 'Weight'
+  = text_field :animal, 'weight'
+
+  = submit_tag 'Save New Animal'
