@@ -22,6 +22,26 @@ body {
     overflow-x: hidden;
 }
 
+.table.table-striped.table-bordered.table-lg{
+    width:100% !important;
+}
+
+.pagination{
+    padding: 0px 10px 5px 0px;
+}
+
+#dtSearch_length{
+    padding: 0px 0px 0px 15px;
+}
+
+#dtSearch_filter{
+    padding: 0px 15px 0px 0px;
+}
+
+#dtSearch_info{
+    padding: 0px 0px 0px 10px;
+}
+
 #dtSearch tr:hover {background-color:#cccccc;}
 
 #dtSearch tr a {
