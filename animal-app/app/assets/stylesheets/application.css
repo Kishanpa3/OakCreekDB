@@ -26,5 +26,9 @@ body {
 
 th {
     color: #f9f9f9;
-    background-color: #3A95FF;
+    background-color: #C880E5;
+}
+
+#aniForm{
+    padding: 10px 0px 0px 10px;
 }
