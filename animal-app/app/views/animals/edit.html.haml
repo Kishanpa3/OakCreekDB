@@ -30,16 +30,19 @@
         = text_field :animal, 'weight', :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
-        = label :animal, :neutered, 'Neutered'
-        = select :animal, :neutered, ['Yes','No','N\A'], :class => "form-control"
-      %div.form-group.col-sm-4.sm-3
         = label :animal, :age, 'Age'
         = text_field :animal, 'age', :class => "form-control"
+      %div.form-group.col-sm-4.sm-3
+        = label :animal, :neutered, 'Neutered', :class => "col-form-label"
+        %div
+          = select :animal, :neutered, ['Yes','No','N\A'], :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
         = label :animal, :dob, 'Date of Birth'
-        = date_select :animal, :dob, :class => "form-control"
+        %div
+          = date_select :animal, :dob, :class => "form-control"
       %div.form-group.col-sm-4.sm-3
         = label :animal, :sex, 'Sex'
-        = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
-  = submit_tag 'Update Animal Info'
+        %div
+          = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
+  = submit_tag 'Update Animal Info', :class => "btn btn-primary"
