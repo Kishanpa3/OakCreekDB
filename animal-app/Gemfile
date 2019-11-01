@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-#testing -> datatable
+# Used for handling datatable AJAX requests
 gem 'will_paginate'
 
 group :development, :test do
@@ -42,6 +42,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'cucumber-rails', require: false
+  gem 'puma'
+  gem 'capybara'
+  gem 'capybara-webkit', git: 'https://github.com/thoughtbot/capybara-webkit.git'
   gem 'database_cleaner'
   
   # Use sqlite3 as the database for Active Record

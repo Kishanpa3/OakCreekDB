@@ -2,7 +2,8 @@ Feature: Index the database
     As a user
     So I can have a high-level overview of the database.
     I want to see all the entries in my database
-    
+
+@javascript    
 Scenario: Index Entries
     Given the following exists
         | Exhibit       | Common Name   | Name      |

@@ -2,7 +2,8 @@ Feature: Create an Animal Entry
   As a user
   So that I can add animals to the database
   I want to create new animal entries in the database
-    
+
+@javascript
 Scenario: Create Animal
   Given I am on the Oak Creek home page
   When I follow the link "Add New Animal"
@@ -12,7 +13,7 @@ Scenario: Create Animal
   And I fill text field "Common Name" with "Chinchilla"
   And I select the option "Yes" from "Neutered" field
   When I press the button "Save New Animal"
-  When I click on the row "1337"
+  When I click on the table row
   Then I should see "Scott"
   And I should see "Yes"
   And I should see "Chinchilla"

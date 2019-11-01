@@ -5,6 +5,9 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara/cucumber'
+# require 'capybara'
+
 
 # frozen_string_literal: true
 
@@ -57,4 +60,41 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+
+Capybara.javascript_driver = :webkit
+
+Capybara::Webkit.configure do |config|
+  # Enable debug mode. Prints a log of everything the driver is doing.
+  config.debug = false
+
+  # By default, requests to outside domains (anything besides localhost) will
+  # result in a warning. Several methods allow you to change this behavior.
+
+  # Silently return an empty 200 response for any requests to unknown URLs.
+  # config.block_unknown_urls
+
+  # Allow pages to make requests to any URL without issuing a warning.
+  config.allow_unknown_urls
+  
+  # config.allow_url("code.jquery.com")
+  # config.allow_url("stackpath.bootstrapcdn.com")
+  # config.allow_url("cdnjs.cloudflare.com")
+  # config.allow_url("cdn.datatables.net")
+
+  # Silently return an empty 200 response for any requests to the given URL.
+  # config.block_url("example.com")
+
+  # Timeout if requests take longer than 5 seconds
+  config.timeout = 5
+
+  # Don't raise errors when SSL certificates can't be validated
+  # config.ignore_ssl_errors
+
+  # Don't load images
+  config.skip_image_loading
+
+  # Raise JavaScript errors as exceptions
+  config.raise_javascript_errors = true
+end
 
