@@ -1,9 +1,10 @@
+@javascript
 Feature: Update an animal Entry
     As a user
     So that I can update information about the animals
     I want to update animal entries in the database
 
-@javascript   
+  
 Scenario: Edit an existing animal
     Given the following exists
         | Exhibit       | Common Name   | Name      |

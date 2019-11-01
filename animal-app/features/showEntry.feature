@@ -1,9 +1,10 @@
+@javascript
 Feature: Read an Animal Entry
     As a user
     So that I can obtain information about the animals
     I want to read animal entries from the database
 
-@javascript    
+    
 Scenario: Try to read entry
     Given the following exists
         | Exhibit       | Common Name   | Name      |

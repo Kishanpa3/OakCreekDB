@@ -1,9 +1,10 @@
+@javascript
 Feature: Delete an Animal Entry
     As a user
     So that I can delete information about the animals
     I want to delete animal entries from the database
  
-@javascript   
+   
 Scenario: Try to delete entry
     Given the following exists
         | Exhibit       | Common Name   | Name      |
