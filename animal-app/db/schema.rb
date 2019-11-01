@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2019_10_27_010232) do
     t.date "dob"
     t.float "weight"
     t.string "tag"
-    t.string "enrichment"
-    t.string "vaccination"
     t.string "name"
   end
 
