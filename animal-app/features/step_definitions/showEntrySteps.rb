@@ -1,7 +1,9 @@
 Capybara.default_driver = :selenium
 
 Given("the following exists") do |table|
-  @animals = Animal.create!(habitat_num: table.rows[0][0], common_name: table.rows[0][1], name: table.rows[0][2])
+  for row in table.rows do
+    Animal.create!(habitat_num: row[0], common_name: row[1], name: row[2])
+  end
 end
 
 Given("I am on the Oak Creek home page") do

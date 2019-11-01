@@ -8,6 +8,7 @@ Background: Database Setup
     Given the following exists
         | Exhibit       | Common Name   | Name      |
         | 32            | Brown Bear    | Otto      |
+        | 70            | Panda Bear    | Cleetus   |
     Given I am on the Oak Creek home page 
 
 
@@ -16,3 +17,6 @@ Scenario: Index Entries
     And I should see "32"
     And I should see "Brown Bear"
     And I should see "Otto"
+    And I should see "70"
+    And I should see "Panda Bear"
+    And I should see "Cleetus"
