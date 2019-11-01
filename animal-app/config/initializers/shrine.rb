@@ -14,9 +14,11 @@ Shrine.storages = {
   store: Shrine::Storage::S3.new(**s3_options),
 }
 
-Shrine.plugin :activerecord 
-Shrine.plugin :cached_attachment_data # for retaining the cached file across form redisplays 
-Shrine.plugin :restore_cached_data # re-extract metadata when attaching a cached file 
+Shrine.plugin :activerecord
+Shrine.plugin :instrumentation # adds instrumentation
+Shrine.plugin :determine_mime_type, analyzer: :marcel, log_subscriber: nil
+Shrine.plugin :cached_attachment_data # for retaining the cached file across form redisplays
+Shrine.plugin :restore_cached_data # re-extract metadata when attaching a cached file
 Shrine.plugin :derivatives          # up front processing
 Shrine.plugin :derivation_endpoint, # on-the-fly processing
   secret_key: "test" #Rails.application.credentials.secret_key_base

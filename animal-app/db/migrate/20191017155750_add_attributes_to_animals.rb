@@ -9,8 +9,6 @@ class AddAttributesToAnimals < ActiveRecord::Migration[6.0]
       t.column :dob, :date
       t.column :weight, :float
       t.column :tag, :string
-      t.column :enrichment, :string #LOOK AT ACTIVE STORAGE - CAN MAYBE ALSO USE FOR STORING PICTURES OF ANIMALS
-      t.column :vaccination, :string #LOOK AT ACTIVE STORAGE - https://edgeguides.rubyonrails.org/active_storage_overview.html
     end
   end
 end

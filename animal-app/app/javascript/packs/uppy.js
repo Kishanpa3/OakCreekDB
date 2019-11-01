@@ -12,8 +12,8 @@ const Instagram = require('@uppy/instagram')
 const Webcam = require('@uppy/webcam')
 
 // And their styles (for UI plugins)
-require('@uppy/core/dist/style.css')
-require('@uppy/dashboard/dist/style.css')
+require('@uppy/core/dist/style.min.css')
+require('@uppy/dashboard/dist/style.min.css')
 
 const uppy = Uppy({
   // debug: true,
@@ -26,7 +26,7 @@ const uppy = Uppy({
   // }
 })
 .use(Dashboard, {
-  trigger: '.UppyOpenerBtn',
+  trigger: '.UppyModalOpenerBtn',
   inline: false,
   target: '.DashboardContainer',
   replaceTargetContent: true,
@@ -35,7 +35,7 @@ const uppy = Uppy({
   height: 470,
   metaFields: [
     { id: 'name', name: 'Name', placeholder: 'file name' },
-    { id: 'caption', name: 'Caption', placeholder: 'describe what the image is about' }
+    { id: 'caption', name: 'Caption', placeholder: 'describe what the file is about' }
   ],
   browserBackButtonClose: true
 })
