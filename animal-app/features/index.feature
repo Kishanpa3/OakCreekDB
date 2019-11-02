@@ -25,3 +25,6 @@ Scenario: Search Entries
     When I search for "James"
     Then I should not see "Cleetus"
     And I should not see "Otto"
+    When I search for "Cleetus"
+    Then I should see "Cleetus"
+    And I should not see "Otto"
