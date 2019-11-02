@@ -28,3 +28,12 @@ Scenario: Search Entries
     When I search for "Cleetus"
     Then I should see "Cleetus"
     And I should not see "Otto"
+    
+Scenario: Sort Entries
+    When I sort by "Name"
+    Then I should see "Cleetus" in the first table row
+    When I sort by "Habitat #"
+    Then I should see "32" in the first table row
+    When I sort by "Common Name"
+    When I sort by "Common Name"
+    Then I should see "Panda Bear" in the first table row
