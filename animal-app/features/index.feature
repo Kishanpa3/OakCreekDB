@@ -20,3 +20,8 @@ Scenario: Index Entries
     And I should see "70"
     And I should see "Panda Bear"
     And I should see "Cleetus"
+    
+Scenario: Search Entries
+    When I search for "James"
+    Then I should not see "Cleetus"
+    And I should not see "Otto"
