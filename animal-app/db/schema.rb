@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_202856) do
+ActiveRecord::Schema.define(version: 2019_10_27_010232) do
 
   create_table "animals", force: :cascade do |t|
     t.integer "habitat_num"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2019_10_22_202856) do
     t.date "dob"
     t.float "weight"
     t.string "tag"
-    t.string "enrichment"
-    t.string "vaccination"
     t.string "name"
   end
 
@@ -40,5 +38,14 @@ ActiveRecord::Schema.define(version: 2019_10_22_202856) do
     t.index ["animal_id"], name: "index_diets_on_animal_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.integer "animal_id"
+    t.text "file_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_documents_on_animal_id"
+  end
+
   add_foreign_key "diets", "animals"
+  add_foreign_key "documents", "animals"
 end

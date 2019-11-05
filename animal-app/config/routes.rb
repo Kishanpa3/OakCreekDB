@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   resources :animals do
     resources :diets
+    resources :documents
   end
+  
+  mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"
+  mount ImageUploader.derivation_endpoint => "/derivations/image"
   
   #GET '/animals/showEntry'
   
