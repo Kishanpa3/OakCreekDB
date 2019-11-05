@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_10_27_010232) do
 
   create_table "animals", force: :cascade do |t|
-    t.string "habitat_num"
+    t.integer "habitat_num"
     t.string "common_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_10_27_010232) do
     t.float "weight"
     t.string "tag"
     t.string "name"
+    t.text "notes"
   end
 
   create_table "diets", force: :cascade do |t|
