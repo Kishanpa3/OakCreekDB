@@ -2,14 +2,14 @@
 %html
   %head
     =stylesheet_link_tag "application"
-    %title Oak Creek Animal Manager
+    %title Oak Creek Zoological Conservatory
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
   %body
     %h1.title
       = link_to image_tag("logo.jpg", :size => "50x50"), animals_path
-      = link_to "Oak Creek Animal Manager", animals_path, :id => "banner", :class => "btn btn-link"
+      = link_to "Oak Creek Zoological Conservatory", animals_path, :id => "banner", :class => "btn btn-link"
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
