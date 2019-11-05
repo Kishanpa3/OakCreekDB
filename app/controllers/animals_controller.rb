@@ -4,7 +4,6 @@ class AnimalsController < ApplicationController
   end
   
   def index
-    @count = Animal.count
     respond_to do |format|
       format.html
       format.json { render json: AnimalDatatable.new(view_context) }
