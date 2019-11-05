@@ -15,11 +15,11 @@
 :javascript
   $(document).ready(function () {
      var dataTable = $('#dtSearch').dataTable({
-        "processing": true,
+        // "processing": true,
         "serverSide": true,
         "pageLength": 50,
         "search": {
-          "caseInsensitive": false
+          "caseInsensitive": true
         },
         "ajax": '/animals',
         "columns": [

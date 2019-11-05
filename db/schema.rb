@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2019_10_18_165748) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "species"
-    t.string "name"
     t.string "sex", limit: 6
     t.string "neutered", limit: 3
     t.integer "age"
     t.date "dob"
     t.float "weight"
     t.string "tag"
+    t.string "name"
     t.text "notes"
   end
 
