@@ -15,16 +15,16 @@
 :javascript
   $(document).ready(function () {
      var dataTable = $('#dtSearch').dataTable({
-        // "processing": true,
-        //"serverSide": true,
+        "processing": true,
+        "serverSide": true,
         "pageLength": 50,
-        // "ajax": '/animals',
-        // "columns": [
-        //   {title: 'Tag'},
-        //   {title: 'Name'},
-        //   {title: 'Common Name'},
-        //   {title: 'Habitat #'},
-        // ],
+        "ajax": '/animals',
+        "columns": [
+          {title: 'Tag'},
+          {title: 'Name'},
+          {title: 'Common Name'},
+          {title: 'Habitat #'},
+        ],
         "stateSave" : true,
         "drawCallback": function( settings ) {
           // alert( 'DataTables has redrawn the table' );
