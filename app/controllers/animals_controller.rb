@@ -4,12 +4,13 @@ class AnimalsController < ApplicationController
   end
   
   def index
+    puts Animal.count
     respond_to do |format|
       format.html
       format.json { render json: AnimalDatatable.new(view_context) }
     end
     # @animals = Animal.all
-    puts Animal.count
+    # puts Animal.count
   end
 
   def show
