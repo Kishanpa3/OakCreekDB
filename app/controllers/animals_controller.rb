@@ -9,6 +9,7 @@ class AnimalsController < ApplicationController
       format.json { render json: AnimalDatatable.new(view_context) }
     end
     # @animals = Animal.all
+    puts Animal.count
   end
 
   def show
