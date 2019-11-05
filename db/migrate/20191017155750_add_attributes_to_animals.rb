@@ -9,6 +9,8 @@ class AddAttributesToAnimals < ActiveRecord::Migration[6.0]
       t.column :dob, :date
       t.column :weight, :float
       t.column :tag, :string
+      t.column :name, :string
+      t.column :notes, :text
     end
   end
 end
