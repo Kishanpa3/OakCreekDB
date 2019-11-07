@@ -21,7 +21,7 @@ Shrine.plugin :cached_attachment_data # for retaining the cached file across for
 Shrine.plugin :restore_cached_data # re-extract metadata when attaching a cached file
 Shrine.plugin :derivatives          # up front processing
 Shrine.plugin :derivation_endpoint, # on-the-fly processing
-  secret_key: "test" #Rails.application.credentials.secret_key_base
+  secret_key: Rails.application.credentials.secret_key_base
 
 Shrine.plugin :uppy_s3_multipart
 
