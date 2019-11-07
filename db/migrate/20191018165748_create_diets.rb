@@ -5,7 +5,7 @@ class CreateDiets < ActiveRecord::Migration[6.0]
       t.text :am
       t.text :pm
       t.string :dish
-      t.references :animal, null: false, foreign_key: true
+      t.references :animal, null: false, foreign_key: true, index: true
 
       t.timestamps
     end
