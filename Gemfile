@@ -53,6 +53,9 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
   
+  # Used to verify emails sent from devise
+  gem 'mailcatcher'
+  
 end
 
 group :development do
