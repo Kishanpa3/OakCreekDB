@@ -7,6 +7,8 @@ OakCreekDB is a web-based DBMS for managing Oak Creek Zoological Conservatory's 
 Make sure you have installed all of the following prerequisites on your Linux machine:
 * [Ruby](https://www.ruby-lang.org/en/) - You should have Ruby 2.6.3 installed.
 * [Rails](https://rubyonrails.org/) - You should have Rails 6.0.0 installed.
+* [Node.js 8.16.0+](https://nodejs.org/en/)
+* [Yarn 1.x+](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
 
 ```bash
 $ rvm install ruby-2.6.3
@@ -34,14 +36,15 @@ $ rails db:migrate
 $ rails db:seed
 ```
 
-If you'll be using Amazon S3, run `rails credentials:edit` and put your S3 credentials, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
+If using Amazon S3 for file uploads, run `rails credentials:edit` and put your S3 credentials, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
 
 ```yaml
-s3:
-  access_key_id: "..."
-  secret_access_key: "..."
-  region: "..."
-  bucket: "..."
+access_key_id: "..."
+secret_access_key: "..."
+region: "..."
+bucket: "..."
+
+secret_key_base "..."
 ```
 
 ## Deployment
@@ -84,15 +87,13 @@ Now you should be able to navigate to your app's URL.
 
 [Source](https://github.com/saasbook/rottenpotatoes-rails-intro/blob/master/instructions/docs/part_0_B.md)
 
+## References
+* [Shrine](https://github.com/shrinerb/shrine) gem - File uploading
+
 ## License
 This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license.
 
 <!--
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
 
 * Ruby version

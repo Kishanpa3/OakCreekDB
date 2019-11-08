@@ -20,8 +20,8 @@ const uppy = Uppy({
   autoProceed: false,
   // restrictions: {
   //   maxFileSize: 1000000,
-  //   maxNumberOfFiles: 3,
-  //   minNumberOfFiles: 2,
+  //   maxNumberOfFiles: 10,
+  //   minNumberOfFiles: 1,
   //   allowedFileTypes: ['image/*', 'video/*']
   // }
 })
@@ -39,27 +39,28 @@ const uppy = Uppy({
   ],
   browserBackButtonClose: true
 })
-.use(GoogleDrive, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
+.use(GoogleDrive, { target: Dashboard, companionUrl: '/' })
 .use(Dropbox, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
-.use(Facebook, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
-.use(Instagram, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
+.use(Facebook, { target: Dashboard, companionUrl: '/' })
+.use(Instagram, { target: Dashboard, companionUrl: '/' })
 .use(Webcam, { target: Dashboard, facingMode: 'environment' })
 .use(AwsS3Multipart, { companionUrl: '/' })
+
+//Assumes temporary Shrine S3 storage has prefix: "cache" set
+uppy.on('upload-success', function (file, response) {
+  var uploadedFileData = JSON.stringify({
+    id: response.uploadURL.match(/\/cache\/([^\?]+)/)[1], // extract key without prefix
+    storage: 'cache',
+    metadata: {
+      size:      file.size,
+      filename:  file.name,
+      mime_type: file.type,
+    }
+  })
+  // ...
+})
 
 uppy.on('complete', result => {
   console.log('successful files:', result.successful)
   console.log('failed files:', result.failed)
 })
-
-// uppy.on('upload-success', function (file, response) {
-//   var uploadedFileData = JSON.stringify({
-//     id: response.uploadURL.match(/\/cache\/([^\?]+)/)[1], // extract key without prefix
-//     storage: 'cache',
-//     metadata: {
-//       size:      file.size,
-//       filename:  file.name,
-//       mime_type: file.type,
-//     }
-//   })
-//   // ...
-// })
