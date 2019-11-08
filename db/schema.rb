@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_174849) do
+ActiveRecord::Schema.define(version: 2019_11_08_201518) do
 
   create_table "animals", force: :cascade do |t|
     t.integer "habitat_num"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 2019_11_07_174849) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "approved", default: false, null: false
+    t.boolean "admin", default: false, null: false
+    t.boolean "can_view", default: true, null: false
+    t.boolean "can_edit", default: false, null: false
+    t.boolean "can_add", default: false, null: false
+    t.boolean "can_delete", default: false, null: false
+    t.index ["approved"], name: "index_users_on_approved"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
