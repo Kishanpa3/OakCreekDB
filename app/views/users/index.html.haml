@@ -4,47 +4,43 @@
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
   = stylesheet_link_tag "application"
-
+    
 %div.d-flex.flex-row 
   %div.col-6
-    %h2 All Animals
-  %div.col-6.mb-1
-    = link_to 'Logout', destroy_user_session_path, :method => 'DELETE', :class => "btn btn-danger float-right ml-2"
-    = link_to 'Add New Animal', new_animal_path, :class => "btn btn-success float-right ml-2"
-    = link_to 'Admin Dashboard', users_index_path, :class => "btn btn-primary float-right"
+    %h2 Approved Users
     
-%table#dtSearch.table.table-striped.table-bordered.table-lg
-
+%table#userTable.table.table-striped.table-bordered.table-lg
+  %thead
+    %tr
+      %th Email
+      %th Created At
+      %th Administrator
+      %th View
+      %th Edit
+      %th Add
+      %th Delete
+      
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %td= user.created_at
+        %td= user.admin
+        %td= user.can_view
+        %td= user.can_edit
+        %td= user.can_add
+        %td= user.can_delete
+        
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-     var dataTable = $('#dtSearch').dataTable({
-        // "processing": true,
-        "serverSide": true,
+     var dataTable = $('#userTable').dataTable({
         "pageLength": 50,
         "search": {
           "caseInsensitive": true
         },
-        "ajax": '/animals',
-        "columns": [
-          {title: 'Tag'},
-          {title: 'Name'},
-          {title: 'Common Name'},
-          {title: 'Habitat #'},
-        ],
         "stateSave" : true,
-        "drawCallback": function( settings ) {
-          // alert( 'DataTables has redrawn the table' );
-          
-          $('#dtSearch tbody tr').click(function () {
-            // console.log($(this).html());
-      
-            // redirect
-            var href = $(this).find("a")[0].getAttribute('href');
-            window.location = window.location.origin + href;
-          });
-        }
       });
       $('.dataTables_length').addClass('bs-select');
   });
