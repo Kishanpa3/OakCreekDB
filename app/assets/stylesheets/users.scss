@@ -19,3 +19,23 @@
 }
 
 #userTable tr:hover {background-color:#cccccc;}
+
+
+#userTable th {
+    color: #f9f9f9;
+    background-color: #9140FE;
+}
+
+#userTable div {
+    padding: 0;
+}
+
+#userTable .checkbox {
+    z-index: 1;
+    opacity: 1;
+    margin: 0;
+    
+    width: 20px;
+    height: 20px;
+    background-color: #2196F3;
+}

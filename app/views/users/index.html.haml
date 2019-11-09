@@ -35,12 +35,33 @@
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-     var dataTable = $('#userTable').dataTable({
-        "pageLength": 50,
-        "search": {
-          "caseInsensitive": true
-        },
-        "stateSave" : true,
-      });
-      $('.dataTables_length').addClass('bs-select');
+    var simple_checkbox = function (data, type, full, meta) {
+      var is_checked = (data === 'true') ? "checked" : "";
+      // console.log("DATA: " + is_checked);
+      return '<input type="checkbox" class="checkbox" ' + is_checked + ' />';
+    }
+    
+    var dataTable = $('#userTable').dataTable({
+      "pageLength": 50,
+      "search": {
+        "caseInsensitive": true
+      },
+      "stateSave" : true,
+      "columns": [
+          { "data": "Email"},
+          { "data": "Created At"},
+          { "data": "Administrator", "render": simple_checkbox, "className": "text-center"},
+          { "data": "View", "render": simple_checkbox, "className": "text-center"},
+          { "data": "Edit", "render": simple_checkbox, "className": "text-center"},
+          { "data": "Add", "render": simple_checkbox, "className": "text-center"},
+          { "data": "Delete", "render": simple_checkbox, "className": "text-center"}
+      ],
+    });
+    $('.dataTables_length').addClass('bs-select');
   });
+
+
+// references
+// Styling - https://codepen.io/cristinaconacel/pen/zmgmxE
+// Checkboxes - http://live.datatables.net/kovegexo/1/edit
+//            - https://stackoverflow.com/questions/27276108/best-way-to-render-boolean-data-columns-in-jquery-datatables-net
