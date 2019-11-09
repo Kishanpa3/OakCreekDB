@@ -38,7 +38,10 @@
     var simple_checkbox = function (data, type, full, meta) {
       var is_checked = (data === 'true') ? "checked" : "";
       // console.log("DATA: " + is_checked);
-      return '<input type="checkbox" class="checkbox" ' + is_checked + ' />';
+      return '<label class="checkbox-label">' +
+              '<input type="checkbox" class="checkbox" ' + is_checked + ' />' +
+              '<span class="checkbox-custom rectangular"></span>' +
+             '</label>'
     }
     
     var dataTable = $('#userTable').dataTable({
