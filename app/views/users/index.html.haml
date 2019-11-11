@@ -36,7 +36,7 @@
         %td= user.can_edit
         %td= user.can_add
         %td= user.can_delete
-        %td= user.created_at
+        %td= local_time(user.created_at)
         
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
