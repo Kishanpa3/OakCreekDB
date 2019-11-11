@@ -73,18 +73,18 @@
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
-    border: 2px solid #9140FE;
+    border: 2px solid #007bff;
 }
 
 
 .checkbox-label input:checked ~ .checkbox-custom {
-    background-color: #9140FE;
+    background-color: #007bff;
     border-radius: 3px;
     -webkit-transform: rotate(0deg) scale(1);
     -ms-transform: rotate(0deg) scale(1);
     transform: rotate(0deg) scale(1);
     opacity:1;
-    border: 2px solid #9140FE;
+    border: 2px solid #007bff;
 }
 
 
@@ -96,7 +96,7 @@
     height: 0px;
     width: 0px;
     border-radius: 3px;
-    border: solid #9140FE;
+    border: solid #007bff;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(0deg) scale(0);
     -ms-transform: rotate(0deg) scale(0);
