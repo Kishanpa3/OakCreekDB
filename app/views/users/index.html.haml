@@ -15,24 +15,28 @@
 %table#userTable.table.table-striped.table-bordered.table-lg
   %thead
     %tr
-      %th Email
-      %th Created At
       %th Administrator
+      %th First Name
+      %th Last Name
+      %th Email
       %th View
       %th Edit
       %th Add
       %th Delete
+      %th Created At
       
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.email
-        %td= user.created_at
         %td= user.admin
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
         %td= user.can_view
         %td= user.can_edit
         %td= user.can_add
         %td= user.can_delete
+        %td= user.created_at
         
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
@@ -54,13 +58,15 @@
       },
       "stateSave" : true,
       "columns": [
-          { "data": "Email"},
-          { "data": "Created At"},
           { "data": "Administrator", "render": simple_checkbox, "className": "text-center"},
+          { "data": "First Name"},
+          { "data": "Last Name"},
+          { "data": "Email"},
           { "data": "View", "render": simple_checkbox, "className": "text-center"},
           { "data": "Edit", "render": simple_checkbox, "className": "text-center"},
           { "data": "Add", "render": simple_checkbox, "className": "text-center"},
-          { "data": "Delete", "render": simple_checkbox, "className": "text-center"}
+          { "data": "Delete", "render": simple_checkbox, "className": "text-center"},
+          { "data": "Created At"}
       ],
     });
     $('.dataTables_length').addClass('bs-select');

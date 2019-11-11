@@ -52,7 +52,7 @@ group :development, :test do
   
   # Use sqlite3 as the database for Active Record
   # Run with : mailcatcher --http-port 8081 --http-ip $IP --smtp-port 1025 --smtp-ip $IP
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4' 
   
   # Used to verify emails sent from devise
   gem 'mailcatcher'
