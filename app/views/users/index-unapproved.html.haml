@@ -14,32 +14,35 @@
   %div.col-6.mb-1
     = link_to 'Logout', destroy_user_session_path, :method => 'DELETE', :class => "btn btn-danger float-right ml-2"
     = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
-    
-%table#userTable.table.table-striped.table-bordered.table-lg
-  %thead
-    %tr
-      %th Approved
-      %th First Name
-      %th Last Name
-      %th Email
-      %th View
-      %th Edit
-      %th Add
-      %th Delete
-      %th Created At
-      
-  %tbody
-    - @users.each do |user|
+
+= form_with url: users_update_path, :method => :get do |f|   
+  %table#userTable.table.table-striped.table-bordered.table-lg
+    %thead
       %tr
-        %td= user.approved
-        %td= user.first_name
-        %td= user.last_name
-        %td= user.email
-        %td= user.can_view
-        %td= user.can_edit
-        %td= user.can_add
-        %td= user.can_delete
-        %td= local_time(user.created_at)
+        %th Approved
+        %th First Name
+        %th Last Name
+        %th Email
+        %th View
+        %th Edit
+        %th Add
+        %th Delete
+        %th Created At
+        
+    %tbody
+      - @users.each do |user|
+        %tr
+          // %td= user.admin
+          %td= f.check_box "users[#{user.id}][approved]", {checked: user.approved, :class => "form-control"}, 'true', 'false'
+          %td= text_field "users[#{user.id}]", 'first_name', value: user.first_name, :class => "form-control"
+          %td= text_field "users[#{user.id}]", 'last_name', value: user.last_name, :class => "form-control"
+          %td= text_field "users[#{user.id}]", 'email', value: user.email, :class => "form-control"
+          %td= f.check_box "users[#{user.id}][can_view]", {checked: user.can_view, :class => "form-control"}, 'true', 'false'
+          %td= f.check_box "users[#{user.id}][can_edit]", {checked: user.can_edit, :class => "form-control"}, 'true', 'false'
+          %td= f.check_box "users[#{user.id}][can_add]", {checked: user.can_add, :class => "form-control"}, 'true', 'false'
+          %td= f.check_box "users[#{user.id}][can_delete]", {checked: user.can_delete, :class => "form-control"}, 'true', 'false'
+          %td= local_time(user.created_at)
+  = submit_tag 'Update', :class => "btn btn-primary"
         
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
@@ -61,14 +64,14 @@
       },
       "stateSave" : true,
       "columns": [
-          { "data": "Approved", "render": simple_checkbox, "className": "text-center"},
+          { "data": "Approved", "className": "text-center"},
           { "data": "First Name"},
           { "data": "Last Name"},
           { "data": "Email"},
-          { "data": "View", "render": simple_checkbox, "className": "text-center"},
-          { "data": "Edit", "render": simple_checkbox, "className": "text-center"},
-          { "data": "Add", "render": simple_checkbox, "className": "text-center"},
-          { "data": "Delete", "render": simple_checkbox, "className": "text-center"},
+          { "data": "View", "className": "text-center"},
+          { "data": "Edit", "className": "text-center"},
+          { "data": "Add" "className": "text-center"},
+          { "data": "Delete", "className": "text-center"},
           { "data": "Created At"}
       ],
     });
