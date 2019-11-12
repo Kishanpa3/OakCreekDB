@@ -25,19 +25,6 @@ Shrine.plugin :derivation_endpoint, # on-the-fly processing
 
 Shrine.plugin :uppy_s3_multipart
 
-# add an endpoint which returns valid request params and URL for the S3 upload
-Shrine.plugin :presign_endpoint, presign_options: -> (request) {
-  # Uppy will send the "filename" and "type" query parameters
-  filename = request.params["filename"]
-  type     = request.params["type"]
-
-  {
-    content_disposition:    "inline; filename=\"#{filename}\"", # set download filename
-    content_type:           type,                               # set content type (defaults to "application/octet-stream")
-    content_length_range:   0..(100*1024*1024),                  # limit upload size to 100 MB
-  }
-}
-
 # delay promoting and deleting files to a background job (`backgrounding` plugin)
 Shrine.plugin :backgrounding
 Shrine::Attacher.promote_block do
