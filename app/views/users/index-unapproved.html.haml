@@ -7,10 +7,10 @@
     
 %div.d-flex.flex-row 
   %div.col-3
-    %h2 Approved Users
-  %div.col-3
     %h2 
-      = link_to 'Unapproved Users', users_index_path(:approved =>"false")
+      = link_to 'Approved Users', users_index_path
+  %div.col-3
+    %h2 Unapproved Users
   %div.col-6.mb-1
     = link_to 'Logout', destroy_user_session_path, :method => 'DELETE', :class => "btn btn-danger float-right ml-2"
     = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
@@ -18,7 +18,7 @@
 %table#userTable.table.table-striped.table-bordered.table-lg
   %thead
     %tr
-      %th Administrator
+      %th Approved
       %th First Name
       %th Last Name
       %th Email
@@ -31,7 +31,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.admin
+        %td= user.approved
         %td= user.first_name
         %td= user.last_name
         %td= user.email
@@ -61,7 +61,7 @@
       },
       "stateSave" : true,
       "columns": [
-          { "data": "Administrator", "render": simple_checkbox, "className": "text-center"},
+          { "data": "Approved", "render": simple_checkbox, "className": "text-center"},
           { "data": "First Name"},
           { "data": "Last Name"},
           { "data": "Email"},

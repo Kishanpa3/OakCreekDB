@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.where(approved: true)
+    if params[:approved] === "false"
+      @users = User.where(approved: false)
+      render('users/index-unapproved')
+    else
+      @users = User.where(approved: true)
+    end
   end
 
   def destroy
