@@ -1,4 +1,46 @@
 GIT
+  remote: https://github.com/rspec/rspec-core
+  revision: b7067c5da4fde57cbbff739b168008482e61db44
+  specs:
+    rspec-core (3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations
+  revision: 99f9bcaff2a6f3d82f4e350e829eca6ab015694f
+  specs:
+    rspec-expectations (3.10.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks
+  revision: 5b897e8f74f3059aef43f1ed5f91719f2267a04e
+  specs:
+    rspec-mocks (3.10.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-rails
+  revision: e50def6ad42a5d5a648d1ee7854966407bb6f4c4
+  specs:
+    rspec-rails (4.0.0.pre)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (= 3.10.0.pre)
+      rspec-expectations (= 3.10.0.pre)
+      rspec-mocks (= 3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support
+  revision: 673133cdd13b17077b3d88ece8d7380821f8d7dc
+  specs:
+    rspec-support (3.10.0.pre)
+
+GIT
   remote: https://github.com/thoughtbot/capybara-webkit.git
   revision: 77fdac424cd6fdb5aa266b229a888cc58da8e95e
   specs:
@@ -80,7 +122,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     cucumber (3.1.2)
@@ -110,24 +151,9 @@ GEM
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.11.1)
-    formatador (0.2.5)
     gherkin (5.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    guard (2.16.1)
-      formatador (>= 0.2.4)
-      listen (>= 2.7, < 4.0)
-      lumberjack (>= 1.0.12, < 2.0)
-      nenv (~> 0.1)
-      notiffany (~> 0.0)
-      pry (>= 0.9.12)
-      shellany (~> 0.0)
-      thor (>= 0.18.1)
-    guard-compat (1.2.1)
-    guard-rspec (4.7.3)
-      guard (~> 2.1)
-      guard-compat (~> 1.1)
-      rspec (>= 2.99.0, < 4.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -147,7 +173,6 @@ GEM
     loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.13)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -163,17 +188,10 @@ GEM
     msgpack (1.3.1)
     multi_json (1.14.1)
     multi_test (0.1.2)
-    nenv (0.3.0)
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
-    notiffany (0.1.3)
-      nenv (~> 0.1)
-      shellany (~> 0.0)
     pg (0.21.0)
-    pry (0.12.2)
-      coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
     public_suffix (4.0.1)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -214,27 +232,6 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
-    rspec (3.9.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.0)
-      rspec-support (~> 3.9.0)
-    rspec-expectations (3.9.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-rails (3.9.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
-      rspec-support (~> 3.9.0)
-    rspec-support (3.9.0)
     ruby_dep (1.5.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -247,7 +244,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    shellany (0.0.1)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -291,7 +287,6 @@ DEPENDENCIES
   capybara-webkit!
   cucumber-rails
   database_cleaner
-  guard-rspec
   haml
   jbuilder (~> 2.7)
   jquery-rails
@@ -299,7 +294,11 @@ DEPENDENCIES
   pg (~> 0.21)
   rails (~> 6.0.0)
   rails_12factor
-  rspec-rails
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-support!
   sass-rails (~> 5)
   spring
   spring-watcher-listen (~> 2.0.0)

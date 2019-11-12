@@ -39,8 +39,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   
-  gem 'rspec-rails'
-  gem 'guard-rspec'
+  #gem 'rspec-rails'
+  gem 'rspec-core', git: 'https://github.com/rspec/rspec-core'
+  gem 'rspec-expectations', git: 'https://github.com/rspec/rspec-expectations'
+  gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks'
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails'
+  gem 'rspec-support', git: 'https://github.com/rspec/rspec-support'
+  
+  #gem 'guard-rspec'
   gem 'cucumber-rails', require: false
   # gem 'puma'
   gem 'capybara'
