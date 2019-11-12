@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  # FOR DEVISE: USED TO ENFORCE FIRST/LAST NAME UPON USER SIGNUP - overriding devise methods
 
   private
 
