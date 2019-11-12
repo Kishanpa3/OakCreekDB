@@ -12,13 +12,13 @@
     },
     "uppy": {
       "js": [
-        "/packs/js/uppy-41430925fb5e32e3ecfa.js"
+        "/packs/js/uppy-d5b86c558c4558c2558c.js"
       ],
       "js.map": [
-        "/packs/js/uppy-41430925fb5e32e3ecfa.js.map"
+        "/packs/js/uppy-d5b86c558c4558c2558c.js.map"
       ]
     }
   },
-  "uppy.js": "/packs/js/uppy-41430925fb5e32e3ecfa.js",
-  "uppy.js.map": "/packs/js/uppy-41430925fb5e32e3ecfa.js.map"
+  "uppy.js": "/packs/js/uppy-d5b86c558c4558c2558c.js",
+  "uppy.js.map": "/packs/js/uppy-d5b86c558c4558c2558c.js.map"
 }

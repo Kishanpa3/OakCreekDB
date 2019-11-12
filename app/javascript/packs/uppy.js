@@ -3,17 +3,18 @@ import "regenerator-runtime/runtime";
 
 // Import the plugins
 const Uppy = require('@uppy/core')
-const AwsS3Multipart = require('@uppy/aws-s3-multipart')
 const Dashboard = require('@uppy/dashboard')
 const GoogleDrive = require('@uppy/google-drive')
 const Dropbox = require('@uppy/dropbox')
 const Facebook = require('@uppy/facebook')
 const Instagram = require('@uppy/instagram')
 const Webcam = require('@uppy/webcam')
+const AwsS3Multipart = require('@uppy/aws-s3-multipart')
 
 // And their styles (for UI plugins)
 require('@uppy/core/dist/style.min.css')
 require('@uppy/dashboard/dist/style.min.css')
+require('@uppy/webcam/dist/style.min.css')
 
 const uppy = Uppy({
   // debug: true,
@@ -21,7 +22,7 @@ const uppy = Uppy({
   // restrictions: {
   //   maxFileSize: 1000000,
   //   maxNumberOfFiles: 10,
-  //   minNumberOfFiles: 1,
+  //   minNumberOfFiles: null,
   //   allowedFileTypes: ['image/*', 'video/*']
   // }
 })
@@ -32,7 +33,7 @@ const uppy = Uppy({
   replaceTargetContent: true,
   showProgressDetails: true,
   // note: 'Images and video only, 2–3 files, up to 1 MB',
-  height: 470,
+  height: 650,
   metaFields: [
     { id: 'name', name: 'Name', placeholder: 'file name' },
     { id: 'caption', name: 'Caption', placeholder: 'describe what the file is about' }
