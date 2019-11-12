@@ -2,7 +2,7 @@
 require "image_processing/mini_magick"
 
 
-class ImageUploader < Shrine
+class ImageUploader < DocumentUploader
   ALLOWED_TYPES  = %w[image/jpeg image/png image/webp]
   MAX_SIZE       = 10*1024*1024 # 10 MB
   MAX_DIMENSIONS = [5000, 5000] # 5000x5000
@@ -14,7 +14,7 @@ class ImageUploader < Shrine
   }
 
   plugin :remove_attachment
-  plugin :pretty_location
+  # plugin :pretty_location
   plugin :validation_helpers
   plugin :store_dimensions, log_subscriber: nil
   plugin :derivation_endpoint, prefix: "derivations/image"

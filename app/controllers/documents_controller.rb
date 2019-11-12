@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-    def create
+  def create
     Document.create(document_params)
     # ... 
   end
