@@ -10,6 +10,7 @@ Make sure you have installed all of the following prerequisites on your Linux ma
 * [Node.js 8.16.0+](https://nodejs.org/en/)
 * [Yarn 1.x+](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
 
+Install Ruby and Rails:
 ```bash
 $ rvm install ruby-2.6.3
 $ rvm use 2.6.3
