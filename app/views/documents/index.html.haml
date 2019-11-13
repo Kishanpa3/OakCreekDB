@@ -1,0 +1,27 @@
+%head
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+  
+%h3 Documents about #{@animal.name}
+
+%button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
+%div.DashboardContainer
+= javascript_pack_tag 'uppy'
+
+%div#customButton.form-group.col-sm-4.sm-3
+  = link_to 'Details', animal_path(@animal), :class => "btn btn-primary"
+  = link_to 'Diet', animal_path(@animal), :class => "btn btn-primary"
+  
+%table
+  %thead
+    %tr
+      %th ID
+      %th Animal ID
+  %tbody
+    - @documents.each do |document|
+      %tr
+        %td= document.id
+        %td= document.animal_id
+
+%script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}

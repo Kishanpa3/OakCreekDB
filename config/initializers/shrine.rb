@@ -1,5 +1,4 @@
 require "shrine"
-require "shrine/storage/file_system"
 require "shrine/storage/s3"
  
 s3_options = { 
@@ -28,7 +27,7 @@ Shrine.plugin :uppy_s3_multipart
 # delay promoting and deleting files to a background job (`backgrounding` plugin)
 Shrine.plugin :backgrounding
 Shrine::Attacher.promote_block do
-  Attachment::PromoteJob.perform_later(self.class.name, record, name, file_data)
+  Attachment::PromoteJob.perform_later(self.class.name, record, name, file_data) # or perform_async
 end
 Shrine::Attacher.destroy_block do
   Attachment::DestroyJob.perform_later(self.class.name, data)

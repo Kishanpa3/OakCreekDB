@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  def animals_params
+  def animal_params
     params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight)
   end
   
@@ -21,7 +21,7 @@ class AnimalsController < ApplicationController
   end
   
   def create
-    @animal = Animal.create!(animals_params)
+    @animal = Animal.create!(animal_params)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path
   end
@@ -32,7 +32,7 @@ class AnimalsController < ApplicationController
   
   def update
     @animal = Animal.find params[:id]
-    @animal.update!(animals_params)
+    @animal.update!(animal_params)
     flash[:notice] = "#{@animal.tag} was successfully updated."
     redirect_to animal_path(@animal)
   end
