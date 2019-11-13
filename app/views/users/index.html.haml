@@ -19,6 +19,7 @@
   %table#userTable.table.table-striped.table-bordered.table-lg
     %thead
       %tr
+        %th ID
         %th Administrator
         %th First Name
         %th Last Name
@@ -33,6 +34,7 @@
       - @users.each do |user|
         %tr
           // %td= user.admin
+          %td= user.id
           %td= f.check_box "users[#{user.id}][admin]", {checked: user.admin, :class => "form-control"}, 'true', 'false'
           %td= text_field "users[#{user.id}]", 'first_name', value: user.first_name, :class => "form-control"
           %td= text_field "users[#{user.id}]", 'last_name', value: user.last_name, :class => "form-control"
@@ -42,7 +44,23 @@
           %td= f.check_box "users[#{user.id}][can_add]", {checked: user.can_add, :class => "form-control"}, 'true', 'false'
           %td= f.check_box "users[#{user.id}][can_delete]", {checked: user.can_delete, :class => "form-control"}, 'true', 'false'
           %td= local_time(user.created_at)
+          
+          .modal.fade{:id => "myModal_#{user.id}", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog.modal-dialog-centered{:role => "document"}
+              .modal-content
+                .modal-header
+                  %h5#exampleModalLongTitle.modal-title Modal Title
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                .modal-body
+                  = render 'users/update', user: user
+                .modal-footer
+                  %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+                  %button.btn.btn-primary{:type => "button"} Save changes
+
   = submit_tag 'Update', :class => "btn btn-primary"
+  
+  
         
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
@@ -57,13 +75,14 @@
             '</label>'
     }
     
-    var dataTable = $('#userTable').dataTable({
+    var dataTable = $('#userTable').DataTable({
       "pageLength": 50,
       "search": {
         "caseInsensitive": true
       },
       "stateSave" : true,
       "columns": [
+          { "data": "ID", "visible": false},
           { "data": "Administrator", "className": "text-center"},
           { "data": "First Name"},
           { "data": "Last Name"},
@@ -74,14 +93,30 @@
           { "data": "Delete", "className": "text-center"},
           { "data": "Created At"}
       ],
-      "drawCallback": function( settings ) {
+      "drawCallback": function(settings) {
+          $("tbody tr").on('click', function() {
+            var user_id = dataTable.row(this).data()["ID"];
+            console.log("Hello World: " + user_id);
+              
+            $('#myModal_' + user_id).modal('toggle');
+          });
+      
+      
         // $("form input:checkbox").on('click', function () {
         //   this.value = $(this).is(":checked");
         // });
       }
     });
     $('.dataTables_length').addClass('bs-select');
+  
+    // function getID() {
+    //   $('#userTable tbody').on('click', 'tr', function (e) {
+    //     var data = dataTable.row(this).data()["ID"];
+    //     return data;
+    //   });
+    // }
   });
+
 
 
 // references
