@@ -12,10 +12,14 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    id = params[:id]
+    id=params[:id]
     @animal = Animal.find(id)
   end
-
+  
+  def details
+    @animal=Animal.find params[:id]
+  end
+  
   def new
     # default: render 'new' template
   end

@@ -3,59 +3,14 @@
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
 
-%div#animalCard.card
-  %div.form-row
-    %div.form-group.col-sm-1.col-sm-3
-      = image_tag("transparent logo.png", :size => "200x200")
-    %div.form-group.col-sm-9.col-sm-3
-      %h3= @animal.name
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Tag:'
-          %div.form-control
-            = @animal.tag
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Habitat Number:'
-          %div.form-group.form-control
-            = @animal.habitat_num
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Common Name:'
-          %div.form-control
-            = @animal.common_name
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Species:'
-          %div.form-control
-            = @animal.species
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Sex:'
-          %div.form-control
-            = @animal.sex
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Neutered:'
-          %div.form-control
-            = @animal.neutered
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Age:'
-          %div.form-control 
-            = @animal.age
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Date of Birth:'
-          %div.form-control
-            = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Weight:'
-          %div.form-control
-            = "#{@animal.weight} lbs"
-%div.card
-  %h4 Notes
-%div.card
-  %h4 Approved Enrichment
-%div.card
-  %h4 Vaccinations
+%ul.nav.nav-tabs
+  %li.nav-item.nav-link
+    = link_to 'Details', details_animal_path(@animal)
+  %li.nav-item.nav-link{:role => "tab"}
+    = link_to 'Diet', animals_path
+  %li.nav-item.nav-link{:role => "tab"}
+    = link_to 'Documents', animals_path
+
 %ul.nav.nav-pills
   %li.nav-item.nav-link
     = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
