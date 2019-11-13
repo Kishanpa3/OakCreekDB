@@ -5,12 +5,13 @@
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
   = stylesheet_link_tag "application"
     
-%div.d-flex.flex-row 
-  %div.col-3
-    %h2 Approved Users
-  %div.col-3
-    %h2 
-      = link_to 'Unapproved Users', users_index_path(:approved =>"false")
+%div.d-flex.flex-row
+  %div.col-6
+    %ul.nav.nav-tabs
+      %li.nav-item
+        %a.nav-link.active Approved Users
+      %li.nav-item
+        %a.nav-link{:href => "/users/index?approved=false"} Unapproved Users
   %div.col-6.mb-1
     = link_to 'Logout', destroy_user_session_path, :method => 'DELETE', :class => "btn btn-danger float-right ml-2"
     = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
