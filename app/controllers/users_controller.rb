@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     if params[:approved] === "false"
-      @users = User.where(approved: false)
+      @users = User.where("approved = ? AND confirmed_at IS NOT NULL", false)
       render('users/index-unapproved')
     else
       @users = User.where(approved: true)
