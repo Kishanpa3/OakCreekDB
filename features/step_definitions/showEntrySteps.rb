@@ -15,5 +15,5 @@ When("I follow the link {string}") do |string|
 end
 
 Then("I should be on the {string} page") do |string|
-  page.should have_content("Details about #{string}") 
+  page.should have_content("#{string}") 
 end

@@ -16,10 +16,6 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(id)
   end
   
-  def details
-    @animal=Animal.find params[:id]
-  end
-  
   def new
     # default: render 'new' template
   end
