@@ -119,6 +119,8 @@ GEM
     eventmachine (1.2.7)
     execjs (2.7.0)
     ffi (1.11.2)
+    figaro (1.1.1)
+      thor (~> 0.14)
     formatador (0.2.5)
     gherkin (5.1.0)
     globalid (0.4.2)
@@ -335,6 +337,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise (~> 4.2)
+  figaro (~> 1.1, >= 1.1.1)
   guard-rspec
   haml
   jbuilder (~> 2.7)
