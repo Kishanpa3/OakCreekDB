@@ -3,12 +3,13 @@ class DocumentsController < ApplicationController
   before_action :set_animal, only: [:index, :show, :edit, :update, :destroy]
   
   def create
-    @document = Document.create(document_params)
+    puts "DOCUMENT CREATED"
+    Document.create(document_params)
     # ... 
   end
   
   def index
-    @documents = Document.where("animal_id = ?", params[:animal_id])
+    @documents = Document.where(animal_id: params[:animal_id])
   end
   
   def show

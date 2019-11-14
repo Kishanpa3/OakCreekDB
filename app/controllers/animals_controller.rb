@@ -21,6 +21,7 @@ class AnimalsController < ApplicationController
   end
   
   def create
+    puts "ANIMAL CREATED"
     @animal = Animal.create!(animal_params)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path

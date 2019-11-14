@@ -9,10 +9,15 @@
 %div.DashboardContainer
 = javascript_pack_tag 'uppy'
 
+= form_for @documents, :html => {:class => "DashboardContainer"} do |f|
+  %input.upload-hidden{:name => "@animal[file]", :type => "hidden", :value => "#{@document.cached_file_data}"}
+
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Details', animal_path(@animal), :class => "btn btn-primary"
   = link_to 'Diet', animal_path(@animal), :class => "btn btn-primary"
-  
+
+%img{:src => "#{@document.file_url}"}/
+
 %table
   %thead
     %tr

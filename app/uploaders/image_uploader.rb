@@ -2,7 +2,7 @@
 require "image_processing/mini_magick"
 
 
-class ImageUploader < DocumentUploader
+class ImageUploader < Shrine
   ALLOWED_TYPES  = %w[image/jpeg image/png image/webp]
   MAX_SIZE       = 10*1024*1024 # 10 MB
   MAX_DIMENSIONS = [5000, 5000] # 5000x5000
