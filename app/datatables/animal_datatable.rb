@@ -27,7 +27,7 @@ private
   def fetch_animals
     search_string = []
     columns.each do |term|
-      search_string << "lower(CAST(#{term} AS TEXT)) like :search"
+      search_string << "lower(CAST(#{term} AS TEXT)) like lower(:search)"
     end
 
     animals = Animal.order("#{sort_column} #{sort_direction}")
