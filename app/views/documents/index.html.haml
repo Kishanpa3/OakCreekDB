@@ -21,11 +21,13 @@
     %tr
       %th ID
       %th Animal ID
+      %th Thumbnail
   %tbody
     - @documents.each do |document|
       %tr
         %td= document.id
         %td= document.animal_id
+        %img{:src => document.file(:small).url}
 
 
 = javascript_pack_tag 'uppy'
