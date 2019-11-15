@@ -38,7 +38,7 @@
   = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
   = link_to 'Edit', edit_animal_path(@animal), :class => "btn btn-primary"
 %div#customButton.form-group.col-sm-4.sm-3
-  = link_to 'Enter Diet Info', new_animal_diet_path(@animal), :class => "btn btn-primary"  
+  = link_to 'Diet Info', animal_diet_path(@animal), :class => "btn btn-primary"  
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
 

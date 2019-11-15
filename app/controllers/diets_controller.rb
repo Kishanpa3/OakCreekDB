@@ -1,4 +1,6 @@
 class DietsController < ApplicationController
+    before_action :set_animal, only: [:index, :show, :edit, :update, :destroy]
+    
     def diet_params
         params.require(:diet).permit(:instructions, :am, :pm, :dish, :animal_id)
     end
@@ -12,18 +14,21 @@ class DietsController < ApplicationController
     end
 
     def create
-        @diet = Diet.new(diet_params)
-        @diet.animal_id = @animal.id
+        @diet = Diet.create(diet_params)
         
-        if @diet.save
-           redirect_to @animal
-        else
-            #render 'new'
-        end
+    end
+    
+    def show
+        id = params[:id]
+        @diet = Diet.find_or_create_by(animal_id: params[:animal_id])
+        
     end
 
     def update
-        @diet.update(diet_params)
+        @diet = Diet.find_by(animal_id: params[:animal_id])
+        @diet.update!(diet_params)
+        flash[:notice] = "Diet was successfully updated."
+        redirect_to animal_diet_path(@animal)
     end
     
     def destroy
