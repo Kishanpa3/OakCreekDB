@@ -67,5 +67,5 @@ Rails.application.configure do
   # In production, :host should be set to the actual host of your application.
   config.action_mailer.default_url_options = { host: 'localhost', port: 8080 }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025 }
+  config.action_mailer.smtp_settings = { :address => 'localhost', :port => 1025 }
 end
