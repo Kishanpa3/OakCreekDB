@@ -7,16 +7,14 @@
 
 %button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
 %div.DashboardContainer
-= javascript_pack_tag 'uppy'
 
-= form_for @documents, :html => {:class => "DashboardContainer"} do |f|
-  %input.upload-hidden{:name => "@animal[file]", :type => "hidden", :value => "#{@document.cached_file_data}"}
+= form_with model: @animal, id: "form-uppy" do |f|
+  %input{:type => "hidden"}
 
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Details', animal_path(@animal), :class => "btn btn-primary"
   = link_to 'Diet', animal_path(@animal), :class => "btn btn-primary"
 
-%img{:src => "#{@document.file_url}"}/
 
 %table
   %thead
@@ -29,4 +27,11 @@
         %td= document.id
         %td= document.animal_id
 
+
+= javascript_pack_tag 'uppy'
+
 %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+
+
+
+

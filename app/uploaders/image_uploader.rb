@@ -14,7 +14,7 @@ class ImageUploader < Shrine
   }
 
   plugin :remove_attachment
-  plugin :pretty_location
+  plugin :pretty_location, namespace: "/", identifier: :animal_id
   plugin :validation_helpers
   plugin :store_dimensions, log_subscriber: nil
   plugin :derivation_endpoint, prefix: "derivations/image"

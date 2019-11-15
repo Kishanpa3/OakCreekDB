@@ -1,11 +1,10 @@
 class DocumentsController < ApplicationController
   
-  before_action :set_animal, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_animal
   
   def create
-    puts "DOCUMENT CREATED"
-    Document.create(document_params)
-    # ... 
+    puts "CREATING DOCUMENT + #{@animal.id}"
+    # @document = Document.create!(:animal_id => @animal.id, :file_data => document_params[:file])
   end
   
   def index

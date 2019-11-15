@@ -1,6 +1,8 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
+const randomstring = require('randomstring')
+
 // Import the plugins
 const Uppy = require('@uppy/core')
 const Dashboard = require('@uppy/dashboard')
@@ -30,7 +32,7 @@ const uppy = Uppy({
   trigger: '.UppyModalOpenerBtn',
   inline: false,
   target: '.DashboardContainer',
-  replaceTargetContent: true,
+  replaceTargetContent: false,
   showProgressDetails: true,
   // note: 'Images and video only, 2–3 files, up to 1 MB',
   height: 470,
@@ -38,7 +40,8 @@ const uppy = Uppy({
     { id: 'name', name: 'Name', placeholder: 'file name' },
     { id: 'caption', name: 'Caption', placeholder: 'describe what the file is about' }
   ],
-  browserBackButtonClose: true
+  browserBackButtonClose: true,
+  closeAfterFinish: true
 })
 .use(GoogleDrive, { target: Dashboard, companionUrl: '/' })
 .use(Dropbox, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
@@ -58,12 +61,23 @@ uppy.on('upload-success', function (file, response) {
       mime_type: file.type,
     }
   })
-  // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
-  var hiddenInput = document.querySelector('.upload-hidden')
-  hiddenInput.value = uploadedFileData
+  
+  const hiddenField = document.createElement('input')
+  hiddenField.className = "upload-hidden"
+  
+  hiddenField.type = 'hidden'
+  hiddenField.name = `animal[documents_attributes][${randomstring.generate()}][file]`
+  hiddenField.value = uploadedFileData
+
+  document.querySelector('form').appendChild(hiddenField)
+  
+  // // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
+  // var hiddenInput = document.querySelector('.upload-hidden')
+  // hiddenInput.value = uploadedFileData
 })
 
 uppy.on('complete', result => {
+  document.getElementById("form-uppy").submit();
   console.log('successful files:', result.successful)
   console.log('failed files:', result.failed)
 })

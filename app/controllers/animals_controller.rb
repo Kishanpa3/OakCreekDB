@@ -1,7 +1,4 @@
 class AnimalsController < ApplicationController
-  def animal_params
-    params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight)
-  end
   
   def index
     respond_to do |format|
@@ -34,8 +31,10 @@ class AnimalsController < ApplicationController
   def update
     @animal = Animal.find params[:id]
     @animal.update!(animal_params)
-    flash[:notice] = "#{@animal.tag} was successfully updated."
-    redirect_to animal_path(@animal)
+    if (!animal_params.key?(:documents_attributes))
+      flash[:notice] = "#{@animal.tag} was successfully updated."
+      redirect_to animal_path(@animal)
+    end
   end
   
   def destroy
@@ -43,5 +42,12 @@ class AnimalsController < ApplicationController
     @animal.destroy
     flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' deleted."
     redirect_to animals_path
+  end
+  
+  private
+  
+  def animal_params
+    # params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight)
+    params.require(:animal).permit!
   end
 end
