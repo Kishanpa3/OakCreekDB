@@ -41,6 +41,10 @@ th {
     padding: 0px 10px 5px 5px;
 }
 
+.form-control{
+    font-size: 15px !important;
+}
+
 #banner{
     text-decoration: none;
     color: #000000;
@@ -76,7 +80,4 @@ th {
 
 #animalCard{
     font-size:15px;
-}
-.form-control{
-    font-size: 15px !important;
 }

@@ -48,7 +48,7 @@
         %div.modal.fade{:id => "myModal_#{user.id}", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
           %div.modal-dialog.modal-dialog-centered{:role => "document"}
             %div.modal-content
-              = render 'users/update_unapproved', user: user
+              = render 'users/update', user: user
         
         
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
