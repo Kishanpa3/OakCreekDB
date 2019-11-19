@@ -160,12 +160,10 @@ GEM
     eventmachine (1.2.7)
     execjs (2.7.0)
     ffi (1.11.2)
-<<<<<<< HEAD
     figaro (1.1.1)
       thor (~> 0.14)
     formatador (0.2.5)
-=======
->>>>>>> 37be953830a8086272e7bf623d3986c5f51dfa01
+
     gherkin (5.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -214,7 +212,6 @@ GEM
     msgpack (1.3.1)
     multi_json (1.14.1)
     multi_test (0.1.2)
-<<<<<<< HEAD
     mustermann (1.0.3)
     nenv (0.3.0)
     nio4r (2.5.2)
@@ -224,11 +221,9 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-=======
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
->>>>>>> 37be953830a8086272e7bf623d3986c5f51dfa01
     pg (0.21.0)
     public_suffix (4.0.1)
     rack (2.0.7)
@@ -272,7 +267,6 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
-<<<<<<< HEAD
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -297,8 +291,7 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
-=======
->>>>>>> 37be953830a8086272e7bf623d3986c5f51dfa01
+
     ruby_dep (1.5.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -311,7 +304,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-<<<<<<< HEAD
     shellany (0.0.1)
     sinatra (2.0.7)
       mustermann (~> 1.0)
@@ -321,8 +313,7 @@ GEM
     skinny (0.2.2)
       eventmachine (~> 1.0)
       thin
-=======
->>>>>>> 37be953830a8086272e7bf623d3986c5f51dfa01
+
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -376,12 +367,10 @@ DEPENDENCIES
   capybara-webkit!
   cucumber-rails
   database_cleaner
-<<<<<<< HEAD
   devise (~> 4.2)
   figaro (~> 1.1, >= 1.1.1)
   guard-rspec
-=======
->>>>>>> 37be953830a8086272e7bf623d3986c5f51dfa01
+
   haml
   jbuilder (~> 2.7)
   jquery-rails
