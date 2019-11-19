@@ -35,6 +35,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Used for handling datatable AJAX requests
 gem 'will_paginate'
 
+# Gives Text Area boxes WYSYWIG toolbar 
+gem 'tinymce-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
