@@ -11,6 +11,7 @@ class DietsController < ApplicationController
     end
 
     def edit
+        @diet = Diet.find_by(animal_id: params[:animal_id])
     end
 
     def create
