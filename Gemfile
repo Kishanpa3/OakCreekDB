@@ -45,6 +45,7 @@ gem 'local_time'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Gives Text Area boxes WYSYWIG toolbar 
 gem 'tinymce-rails'
+gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

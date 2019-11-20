@@ -11,8 +11,29 @@
 // about supported directives.
 //
 //= require jquery
-//= require tinymce-jquery
 //= require jquery_ujs
+//= require bootstrap-wysihtml5
+//= bootstrap
 //= require_tree .
 
 //= require local-time
+
+$(function() {
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5({
+        toolbar:{
+            'font-styles': false,
+            'color': false,
+            'emphasis': {
+                'small': true
+            },
+            'blockquote': false,
+            'lists': true,
+            'html': true,
+            'link': true,
+            'image': true,
+            'smallmodals': false
+        }
+    });
+  });
+})

@@ -14,22 +14,22 @@
   %div.form-row
     %div.form-group.col-sm-9.col-sm-3
       %h3= @animal.name
-      %div.form-row.form-group.col-sm-5.col-sm-3
-        = 'Instructions:'
-        %div.form-control
-          = @diet.instructions
-      %div.form-row.form-group.col-sm-5.col-sm-3
-        = 'Dish:'
-        %div.form-control
-          = @diet.dish
-      %div.form-row.form-group.col-sm-5.col-sm-3
-        = 'AM:'
-        %div.form-control
-          = @diet.am
-      %div.form-row.form-group.col-sm-5.col-sm-3
-        = 'PM:'
-        %div.form-control
-          = @diet.pm
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :dish, 'Instructions:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.instructions)
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :dish, 'Dish:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.dish)
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :am, 'AM:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.am)
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :pm, 'PM:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.pm)
     
 %ul.nav.nav-pills
   %li.nav-item.nav-link
