@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 2019_11_08_201518) do
     t.index ["animal_id"], name: "index_diets_on_animal_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.integer "animal_id"
+    t.text "file_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_documents_on_animal_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -62,14 +70,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_201518) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-  
-  create_table "documents", force: :cascade do |t|
-    t.integer "animal_id"
-    t.text "file_data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["animal_id"], name: "index_documents_on_animal_id"
   end
 
   add_foreign_key "diets", "animals"
