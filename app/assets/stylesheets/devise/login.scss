@@ -214,27 +214,27 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 .fadeIn.first {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.fadeIn.second {
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
 
-.fadeIn.second {
+.fadeIn.third {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 
-.fadeIn.third {
+.fadeIn.fourth {
   -webkit-animation-delay: 0.8s;
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
-}
-
-.fadeIn.fourth {
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  animation-delay: 1s;
 }
 
 /* Simple CSS3 Fade-in Animation */
@@ -250,7 +250,9 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 .underlineHover:hover {
-  color: #0d0d0d;
+  // color: #0d0d0d;
+  color: #56baed;
+  text-decoration: none;
 }
 
 .underlineHover:hover:after{
