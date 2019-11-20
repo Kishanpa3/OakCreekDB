@@ -1,5 +1,3 @@
-# config/tinymce.yml
-
 toolbar:
   - styleselect | bold italic | undo redo
   - image | link

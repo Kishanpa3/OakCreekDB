@@ -1,0 +1,106 @@
+%head
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
+  = stylesheet_link_tag "application"
+    
+%div.d-flex.flex-row 
+  %div.col-6
+    %ul.nav.nav-tabs
+      %li.nav-item
+        %a.nav-link{:href => "/users/index"} Approved Users
+      %li.nav-item
+        %a.nav-link.active Unapproved Users
+  %div.col-6.mb-1
+    = link_to 'Logout', destroy_user_session_path, :method => 'DELETE', :class => "btn btn-danger float-right ml-2"
+    = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
+
+%table#userTable.table.table-striped.table-bordered.table-lg
+  %thead
+    %tr
+      %th ID
+      %th Approved
+      %th First Name
+      %th Last Name
+      %th Email
+      %th View
+      %th Edit
+      %th Add
+      %th Delete
+      %th Created At
+      
+  %tbody
+    - @users.each do |user|
+      %tr
+        // %td= user.admin
+        %td= user.id
+        %td= user.approved
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+        %td= user.can_view
+        %td= user.can_edit
+        %td= user.can_add
+        %td= user.can_delete
+        %td= local_time(user.created_at)
+        
+        %div.modal.fade{:id => "myModal_#{user.id}", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
+          %div.modal-dialog.modal-dialog-centered{:role => "document"}
+            %div.modal-content
+              = render 'users/update_unapproved', user: user
+        
+        
+%script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
+%script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
+:javascript
+  $(document).ready(function () {
+    var simple_checkbox = function (data, type, full, meta) {
+      var is_checked = (data === 'true') ? "checked" : "";
+      // console.log("DATA: " + is_checked);
+      return '<label class="checkbox-label">' +
+              '<input type="checkbox" class="checkbox" ' + is_checked + ' disabled/>' +
+              '<span class="checkbox-custom rectangular"></span>' +
+            '</label>'
+    }
+    
+    var dataTable = $('#userTable').DataTable({
+      "pageLength": 50,
+      "search": {
+        "caseInsensitive": true
+      },
+      "stateSave" : true,
+      "columns": [
+          { "data": "ID", "searchable": false, "orderable": false, "visible": false},
+          { "data": "Approved", "render": simple_checkbox, "orderable": false, "className": "text-center"},
+          { "data": "First Name"},
+          { "data": "Last Name"},
+          { "data": "Email"},
+          { "data": "View", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "data": "Edit", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "data": "Add", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "data": "Delete", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "data": "Created At"}
+      ],
+      "drawCallback": function(settings) {
+          $("tbody tr").on('click', function() {
+            var user_id = dataTable.row(this).data()["ID"];
+            // console.log("Hello World: " + user_id);
+              
+            $('#myModal_' + user_id).modal('toggle');
+            
+            // $('#myModal_' + user_id).on('hidden.bs.modal', function () {
+            //     window.location.reload(true);
+            // });
+          });
+      }
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+
+
+
+// references
+// Styling - https://codepen.io/cristinaconacel/pen/zmgmxE
+// Checkboxes - http://live.datatables.net/kovegexo/1/edit
+//            - https://stackoverflow.com/questions/27276108/best-way-to-render-boolean-data-columns-in-jquery-datatables-net

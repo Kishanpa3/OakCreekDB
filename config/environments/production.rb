@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.require_master_key = true
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -109,4 +110,20 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  
+  
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'https://radiant-brook-01872.herokuapp.com/'}
+  
+  
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: "25",
+    domain: 'heroku.com',
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"],
+    authentication: 'plain',
+    enable_starttls_auto: true
+}
 end

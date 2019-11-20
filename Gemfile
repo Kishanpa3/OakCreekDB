@@ -35,8 +35,17 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Used for handling datatable AJAX requests
 gem 'will_paginate'
 
+# Handles User Authentication
+gem 'devise', '~> 4.2'
+
+# Converts time to user's on client-side
+gem 'local_time'
+
+# Makes setting configs easier
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Gives Text Area boxes WYSYWIG toolbar 
 gem 'tinymce-rails'
+gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,7 +66,11 @@ group :development, :test do
   gem 'database_cleaner'
   
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4' 
+  
+  # Used to verify emails sent from devise
+  # Run with : mailcatcher --http-port 8081 --http-ip $IP --smtp-port 1025 --smtp-ip $IP
+  gem 'mailcatcher'
   
 end
 
