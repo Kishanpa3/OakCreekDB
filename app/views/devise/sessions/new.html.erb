@@ -20,10 +20,12 @@
       <!-- Login Form -->
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="fadeIn second">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-field" %>
+          <%= f.label :email, style: 'display: none'%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-field" %>
         </div>
       
         <div class="fadeIn third">
+          <%= f.label :password, style: 'display: none' %>
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-field"  %>
         </div>
       
