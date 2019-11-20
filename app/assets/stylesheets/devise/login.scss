@@ -8,6 +8,9 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  background-image: image-url("horse-min.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
