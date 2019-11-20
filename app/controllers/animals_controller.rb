@@ -18,7 +18,6 @@ class AnimalsController < ApplicationController
   end
   
   def create
-    puts "ANIMAL CREATED"
     @animal = Animal.create!(animal_params)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path
@@ -31,7 +30,8 @@ class AnimalsController < ApplicationController
   def update
     @animal = Animal.find params[:id]
     @animal.update!(animal_params)
-    if (!animal_params.key?(:documents_attributes))
+    if (animal_params.key?(:documents_attributes))
+    else
       flash[:notice] = "#{@animal.tag} was successfully updated."
       redirect_to animal_path(@animal)
     end

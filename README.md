@@ -7,8 +7,8 @@ OakCreekDB is a web-based DBMS for managing Oak Creek Zoological Conservatory's 
 Make sure you have installed all of the following prerequisites on your Linux machine:
 * [Ruby](https://www.ruby-lang.org/en/) - You should have Ruby 2.6.3 installed.
 * [Rails](https://rubyonrails.org/) - You should have Rails 6.0.0 installed.
-* [Node.js 8.16.0+](https://nodejs.org/en/)
-* [Yarn 1.x+](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
+* [Node.js 8.16.0+](https://nodejs.org/en/) - You should have Node.js installed.
+* [Yarn 1.x+](https://yarnpkg.com/lang/en/) - [Download and Install Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable).
 
 Install Ruby and Rails:
 ```bash
