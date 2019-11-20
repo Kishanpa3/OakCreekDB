@@ -10,22 +10,26 @@
     = link_to 'Diet', animal_diet_path(@animal)
   %li.nav-item.nav-link
     = link_to 'Documents', animals_path
-
-%h1 Diet for #{@animal.name}
-
-%ul#details
-  %li 
-    Instructions:
-    = simple_format(@diet.instructions)
-  %li
-    Dish:
-    = @diet.dish
-  %li 
-    AM:
-    = simple_format(@diet.am)
-  %li 
-    PM:
-    = simple_format(@diet.pm)
+%div#animalCard.card
+  %div.form-row
+    %div.form-group.col-sm-9.col-sm-3
+      %h3= @animal.name
+      %div.form-row.form-group.col-sm-5.col-sm-3
+        = 'Instructions:'
+        %div.form-control
+          = @diet.instructions
+      %div.form-row.form-group.col-sm-5.col-sm-3
+        = 'Dish:'
+        %div.form-control
+          = @diet.dish
+      %div.form-row.form-group.col-sm-5.col-sm-3
+        = 'AM:'
+        %div.form-control
+          = @diet.am
+      %div.form-row.form-group.col-sm-5.col-sm-3
+        = 'PM:'
+        %div.form-control
+          = @diet.pm
     
 %ul.nav.nav-pills
   %li.nav-item.nav-link

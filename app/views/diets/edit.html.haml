@@ -7,22 +7,18 @@
 %div#aniForm
   = form_tag animal_diet_path(@animal), :method => :put do
     %div.form-row
-      %div.form-group.col-sm-4.sm-3
-        = label :diet, :instructions, 'Instructions'
-        = text_area :diet, 'instructions', :class => "form-control"
-      
-    %div.form-row
-      %div.form-group.col-sm-4.sm-3
+      %div.form-group.col-sm-9.sm-3
+        = label :diet, :dish, 'Dish'
+        = text_area :diet, 'instructions', :class=> "form-control"
+      %div.form-group.col-sm-9.sm-3
         = label :diet, :dish, 'Dish'
         = text_field :diet, 'dish', :class => "form-control"
-      
     %div.form-row
-      %div.form-group.col-sm-4.sm-3
+      %div.form-group.col-sm-9.sm-3
         = label :diet, :am, 'AM'
         = text_area :diet, 'am', :class => "form-control"
-      
     %div.form-row
-      %div.form-group.col-sm-4.sm-3
+      %div.form-group.col-sm-9.sm-3
         = label :diet, :pm, 'PM'
         = text_area :diet, 'pm', :class => "form-control"
       
@@ -32,5 +28,3 @@
 
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Back', animal_diet_path(@animal), :class => "btn btn-primary"
-
-= tinymce 
