@@ -17,40 +17,8 @@
     = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
 
 %table#userTable.table.table-striped.table-bordered.table-lg
-  %thead
-    %tr
-      %th ID
-      %th Administrator
-      %th First Name
-      %th Last Name
-      %th Email
-      %th View  
-      %th Edit
-      %th Add
-      %th Delete
-      %th Created At
-      
-  %tbody
-    - @users.each do |user|
-      %tr
-        // %td= user.admin
-        %td= user.id
-        %td= user.admin
-        %td= user.first_name
-        %td= user.last_name
-        %td= user.email
-        %td= user.can_view
-        %td= user.can_edit
-        %td= user.can_add
-        %td= user.can_delete
-        %td= local_time(user.created_at)
-        
-        %div.modal.fade{:id => "myModal_#{user.id}", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
-          %div.modal-dialog.modal-dialog-centered{:role => "document"}
-            %div.modal-content
-              = render 'users/update', user: user
-  
-        
+
+
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
@@ -65,29 +33,31 @@
     }
     
     var dataTable = $('#userTable').DataTable({
+      "serverSide": true,
       "pageLength": 50,
       "search": {
         "caseInsensitive": true
       },
       "stateSave" : true,
+      "ajax": '/users/index',
       "columns": [
-          { "data": "ID", "searchable": false, "orderable": false, "visible": false},
-          { "data": "Administrator", "render": simple_checkbox, "orderable": false, "className": "text-center"},
-          { "data": "First Name"},
-          { "data": "Last Name"},
-          { "data": "Email"},
-          { "data": "View", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Edit", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Add", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Delete", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Created At"}
+          { "title": "ID", "searchable": false, "orderable": false, "visible": false},
+          { "title": "Administrator", "render": simple_checkbox, "orderable": false, "className": "text-center"},
+          { "title": "First Name"},
+          { "title": "Last Name"},
+          { "title": "Email"},
+          { "title": "View", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Edit", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Add", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Delete", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Created At"}
       ],
       "drawCallback": function(settings) {
           $("tbody tr").on('click', function() {
             var user_id = dataTable.row(this).data()["ID"];
             // console.log("Hello World: " + user_id);
               
-            $('#myModal_' + user_id).modal('toggle');
+            // $('#myModal_' + user_id).modal('toggle');
             
             // $('#myModal_' + user_id).on('hidden.bs.modal', function () {
             //     window.location.reload(true);
