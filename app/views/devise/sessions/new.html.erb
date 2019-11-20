@@ -17,38 +17,48 @@
         <img src="/assets/text logo.png" id="icon" alt="User Icon">
       </div>
   
-      <!-- Login Form -->
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="fadeIn second">
-          <%= f.label :email, style: 'display: none'%>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-field" %>
-        </div>
-      
-        <div class="fadeIn third">
-          <%= f.label :password, style: 'display: none' %>
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-field"  %>
-        </div>
-      
-        <% if devise_mapping.rememberable? %>
-          <div class="fadeIn fourth">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+      <div id="form_modal">
+        <!-- Login Form -->
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="fadeIn second">
+            <%= f.label :email, style: 'display: none'%>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-field" %>
+          </div>
+        
+          <div class="fadeIn third">
+            <%= f.label :password, style: 'display: none' %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-field"  %>
+          </div>
+        
+          <% if devise_mapping.rememberable? %>
+            <div class="fadeIn fourth">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+        
+          <div class="actions">
+            <%= f.submit "Log in" %>
           </div>
         <% end %>
-      
-        <div class="actions">
-          <%= f.submit "Log in" %>
+    
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <%= render "devise/shared/links" %>
         </div>
-      <% end %>
-  
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
 </body>
 
-
+<script>
+  function updateForm(partial) {
+    console.log('clicked');
+      $.get( "/update_form?form=" + partial, function(data) {
+        console.log(data.html);
+        $("#form_modal").html(data.html);
+    });
+  }
+</script>
 
 
