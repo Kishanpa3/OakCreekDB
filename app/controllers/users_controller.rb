@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
   
   # Used for updating the partials on the login page
-  def update_form_modal
+  def update_form_partial
     case params[:form]
       when "sign_up"
         render json: { html: render_to_string(partial: 'devise/shared/form_partials/sign_up') }
