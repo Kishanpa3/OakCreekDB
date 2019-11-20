@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    =stylesheet_link_tag "application"
+    = stylesheet_link_tag "application"
     %title Oak Creek Zoological Conservatory
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -11,8 +11,9 @@
 
   %body
     %h1.title
-      = link_to image_tag("transparent logo.png", :size => "50x50"), animals_path
-      = link_to "Oak Creek Zoological Conservatory", animals_path, :id => "banner", :class => "btn btn-link"
+      -if yield(:title).blank?
+        = link_to image_tag("transparent logo.png", :size => "50x50"), animals_path
+        = link_to "Oak Creek Zoological Conservatory", animals_path, :id => "banner", :class => "btn btn-link"
     %div#main
       - if flash[:notice]
         %div#notice.message.alert.alert-success.alert-dismissible{:role => "alert"}
