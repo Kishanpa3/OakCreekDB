@@ -1,10 +1,10 @@
 %ul.nav.nav-tabs
-  %li.nav-item.nav-link.active
-    = link_to 'Details', animal_path(@animal)
-  %li.nav-item.nav-link
-    = link_to 'Diet', animals_path
-  %li.nav-item.nav-link
-    = link_to 'Documents', animals_path
+  %li.nav-item
+    %a.nav-link.active Details
+  %li.nav-item
+    = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
+  %li.nav-item
+    = link_to 'Documents', animals_path, :class => "nav-link"
 %div#animalCard.card
   %div.form-row
     %div.form-group.col-sm-1.col-sm-3
@@ -53,13 +53,6 @@
           %div.form-control
             = "#{@animal.weight} lbs"
   
-%div.card
-  %h4 Notes
-%div.card
-  %h4 Approved Enrichment
-%div.card
-  %h4 Vaccinations
-  
 %ul.nav.nav-pills
   %li.nav-item.nav-link
     = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
@@ -67,3 +60,4 @@
     = link_to 'Edit', edit_animal_path(@animal), :class => "btn btn-primary"
   %li.nav-item.nav-link
     = link_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+

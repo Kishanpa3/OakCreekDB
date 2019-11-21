@@ -55,7 +55,6 @@
   function updateForm(partial) {
     console.log('clicked');
       $.get( "/update_form?form=" + partial, function(data) {
-        console.log(data.html);
         $("#form_modal").html(data.html);
     });
   }

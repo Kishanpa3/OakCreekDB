@@ -12,7 +12,11 @@
  *
  * require_tree // removed =
  *= require_self
+ *= require bootstrap-wysihtml5
  */
+ 
+#editor {max-height:300px}
+
 body {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;

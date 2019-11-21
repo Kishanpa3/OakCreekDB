@@ -7,7 +7,7 @@
   %div.col-6
     %ul.nav.nav-tabs
       %li.nav-item
-        %a.nav-link{:href => "/users/index"} Approved Users
+        = link_to 'Approved Users', users_index_path, :class => "nav-link"
       %li.nav-item
         %a.nav-link.active Unapproved Users
   %div.col-6.mb-1

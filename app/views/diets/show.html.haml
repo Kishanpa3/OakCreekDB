@@ -1,0 +1,40 @@
+%head
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Details', animal_path(@animal), :class => "nav-link"
+  %li.nav-item
+    %a.nav-link.active Diet
+  %li.nav-item
+    = link_to 'Documents', animals_path, :class => "nav-link"
+%div#animalCard.card
+  %div.form-row
+    %div.form-group.col-sm-9.col-sm-3
+      %h3= @animal.name
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :dish, 'Instructions:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.instructions)
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :dish, 'Dish:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.dish)
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :am, 'AM:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.am)
+      %div.form-row.form-group.col-sm-4.sm-3
+        = label :diet, :pm, 'PM:'
+      %div.form-row.form-group.col-sm-4.sm-3
+        = simple_format(@diet.pm)
+    
+%ul.nav.nav-pills
+  %li.nav-item.nav-link
+    = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
+  %li.nav-item.nav-link
+    = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
+  %li.nav-item.nav-link
+    = link_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"

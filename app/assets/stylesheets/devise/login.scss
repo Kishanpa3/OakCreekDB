@@ -2,7 +2,7 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #000000;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
   background-image: image-url("horse-min.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #000000;
 }
 
 a {
@@ -59,6 +60,7 @@ h2 {
   padding: 30px;
   width: 90%;
   max-width: 450px;
+  max-height: 90vh;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -276,4 +278,30 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 
 #icon-container {
   padding: 20px;
+}
+
+#new_user {
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
