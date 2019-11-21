@@ -24,15 +24,14 @@ $(function() {
         toolbar:{
             'font-styles': false,
             'color': false,
-            'emphasis': {
-                'small': true
+            'emphasis':{
+                'small': true,
             },
+            'lists': false,
+            'html': false,
             'blockquote': false,
-            'lists': true,
-            'html': true,
-            'link': true,
-            'image': true,
-            'smallmodals': false
+            'link': false,
+            'image': false,
         }
     });
   });

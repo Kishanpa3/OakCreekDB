@@ -84,3 +84,7 @@ th {
 .form-control{
     font-size: 15px !important;
 }
+
+a[data-wysihtml5-command="underline"]{
+    display:none !important;
+}

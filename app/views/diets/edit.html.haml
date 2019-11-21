@@ -9,17 +9,17 @@
     %div.form-row
       %div.form-group.col-sm-4.sm-3
         = label :diet, :dish, 'Instructions:'
-        = text_area :diet, 'instructions', :class => "form-control"
+        = text_area :diet, 'instructions', :class => "wysihtml5"
       %div.form-group.col-sm-4.sm-3
         = label :diet, :dish, 'Dish:'
-        = text_area :diet, 'dish', :class => "form-control"
+        = text_area :diet, 'dish', :class => "wysihtml5"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
         = label :diet, :am, 'AM:'
-        = text_area :diet, 'am', :class => "form-control"
+        = text_area :diet, 'am', :class => "wysihtml5"
       %div.form-group.col-sm-4.sm-3
         = label :diet, :pm, 'PM:'
-        = text_area :diet, 'pm', :class => "form-control"
+        = text_area :diet, 'pm', :class => "wysihtml5"
       
     
     = submit_tag 'Update Diet Info', :class => "btn btn-primary"
