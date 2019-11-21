@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails
-  revision: e50def6ad42a5d5a648d1ee7854966407bb6f4c4
+  revision: 9805caec345784d69e20c585f4ddd926254deef0
   specs:
     rspec-rails (4.0.0.pre)
       actionpack (>= 4.2)
@@ -305,7 +305,7 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tinymce-rails (5.1.1)
+    tinymce-rails (5.1.2)
       railties (>= 3.1.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
