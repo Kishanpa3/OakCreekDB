@@ -31,6 +31,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.find params[:id]
     @animal.update!(animal_params)
     puts "ANIMAL PARAMS: #{animal_params.keys}"
+    puts "DOC ATR: #{animal_params[:documents_attributes]}"
     if (animal_params.key?(:documents_attributes))
     else
       flash[:notice] = "#{@animal.tag} was successfully updated."
@@ -48,7 +49,7 @@ class AnimalsController < ApplicationController
   private
   
   def animal_params
-    # params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight, documents_attributes: [:id])
-    params.require(:animal).permit!
+    params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight, :documents_attributes => {})
+    # params.require(:animal).permit!
   end
 end
