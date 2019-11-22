@@ -20,13 +20,16 @@
 
 %div#modalContainer
 
+%button#test
+  Test
+
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
     var simple_checkbox = function (data, type, full, meta) {
-      var is_checked = (data === 'true') ? "checked" : "";
+      var is_checked = (data) ? "checked" : "";
       // console.log("DATA: " + is_checked);
       return '<label class="checkbox-label">' +
               '<input type="checkbox" class="checkbox" ' + is_checked + ' disabled/>' +
@@ -66,18 +69,51 @@
               cache: false,
               type: "GET",
               success: function(response) {
-                console.log('nice' + response.html);
+                // console.log('nice' + response.html);
                 $('#modalContainer').html(response.html);
-                $('#myModal_' + person.id).modal('toggle');
+                $('#userModal').modal('toggle');
+                $('#userModal').on('hide.bs.modal', function() {
+                    console.log('reload!');
+                    
+                    if ( $('#userModal').length ){
+                      console.log('not nil');
+                      dataTable.clear();
+                      // $('#userTable').DataTable().destroy()
+                      $('#userTable').DataTable().ajax.reload(null, false);
+                    } else {
+                      console.log('nil');
+                    }
+                });
               },
               error: function(xhr) {
           
               }
-          })
+          });
         });
       }
     });
     $('.dataTables_length').addClass('bs-select');
+    
+    // $('#userModal').on('hide.bs.modal', function() {
+    //     console.log('reload!');
+        
+    //     if ( $('#userModal').length ){
+    //       console.log('not nil');
+    //       dataTable.clear();
+    //       // $('#userTable').DataTable().destroy()
+    //       $('#userTable').DataTable().ajax.reload(null, false);
+    //     } else {
+    //       console.log('nil');
+    //     }
+    // });
+
+    $('#test').on('click', function() {
+        console.log('reload!');
+        // dataTable.clear();
+        // $('#userTable').DataTable().destroy()
+        $('#userTable').DataTable().ajax.reload();
+        // $('#userTable').DataTable().ajax.reload();
+    });
   });
 
 
