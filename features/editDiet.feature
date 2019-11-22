@@ -27,6 +27,15 @@ Scenario: Try to edit an existing diet
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
     When I follow the link "Edit"
-    When I fill text area "dish_area" with "Blue Bowl"
+    When I fill text area "#diet_dish" with "Blue Bowl"
+    When I press the button "Update Diet Info"
+    Then I should see "Blue Bowl"
+    
+Scenario: Try to edit an empty diet
+    When I click on the first table row
+    Then I should be on the "Otto" page
+    When I click on the "Diet" tab
+    When I follow the link "Edit"
+    When I fill text area "#diet_dish" with "Blue Bowl"
     When I press the button "Update Diet Info"
     Then I should see "Blue Bowl"
