@@ -73,16 +73,10 @@
                 $('#modalContainer').html(response.html);
                 $('#userModal').modal('toggle');
                 $('#userModal').on('hide.bs.modal', function() {
-                    console.log('reload!');
-                    
-                    if ( $('#userModal').length ){
-                      console.log('not nil');
-                      dataTable.clear();
-                      // $('#userTable').DataTable().destroy()
-                      $('#userTable').DataTable().ajax.reload(null, false);
-                    } else {
-                      console.log('nil');
-                    }
+                    // We should call to reload after server gets updated info - so wait 1s before reload
+                    setTimeout(function() {
+                      $('#userTable').DataTable().ajax.reload();
+                    }, 1);
                 });
               },
               error: function(xhr) {
@@ -93,27 +87,6 @@
       }
     });
     $('.dataTables_length').addClass('bs-select');
-    
-    // $('#userModal').on('hide.bs.modal', function() {
-    //     console.log('reload!');
-        
-    //     if ( $('#userModal').length ){
-    //       console.log('not nil');
-    //       dataTable.clear();
-    //       // $('#userTable').DataTable().destroy()
-    //       $('#userTable').DataTable().ajax.reload(null, false);
-    //     } else {
-    //       console.log('nil');
-    //     }
-    // });
-
-    $('#test').on('click', function() {
-        console.log('reload!');
-        // dataTable.clear();
-        // $('#userTable').DataTable().destroy()
-        $('#userTable').DataTable().ajax.reload();
-        // $('#userTable').DataTable().ajax.reload();
-    });
   });
 
 
