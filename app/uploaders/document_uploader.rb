@@ -18,6 +18,8 @@ class DocumentUploader < Shrine
   plugin :validation_helpers
   plugin :store_dimensions, log_subscriber: nil
   plugin :derivation_endpoint, prefix: "derivations/image"
+  plugin :default_url
+  plugin :remove_invalid # remove and delete files that failed validation 
 
   # File validations (requires `validation_helpers` plugin)
   Attacher.validate do

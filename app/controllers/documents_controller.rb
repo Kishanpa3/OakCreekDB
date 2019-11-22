@@ -10,7 +10,6 @@ class DocumentsController < ApplicationController
   
   def index
     @documents = Document.where(animal_id: params[:animal_id])
-    # puts "PARAMS: #{params.keys}"
   end
   
   def show
@@ -25,7 +24,6 @@ class DocumentsController < ApplicationController
   end
  
   def document_params
-    # puts "DPARAMS: #{params.keys}"
     params.require(:document).permit(:animal_id, :file)
   end
 end
