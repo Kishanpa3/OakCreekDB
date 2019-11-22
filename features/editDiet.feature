@@ -1,8 +1,8 @@
 @javascript
-Feature: Read a Diet Entry
+Feature: Edit a Diet Entry
     As a user
-    So that I can obtain diet information about the animals
-    I want to read diet entries associated with an animal
+    So that I can have up to date diet information about the animals
+    I want to edit diet entries associated with an animal
 
 
 Background: Database Setup
@@ -19,17 +19,14 @@ Background: Database Setup
     Given I am on the Oak Creek home page
     
     
-Scenario: Try to read an existing diet
+Scenario: Try to edit an existing diet
     Given the following Diet table
         | Dish              | Animal Name   |
         | Black Bowl        | Otto          |
     When I click on the first table row
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
-    Then I should see "Black Bowl"
-    
-Scenario: Try to read a diet that doesn't exist in diets table
-    When I click on the first table row
-    Then I should be on the "Otto" page
-    When I click on the "Diet" tab
-    Then I should see "Dish"
+    When I follow the link "Edit"
+    When I fill text area "dish_area" with "Blue Bowl"
+    When I press the button "Update Diet Info"
+    Then I should see "Blue Bowl"
