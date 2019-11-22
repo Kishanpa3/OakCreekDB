@@ -7,6 +7,7 @@ class Animal < ApplicationRecord
   
   has_many :documents, dependent: :destroy
   accepts_nested_attributes_for :documents, allow_destroy: true
+  validates_associated :documents
   
   # include ImageUploader::Attachment(:profile_pic)  # ImageUploader will attach and manage `profile_pic`
 end

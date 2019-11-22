@@ -6,8 +6,6 @@ class DocumentUploader < Shrine
   # plugin :pretty_location, namespace: "/", identifier: :animal_id
   
   ALLOWED_TYPES  = %w[image/jpeg image/png image/webp]
-  MAX_SIZE       = 10*1024*1024 # 10 MB
-  MAX_DIMENSIONS = [5000, 5000] # 5000x5000
 
   THUMBNAILS = {
     small:  [300, 300],
@@ -23,10 +21,21 @@ class DocumentUploader < Shrine
 
   # File validations (requires `validation_helpers` plugin)
   Attacher.validate do
-    validate_size 0..MAX_SIZE
-
-    if validate_mime_type ALLOWED_TYPES
-      validate_max_dimensions MAX_DIMENSIONS
+    case file.mime_type
+    when /^image\//
+      validate_size 0..50*1024*1024 # 50 MB
+      if validate_mime_type %w[image/jpeg image/png image/webp image/bmp image/gif image/x-icon image/tiff]
+        validate_extension %w[jpg jpeg png webp bmp gif ico cur tiff tif]
+        validate_max_dimensions [5000, 5000] # 5000x5000
+      end
+    when /^video\//
+      validate_size 0..1024*1024*1024 # 1 GB
+    when /^audio\//
+      validate_size 0..30*1024*1024 # 30 MB
+    when /^application\//
+      validate_size 0..1024*1024*1024 # 1 GB
+    when /^text\//
+      validate_size 0..20*1024*1024 # 20 MB
     end
   end
 
