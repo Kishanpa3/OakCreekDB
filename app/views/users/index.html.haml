@@ -33,6 +33,11 @@
             '</label>'
     }
     
+    var convert_from_utc = function (data, type, full, meta) {
+      // console.log("DATA: " + data);
+      return new Date(data).toString();
+    }
+    
     var dataTable = $('#userTable').DataTable({
       "serverSide": true,
       "pageLength": 50,
@@ -51,7 +56,7 @@
           { "title": "Edit", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
           { "title": "Add", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
           { "title": "Delete", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "title": "Created At"}
+          { "title": "Created At", "render": convert_from_utc}
       ],
       "drawCallback": function(settings) {
         $("tbody tr").on('click', function() {
