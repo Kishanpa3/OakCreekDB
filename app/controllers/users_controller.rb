@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   def index
-    if params[:approved] === "false"
-      @users = User.where("approved = ? AND confirmed_at IS NOT NULL", false)
-      render('users/index-unapproved')
-    else
-      @users = User.where(approved: true)
+    respond_to do |format|
+      params[:approved] === "false" ? format.html { render 'users/index-unapproved' } : format.html
+      format.json { render json: UserDatatable.new(view_context) }
     end
   end
   
@@ -36,5 +34,10 @@ class UsersController < ApplicationController
       else
         redirect_to "/users/sign_in"
     end
+  end
+
+  def serve_index_partial
+    puts "REQUEST FOR PARTIAL #{params}"
+    render json: { html: render_to_string(partial: 'users/update', locals: {:user => params}) }
   end
 end
