@@ -8,8 +8,7 @@
 %button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
 %div.DashboardContainer
 
-= form_with model: @animal, id: "form-uppy" do |f|
-  %input{:type => "hidden"}
+= form_with model: @animal, id: "form-uppy"
 
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Details', animal_path(@animal), :class => "btn btn-primary"
