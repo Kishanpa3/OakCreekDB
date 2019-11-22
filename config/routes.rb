@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/index'
-  get 'users/destroy'
-  get 'users/update'
+  match 'users/:id' => 'users#update', :via => :patch, :as => :users_update
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :users_destroy
   get '/update_form' => "users#update_form_partial", as: :update_form
   devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.

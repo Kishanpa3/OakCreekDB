@@ -1,9 +1,8 @@
 %div.modal-header
   %h5#exampleModalLongTitle.modal-title #{user.first_name} #{user.last_name}
-  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-    %span{"aria-hidden" => "true"} ×
+  = link_to 'Delete', users_destroy_path(user.id, :approved => params[:approved]), :method => :delete, :data => {:confirm => 'Are you sure?'}, :class => "btn btn-danger float-right ml-2"
 %div.modal-body
-  = form_with url: users_update_path, :method => :get, :html => { :onsubmit => "$('#myModal_' + #{user.id}).modal('toggle');" } do |f|
+  = form_with url: users_update_path(user.id), :method => :patch, :html => { :onsubmit => "$('#myModal_' + #{user.id}).modal('toggle');" } do |f|
     %div.form-row
       %div.form-group.col-sm-6
         = label :user, :first_name, 'First Name'
