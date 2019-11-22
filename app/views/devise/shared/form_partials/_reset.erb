@@ -1,0 +1,18 @@
+<div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+  
+    <div class="field fadeIn first">
+      <%= f.label :email, style: 'display: none' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-field"  %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Send reset instructions" %>
+    </div>
+  <% end %>
+    
+  <div id="formFooter">
+    <%= render "devise/shared/links", form: 'reset' %>
+  </div>
+</div>

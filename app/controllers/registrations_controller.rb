@@ -1,8 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   # FOR DEVISE: USED TO ENFORCE FIRST/LAST NAME UPON USER SIGNUP - overriding devise methods
 
-  private
-
+private
   def sign_up_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end

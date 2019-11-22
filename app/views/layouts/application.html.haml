@@ -1,21 +1,34 @@
 !!!
 %html
   %head
-    =stylesheet_link_tag "application"
+    = stylesheet_link_tag "application"
     %title Oak Creek Zoological Conservatory
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+    %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+    %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
 
   %body
     %h1.title
-      = link_to image_tag("transparent logo.png", :size => "50x50"), animals_path
-      = link_to "Oak Creek Zoological Conservatory", animals_path, :id => "banner", :class => "btn btn-link"
-    #main
+      -if yield(:title).blank?
+        = link_to image_tag("transparent logo.png", :size => "50x50"), animals_path
+        = link_to "Oak Creek Zoological Conservatory", animals_path, :id => "banner", :class => "btn btn-link"
+    %div#main
       - if flash[:notice]
-        #notice.message= flash[:notice]
+        %div#notice.message.alert.alert-success.alert-dismissible{:role => "alert"}
+          = flash[:notice]
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
       - elsif flash[:warning]
-        #warning.message= flash[:warning]
+        %div#warning.message.alert.alert-warning.alert-dismissible{:role => "alert"}
+          = flash[:warning]
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
       - elsif flash[:alert]
-        #alert.message= flash[:alert]
+        %div#alert.message.alert.alert-danger.alert-dismissible{:role => "alert"}
+          = flash[:alert]
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
 
       = yield

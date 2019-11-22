@@ -10,9 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ * require_tree // removed =
  *= require_self
  *= require bootstrap-wysihtml5
-  *= require_tree .
  */
  
 #editor {max-height:300px}
@@ -43,6 +43,10 @@ th {
 
 .pagination{
     padding: 0px 10px 5px 5px;
+}
+
+.form-control{
+    font-size: 15px !important;
 }
 
 #banner{
@@ -80,7 +84,4 @@ th {
 
 #animalCard{
     font-size:15px;
-}
-.form-control{
-    font-size: 15px !important;
 }

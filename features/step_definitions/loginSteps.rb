@@ -8,10 +8,12 @@ end
 
 Given("I am on the User login page") do
   visit '/users/sign_in'
+  wait_for_ajax
 end
 
 Given("I am signed out") do
   visit animals_path
+  wait_for_ajax
   if has_link? 'Logout'
     click_link 'Logout'
     puts 'Logged Out!'
@@ -42,9 +44,7 @@ Given("I sign in as an {string} with the email {string} and the password {string
     @user.admin = true
     @user.save
   end
-  
-  puts "User admin: #{@user.admin}"
-  
+
   fill_in "Email", :with => _email
   fill_in "Password", :with => _password
   
