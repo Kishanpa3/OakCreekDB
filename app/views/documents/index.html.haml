@@ -26,7 +26,7 @@
       %tr
         %td= document.id
         %td= document.animal_id
-        %img{:src => document.file(:small).url}
+        %img{:src => document.file_url(:small)}
 
 
 = javascript_pack_tag 'uppy'
