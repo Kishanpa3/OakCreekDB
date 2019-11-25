@@ -40,10 +40,6 @@
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
 
-%button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
-%div.DashboardContainer
-= javascript_pack_tag 'uppy'
-
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Documents', animal_documents_path(@animal), :class => "btn btn-primary"
 

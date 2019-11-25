@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   def create
     # puts "CREATING DOCUMENT #{@animal.id}"
     # @document = Document.create!(:animal_id => @animal.id, :file_data => document_params[:file])
-    # @document = Document.create!(document_params)
+    # @document = Document.create!(:animal_id => @animal.id, document_params)
   end
   
   def index
@@ -25,6 +25,6 @@ class DocumentsController < ApplicationController
  
   def document_params
     params.require(:document).permit(:file)
-    # params.require(:document).permit(:animal_id, :file)
+    # params.require(:document).permit(:file)
   end
 end

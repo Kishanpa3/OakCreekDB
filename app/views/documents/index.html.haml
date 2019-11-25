@@ -5,15 +5,14 @@
   
 %h3 Documents about #{@animal.name}
 
-%button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
-%div.DashboardContainer
-
-= form_with model: @animal, id: "form-uppy"
-
 %div#customButton.form-group.col-sm-4.sm-3
   = link_to 'Details', animal_path(@animal), :class => "btn btn-primary"
   = link_to 'Diet', animal_path(@animal), :class => "btn btn-primary"
 
+%button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
+%div.DashboardContainer
+= form_with model: @animal, id: "form-uppy"
+= javascript_pack_tag 'uppy'
 
 %table
   %thead
@@ -27,9 +26,6 @@
         %td= document.id
         %td= document.animal_id
         %img{:src => document.file_url(:small)}
-
-
-= javascript_pack_tag 'uppy'
 
 %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
 

@@ -30,8 +30,8 @@ class AnimalsController < ApplicationController
   def update
     @animal = Animal.find params[:id]
     @animal.update!(animal_params)
-    puts "ANIMAL PARAMS: #{animal_params.keys}"
-    puts "DOC ATR: #{animal_params[:documents_attributes]}"
+    # puts "ANIMAL PARAMS: #{animal_params.keys}"
+    # puts "DOC ATR: #{animal_params[:documents_attributes]}"
     if (animal_params.key?(:documents_attributes))
     else
       flash[:notice] = "#{@animal.tag} was successfully updated."
