@@ -2,15 +2,11 @@
 require "image_processing/mini_magick"
 
 class DocumentUploader < Shrine
-  # # plugins and uploading logic
-  # plugin :pretty_location, namespace: "/", identifier: :animal_id
-  
-  ALLOWED_TYPES  = %w[image/jpeg image/png image/webp]
+  # plugins and uploading logic
 
   THUMBNAILS = {
     small:  [300, 300],
     medium: [600, 600],
-    large:  [800, 800],
   }
 
   plugin :remove_attachment

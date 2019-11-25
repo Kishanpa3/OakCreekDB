@@ -1,7 +1,6 @@
 # require "image_processing/vips"
 require "image_processing/mini_magick"
 
-
 class ImageUploader < Shrine
   ALLOWED_TYPES  = %w[image/jpeg image/png image/webp]
   MAX_SIZE       = 10*1024*1024 # 10 MB
