@@ -17,8 +17,12 @@
         = text_field "users[#{user.id}]", 'email', value: user.email, :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-3{ :style => "border-right: 1px solid #333;" } 
-        = label :user, :admin, 'Administrator'
-        = f.check_box "users[#{user.id}][admin]", {checked: user.admin, :class => "form-control"}, 'true', 'false'
+        - if params[:approved]
+          = label :user, :approved, 'Approved'
+          = f.check_box "users[#{user.id}][approved]", {checked: user.approved, :class => "form-control"}, 'true', 'false'
+        - else 
+          = label :user, :admin, 'Administrator'
+          = f.check_box "users[#{user.id}][admin]", {checked: user.admin, :class => "form-control"}, 'true', 'false'
       %div.form-group.col-sm-2.ml-3
         = label :user, :can_view, 'View'
         = f.check_box "users[#{user.id}][can_view]", {checked: user.can_view, :class => "form-control"}, 'true', 'false'
@@ -43,7 +47,7 @@
         
         
         
-// = f.check_box "users[#{user.id}][admin]", {checked: user.admin, :class => "form-control"}, 'true', 'false'
+// = f.check_box "users[#{user.id}][approved]", {checked: user.approved, :class => "form-control"}, 'true', 'false'
 // = text_field "users[#{user.id}]", 'first_name', value: user.first_name, :class => "form-control"
 // = text_field "users[#{user.id}]", 'last_name', value: user.last_name, :class => "form-control"
 // = text_field "users[#{user.id}]", 'email', value: user.email, :class => "form-control"
