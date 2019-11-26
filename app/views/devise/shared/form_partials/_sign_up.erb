@@ -18,11 +18,13 @@
     </div>
   
     <div class="field fadeIn third">
-      <%= f.label :password, style: 'display: none' %>
+      <%= f.label :password, style: 'display: none' %><br />
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "password", class: "form-field" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "password (#{@minimum_password_length} characters minimum)", class: "form-field"  %>
+        <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
+      <% else %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "password", class: "form-field"  %>
+      <% end %>
     </div>
   
     <div class="field fadeIn third">
