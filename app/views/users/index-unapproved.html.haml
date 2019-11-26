@@ -24,10 +24,11 @@
   $(document).ready(function () {
     var simple_checkbox = function (data, type, full, meta) {
       var is_checked = (data) ? "checked" : "";
+      var unchecked_content = (is_checked) ? "" : "&#xd7";
       // console.log("DATA: " + is_checked);
       return '<label class="checkbox-label">' +
               '<input type="checkbox" class="checkbox" ' + is_checked + ' disabled/>' +
-              '<span class="checkbox-custom rectangular"></span>' +
+              '<span class="checkbox-custom rectangular">' + unchecked_content + '</span>' +
             '</label>'
     }
     
