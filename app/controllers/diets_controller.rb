@@ -20,9 +20,7 @@ class DietsController < ApplicationController
     end
     
     def show
-        id = params[:id]
         @diet = Diet.find_or_create_by(animal_id: params[:animal_id])
-        
     end
 
     def update
@@ -33,6 +31,7 @@ class DietsController < ApplicationController
     end
     
     def destroy
+        @diet = Diet.find_by(animal_id: params[:animal_id])
         @diet.destroy
     end
     
