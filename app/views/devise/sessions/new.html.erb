@@ -20,6 +20,8 @@
       <div id="form_modal">
         <!-- Login Form -->
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          
           <div class="fadeIn second">
             <%= f.label :email, style: 'display: none'%>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-field" %>
