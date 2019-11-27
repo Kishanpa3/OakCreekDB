@@ -108,11 +108,14 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    american_date (1.1.1)
     backports (3.15.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    bootstrap-datepicker-rails (1.8.0.1)
+      railties (>= 3.0)
     bootstrap-wysihtml5-rails (0.3.3.8)
       railties (>= 3.0)
     builder (3.2.3)
@@ -330,7 +333,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  american_date
   bootsnap (>= 1.4.2)
+  bootstrap-datepicker-rails
   bootstrap-wysihtml5-rails (~> 0.3.3.8)
   byebug
   capybara
