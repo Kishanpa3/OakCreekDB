@@ -61,8 +61,13 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-Capybara.server = :webrick
-# Capybara.server = :puma, { Silent: true }
+# Capybara.server = :webrick
+Capybara.register_server :thin do |app, port, host|
+   require 'rack/handler/thin'
+   Rack::Handler::Thin.run(app, :Port => port, :Host => host)
+end
+
+Capybara.server = :thin
 
 Capybara.javascript_driver = :webkit
 
@@ -99,4 +104,3 @@ Capybara::Webkit.configure do |config|
   # Raise JavaScript errors as exceptions
   config.raise_javascript_errors = true
 end
-
