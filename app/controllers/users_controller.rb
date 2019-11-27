@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_admin, except: :update_form_partial
     
-  private
-    def authenticate_admin
-       redirect_to '/', alert: 'You are not authorized to view this page. Redirected to home page.' unless current_user.admin?
-    end
-  
-  
   public
     def index
       respond_to do |format|
