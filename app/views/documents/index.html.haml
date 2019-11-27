@@ -2,6 +2,7 @@
   %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+  = stylesheet_link_tag "documents"
 
 %div.header
   %div.container-fluid
@@ -16,12 +17,38 @@
             %li.nav-item
               = link_to 'Documents', animal_documents_path, :class => "nav-link active"
 
-%h3 #{@animal.name}
+%div.container-fluid
+  %div.row
+    %div.col-12
+      .card{"data-toggle" => "lists", "data-options" => '{"valueNames": ["name"]}'.html_safe}
+        %div.card-header
+          %div.row.align-items-center
+            %div.col
+              %h4.card-header-title Files
+            %div.col-auto
+              %div.dropdown
+            %div.col-auto
+              %button.UppyModalOpenerBtn.btn.btn-sm.btn-outline-primary Upload
+              %div.DashboardContainer
+              = form_with model: @animal, id: "form-uppy"
+              = javascript_pack_tag 'uppy'
+        %div.card-header
+          %div.row
+            %div.col-12
+        %div.card-body
+          %ul.list-group.list-group-lg.list-group-flush.list.my-n4
+            - @documents.each do |document|
+              %li.list-group-item.px-0
+                %div.row.align-items-center
+                  %div.col-auto
+                  %div.col.m1-n2
+                  %div.col-auto
+                    = link_to 'Download', animal_documents_path, :class => "btn btn-sm btn-white d-none d-md-inline-block"
+                  %div.col-auto
+                    %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
+                      %i.fe.fe-more-vertical
 
-%button.UppyModalOpenerBtn.btn.btn-outline-primary Open Dashboard
-%div.DashboardContainer
-= form_with model: @animal, id: "form-uppy"
-= javascript_pack_tag 'uppy'
+%h3 #{@animal.name}
 
 %table
   %thead

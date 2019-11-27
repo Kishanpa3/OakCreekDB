@@ -7,7 +7,7 @@ s3_options = {
   secret_access_key: Rails.application.credentials.secret_access_key,
   region:            Rails.application.credentials.region,
 }
- 
+
 Shrine.storages = { 
   cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
   store: Shrine::Storage::S3.new(**s3_options),
