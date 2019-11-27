@@ -29,20 +29,6 @@ class UsersController < ApplicationController
       redirect_to users_index_path approved: params[:approved]
     end
     
-    # Used for updating the partials on the login page
-    def update_form_partial
-      case params[:form]
-        when "sign_up"
-          render json: { html: render_to_string(partial: 'devise/shared/form_partials/sign_up') }
-        when "confirm"
-          render json: { html: render_to_string(partial: 'devise/shared/form_partials/confirm') }
-        when "reset"
-          render json: { html: render_to_string(partial: 'devise/shared/form_partials/reset') }
-        else
-          redirect_to "/users/sign_in"
-      end
-    end
-  
     def serve_index_partial
       render json: { html: render_to_string(partial: 'users/update', locals: {:user => params}) }
     end

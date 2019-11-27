@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   match 'users/:id' => 'users#update', :via => :patch, :as => :users_update
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :users_destroy
   get '/update_form' => "users#update_form_partial", as: :update_form
-  get 'users/index_partial', to: 'users#serve_index_partial', as: 'request_index_partial'
+  get 'users/index_partial', to: 'application#serve_index_partial', as: 'request_index_partial'
   
   #Redirect non-existent routes to animals index page  
   match '/*paths', :to => 'animals#index', via: [:get, :post]
