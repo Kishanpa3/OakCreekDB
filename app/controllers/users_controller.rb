@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     def update
       if params[:users]
         User.update(params[:users].keys, params[:users].values)
-      else
       end
     end
   
