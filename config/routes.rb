@@ -22,8 +22,10 @@ Rails.application.routes.draw do
   get '/update_form' => "users#update_form_partial", as: :update_form
   get 'users/index_partial', to: 'users#serve_index_partial', as: 'request_index_partial'
   
-  
+  #Redirect non-existent routes to animals index page  
   match '/*paths', :to => 'animals#index', via: [:get, :post]
+
+
   # Example resource route with options:
   #   resources :products do
   #     member do
