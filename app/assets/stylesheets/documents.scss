@@ -1,6 +1,7 @@
 // Place all the styles related to the Documents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -11743,33 +11744,6 @@ strong {
 a:focus,
 button:focus {
  outline:none!important
-}
-@font-face {
- font-family:Cerebri Sans;
- src:url(../fonts/cerebrisans/cerebrisans-regular.eot);
- src:url(../fonts/cerebrisans/cerebrisans-regular.eot?#iefix) format("embedded-opentype"),
- url(../fonts/cerebrisans/cerebrisans-regular.woff) format("woff"),
- url(../fonts/cerebrisans/cerebrisans-regular.ttf) format("truetype");
- font-weight:400;
- font-style:normal
-}
-@font-face {
- font-family:Cerebri Sans;
- src:url(../fonts/cerebrisans/cerebrisans-medium.eot);
- src:url(../fonts/cerebrisans/cerebrisans-medium.eot?#iefix) format("embedded-opentype"),
- url(../fonts/cerebrisans/cerebrisans-medium.woff) format("woff"),
- url(../fonts/cerebrisans/cerebrisans-medium.ttf) format("truetype");
- font-weight:500;
- font-style:normal
-}
-@font-face {
- font-family:Cerebri Sans;
- src:url(../fonts/cerebrisans/cerebrisans-semibold.eot);
- src:url(../fonts/cerebrisans/cerebrisans-semibold.eot?#iefix) format("embedded-opentype"),
- url(../fonts/cerebrisans/cerebrisans-semibold.woff) format("woff"),
- url(../fonts/cerebrisans/cerebrisans-semibold.ttf) format("truetype");
- font-weight:600;
- font-style:normal
 }
 .bg-fixed-bottom {
  background-repeat:no-repeat;
