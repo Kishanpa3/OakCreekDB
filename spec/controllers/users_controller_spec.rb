@@ -3,16 +3,9 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 
   before (:each) do
-    admin = User.create(first_name: "Admin",
-      last_name: "Adminn",
-      email: "admin@admin.com",
-      password:              "adminnn",
-      password_confirmation: "adminnn",
-      admin:    true,
-      approved: true,
-      confirmed_at: Time.zone.now)
+    @user = FactoryBot.create(:user)
       
-    sign_in admin
+    sign_in @user
   end
 
 
