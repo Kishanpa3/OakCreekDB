@@ -85,3 +85,7 @@ th {
 #animalCard{
     font-size:15px;
 }
+
+a[data-wysihtml5-command="underline"]{
+    display:none !important;
+}

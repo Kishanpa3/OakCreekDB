@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 1eca876eeb430541bfe4158b9f798913ef57b37a
+  branch: master
+  specs:
+    faker (2.7.0)
+      i18n (>= 1.6, < 1.8)
+
+GIT
   remote: https://github.com/rspec/rspec-core
   revision: b7067c5da4fde57cbbff739b168008482e61db44
   specs:
@@ -23,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails
-  revision: e50def6ad42a5d5a648d1ee7854966407bb6f4c4
+  revision: 9805caec345784d69e20c585f4ddd926254deef0
   specs:
     rspec-rails (4.0.0.pre)
       actionpack (>= 4.2)
@@ -161,6 +169,11 @@ GEM
     erubi (1.9.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
+    factory_bot (5.1.1)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.1)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
     ffi (1.11.2)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -307,7 +320,7 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tinymce-rails (5.1.1)
+    tinymce-rails (5.1.2)
       railties (>= 3.1.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -340,6 +353,8 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise (~> 4.2)
+  factory_bot_rails
+  faker!
   figaro (~> 1.1, >= 1.1.1)
   haml
   jbuilder (~> 2.7)

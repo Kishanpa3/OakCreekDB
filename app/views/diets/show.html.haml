@@ -12,29 +12,38 @@
     = link_to 'Documents', animals_path, :class => "nav-link"
 %div#animalCard.card
   %div.form-row
+    %div.form-group.col-sm-1.col-sm-3
+      = image_tag("transparent logo.png", :size => "200x200")
     %div.form-group.col-sm-9.col-sm-3
       %h3= @animal.name
-      %div.form-row.form-group.col-sm-4.sm-3
-        = label :diet, :dish, 'Instructions:'
-      %div.form-row.form-group.col-sm-4.sm-3
-        = simple_format(@diet.instructions)
-      %div.form-row.form-group.col-sm-4.sm-3
-        = label :diet, :dish, 'Dish:'
-      %div.form-row.form-group.col-sm-4.sm-3
-        = simple_format(@diet.dish)
-      %div.form-row.form-group.col-sm-4.sm-3
-        = label :diet, :am, 'AM:'
-      %div.form-row.form-group.col-sm-4.sm-3
-        = simple_format(@diet.am)
-      %div.form-row.form-group.col-sm-4.sm-3
-        = label :diet, :pm, 'PM:'
-      %div.form-row.form-group.col-sm-4.sm-3
-        = simple_format(@diet.pm)
-    
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :dish, 'Instructions:'
+              %div.card-text= simple_format(@diet.instructions)
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :dish, 'Dish:'
+              %div.card-text= simple_format(@diet.dish)
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :am, 'AM:'
+              %div.card-text= simple_format(@diet.am)
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :pm, 'PM:'
+              %div.card-text= simple_format(@diet.pm)
 %ul.nav.nav-pills
   %li.nav-item.nav-link
     = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
   %li.nav-item.nav-link
     = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
   %li.nav-item.nav-link
-    = link_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+    = link_to 'Delete', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
