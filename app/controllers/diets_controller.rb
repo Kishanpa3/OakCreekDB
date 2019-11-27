@@ -10,8 +10,8 @@ class DietsController < ApplicationController
   end
   
   def new
-   @diet = Diet.new 
-   @diet.animal_id = @animal.id
+    @diet = Diet.new 
+    @diet.animal_id = @animal.id
   end
 
   def edit
