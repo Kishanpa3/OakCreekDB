@@ -1,4 +1,10 @@
 class AnimalsController < ApplicationController
+  # before_action :authenticate_view_permissions, only: [:show, :edit]
+  before_action :authenticate_add_permissions, only: [:create, :new]
+  before_action :authenticate_edit_permissions, only: [:update, :edit]
+  before_action :authenticate_delete_permissions, only: [:destroy]
+  
+  
   def animals_params
     params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight)
   end
