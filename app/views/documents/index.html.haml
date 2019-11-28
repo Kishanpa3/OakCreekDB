@@ -24,7 +24,7 @@
         %div.card-header
           %div.row.align-items-center
             %div.col
-              %h4.card-header-title Files
+              %h4.card-header-title Files - #{@animal.name}
             %div.col-auto
               %div.dropdown
             %div.col-auto
@@ -57,9 +57,7 @@
                   %div.col-auto
                     %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
                       %i.material-icons.md-18 more_vert
-  = will_paginate @documents, renderer: @custom_paginate_renderer 
-
-%h3 #{@animal.name}
+  = will_paginate @documents, renderer: @custom_paginate_renderer
 
 %table
   %thead
