@@ -6,10 +6,10 @@ const randomstring = require('randomstring')
 // Import the plugins
 const Uppy = require('@uppy/core')
 const Dashboard = require('@uppy/dashboard')
-const GoogleDrive = require('@uppy/google-drive')
-const Dropbox = require('@uppy/dropbox')
-const Facebook = require('@uppy/facebook')
-const Instagram = require('@uppy/instagram')
+// const GoogleDrive = require('@uppy/google-drive')
+// const Dropbox = require('@uppy/dropbox')
+// const Facebook = require('@uppy/facebook')
+// const Instagram = require('@uppy/instagram')
 const Webcam = require('@uppy/webcam')
 const AwsS3Multipart = require('@uppy/aws-s3-multipart')
 
@@ -43,10 +43,10 @@ const uppy = Uppy({
   browserBackButtonClose: true,
   closeAfterFinish: false
 })
-.use(GoogleDrive, { target: Dashboard, companionUrl: '/' })
-.use(Dropbox, { target: Dashboard, companionUrl: 'https://companion.uppy.io' })
-.use(Facebook, { target: Dashboard, companionUrl: '/' })
-.use(Instagram, { target: Dashboard, companionUrl: '/' })
+// .use(GoogleDrive, { target: Dashboard, companionUrl: '/' })
+// .use(Dropbox, { target: Dashboard, companionUrl: '/' })
+// .use(Facebook, { target: Dashboard, companionUrl: '/' })
+// .use(Instagram, { target: Dashboard, companionUrl: '/' })
 .use(Webcam, { target: Dashboard, facingMode: 'environment' })
 .use(AwsS3Multipart, { companionUrl: '/' })
 
