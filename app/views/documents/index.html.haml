@@ -5,7 +5,7 @@
   = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons", "documents"
 
 %div.header
-  %div.container-fluid
+  %div.container
     %div.header-body
       %div.row.align-items-center
         %div.col
@@ -17,7 +17,7 @@
             %li.nav-item
               = link_to 'Documents', animal_documents_path, :class => "nav-link active"
 
-%div.container-fluid
+%div.container
   %div.row
     %div.col-12
       .card{"data-toggle" => "lists", "data-options" => '{"valueNames": ["name"]}'.html_safe}
@@ -46,7 +46,12 @@
               %li.list-group-item.px-0
                 %div.row.align-items-center
                   %div.col-auto
+                    %a.avatar.avatar-lg{:href => "#!"}
+                      %img.avatar-img.rounded{:src => document.file_url(:small), :alt => "..."}
                   %div.col.m1-n2
+                    %h4.card-title.mb-1.name
+                      = link_to document.file.original_filename, animal_documents_path
+                    %p.card-text.small.text-muted.mb-1 Type
                   %div.col-auto
                     = link_to 'Download', animal_documents_path, :class => "btn btn-sm btn-white d-none d-md-inline-block"
                   %div.col-auto
