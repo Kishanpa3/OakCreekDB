@@ -12938,3 +12938,20 @@ button:focus {
 .is-invalid~.select2 .select2-selection {
  border-color:#e63757!important
 }
+
+.material-icons {
+  font-family: 'Material Icons';
+  speak: none;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  -moz-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.material-icons.md-18 { font-size: 18px; }
