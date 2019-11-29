@@ -21,15 +21,13 @@
         #navbarTogglerDemo03.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
             %li.nav-item.active
-              = link_to 'Home', root_path, class: "nav-link"
-            %li.nav-item
-              %a.nav-link{:href => "#"} Link
-          %form.form-inline.my-2.my-lg-0
-            %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-            %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
-
-            // = link_to image_tag("transparent logo.png", :size => "50x50"), animals_path
-            // = link_to "Oak Creek Zoological Conservatory", animals_path, :id => "banner", :class => "btn btn-link"
+              = link_to 'Home', animals_path, class: "nav-link"
+          - if current_user.admin?
+            = link_to 'Admin Dashboard', users_index_path, :class => "btn btn-primary float-right"
+          = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger float-right ml-2"
+          // %form.form-inline.my-2.my-lg-0
+          //   %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
+          //   %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
     
     - unless content_for?(:alerts)
       = render "layouts/alerts"

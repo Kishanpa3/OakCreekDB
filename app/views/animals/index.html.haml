@@ -8,11 +8,8 @@
   %div.col-6
     %h2 All Animals
   %div.col-6.mb-1
-    = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger float-right ml-2"
     = link_to 'Add New Animal', new_animal_path, :class => "btn btn-success float-right ml-2"
-    - if current_user.admin?
-      = link_to 'Admin Dashboard', users_index_path, :class => "btn btn-primary float-right"
-    
+
 %table#dtSearch.table.table-striped.table-bordered.table-lg
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}

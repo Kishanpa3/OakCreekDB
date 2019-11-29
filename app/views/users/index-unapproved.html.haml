@@ -1,6 +1,7 @@
 %head
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
-  = stylesheet_link_tag "application"
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   = stylesheet_link_tag "devise/users"
     
 %div.d-flex.flex-row 
@@ -10,9 +11,6 @@
         = link_to 'Approved Users', users_index_path, :class => "nav-link"
       %li.nav-item
         %a.nav-link.active Unapproved Users
-  %div.col-6.mb-1
-    = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger float-right ml-2"
-    = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
 
 %table#userTable.table.table-striped.table-bordered.table-lg
 
