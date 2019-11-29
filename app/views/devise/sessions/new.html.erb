@@ -1,11 +1,10 @@
 <head>
   <%= stylesheet_link_tag 'devise/login'%>
-
-  <% content_for :title do %>
-    <!--This block removes application title from view -->
-  <% end %>
+  <% no_content_for :stylesheet %>
+  <% no_content_for :title %>
+  <% no_content_for :alerts %>
 </head>
-
+  
 
 <body>
   <div class="wrapper fadeInDown">
@@ -21,6 +20,7 @@
         <!-- Login Form -->
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "layouts/alerts" %>
           
           <div class="fadeIn second">
             <%= f.label :email, style: 'display: none'%>

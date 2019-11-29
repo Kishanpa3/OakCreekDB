@@ -17,7 +17,6 @@ module ApplicationHelper
     devise_mapping.to
   end
 
-
 #PERMISSON HELPERS FOR ABSTRACTING PERMISSION CHECKS
   def has_view_permissions
     _can_view = current_user.admin? || current_user.can_view?
@@ -33,5 +32,13 @@ module ApplicationHelper
   
   def has_delete_permissions
     _can_delete = current_user.admin? || current_user.can_delete?
+  end
+
+#CONTENT HELPER FOR MORE DRY VIEWS
+  def no_content_for(symbol)
+    # content can't be an empty string, so fill it with nbsp symbol
+    content_for(symbol) do 
+      ' &nbsp '
+    end  
   end
 end
