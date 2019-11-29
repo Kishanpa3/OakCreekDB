@@ -73,10 +73,9 @@ th {
     padding-left: 0.5rem;
 }
 
-#banner {
+#navbar-container a {
     text-decoration: none;
-    color: #000000;
-    font-size: 36px;
+    color: #FFFFFF;
 }
 
 #dtSearch_length {

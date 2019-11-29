@@ -12,22 +12,24 @@
     
   %body
     - unless content_for?(:title)
-      %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-5
-        %button.navbar-toggler{"aria-controls" => "navbarTogglerDemo03", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarTogglerDemo03", "data-toggle" => "collapse", :type => "button"}
-          %span.navbar-toggler-icon
-        %div.logo
-          = link_to image_tag("logo-notext.png"), animals_path, id: "nav-logo", class: "logo-items"
-          = link_to 'OakCreek DB', root_path, id: "nav-text", class: "navbar-brand nav-link logo-item"
-        #navbarTogglerDemo03.collapse.navbar-collapse
-          %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
-            %li.nav-item.active
-              = link_to 'Home', animals_path, class: "nav-link"
-          - if current_user.admin?
-            = link_to 'Admin Dashboard', users_index_path, :class => "btn btn-primary float-right"
-          = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger float-right ml-2"
-          // %form.form-inline.my-2.my-lg-0
-          //   %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-          //   %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+      %div#navbar-container
+        %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-5
+          %button.navbar-toggler{"aria-controls" => "navbarTogglerDemo03", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarTogglerDemo03", "data-toggle" => "collapse", :type => "button"}
+            %span.navbar-toggler-icon
+          %div.logo
+            = link_to image_tag("logo-notext.png"), animals_path, id: "nav-logo", class: "logo-items"
+            = link_to 'OakCreekDB', root_path, id: "nav-text", class: "navbar-brand nav-link logo-item"
+          #navbarTogglerDemo03.collapse.navbar-collapse
+            %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+              %li.nav-item.active
+                = link_to 'Home', animals_path, class: "nav-link"
+            = link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_registration_path, class: "nav-link"
+            - if current_user.admin?
+              = link_to 'Admin Dashboard', users_index_path, :class => "btn btn-primary float-right"
+            = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger float-right ml-2"
+            // %form.form-inline.my-2.my-lg-0
+            //   %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
+            //   %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
     
     - unless content_for?(:alerts)
       = render "layouts/alerts"
