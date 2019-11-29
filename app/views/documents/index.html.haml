@@ -2,6 +2,7 @@
   %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+  %script{:src => "//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"}
   = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons", "documents"
 
 %div.header
@@ -55,14 +56,20 @@
                   %div.col-auto
                     = link_to 'Download', animal_documents_path, :class => "btn btn-sm btn-white d-none d-md-inline-block"
                   %div.col-auto
-                    %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
-                      %i.material-icons.md-18 more_vert
+                    %div.dropdown
+                      %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
+                        %i.material-icons.md-18 more_vert
+                      %div.dropdown-menu.dropdown-menu-right
+                        = link_to 'Action', animal_documents_path, :class => "dropdown-item"
+                        = link_to 'Another action', animal_documents_path, :class => "dropdown-item"
+                        = link_to 'Something else here', animal_documents_path, :class => "dropdown-item"
+                      
   = will_paginate @documents, renderer: @custom_paginate_renderer
 
 %table
   %thead
     %tr
-      %th Thumbnail
+      %th 
   %tbody
     - @documents.each do |document|
       %tr
