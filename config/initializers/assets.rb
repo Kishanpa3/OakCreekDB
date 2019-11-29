@@ -14,4 +14,5 @@ Rails.application.config.assets.precompile += %w( diets.js )
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( devise/*.css )
+Rails.application.config.assets.precompile += %w( profile.css )
 # Rails.application.config.assets.precompile += %w( devise/login.css )
