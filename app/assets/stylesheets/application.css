@@ -53,6 +53,26 @@ th {
     z-index: 1;
 }
 
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.logo-item {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+#nav-logo img {
+    height: 30px;
+    width: auto;
+}
+
+#nav-text {
+    padding-left: 0.5rem;
+}
+
 #banner {
     text-decoration: none;
     color: #000000;
