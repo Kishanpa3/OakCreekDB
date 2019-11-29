@@ -1,9 +1,7 @@
 <head>
   <%= stylesheet_link_tag 'devise/login'%>
-
-  <% content_for :title do %>
-    <!--This block removes application title from view -->
-  <% end %>
+  <% no_content_for :title %>
+  <% no_content_for :alerts %>
 </head>
 
 
@@ -21,6 +19,7 @@
         <!-- Password Form -->
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "layouts/alerts" %>
         
           <div class="field fadeIn first">
             <%= f.label :email, style: 'display: none' %><br />

@@ -1,0 +1,15 @@
+- if flash[:notice]
+  %div#notice.message.alert.alert-success.alert-dismissible{:role => "alert"}
+    = flash[:notice]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+- elsif flash[:warning]
+  %div#warning.message.alert.alert-warning.alert-dismissible{:role => "alert"}
+    = flash[:warning]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+- elsif flash[:alert]
+  %div#alert.message.alert.alert-danger.alert-dismissible{:role => "alert"}
+    = flash[:alert]
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×

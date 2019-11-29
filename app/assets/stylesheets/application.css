@@ -37,37 +37,41 @@ th {
     padding-bottom: 0.5em;
 }
 
-.table.table-striped.table-bordered.table-lg{
+.table.table-striped.table-bordered.table-lg {
     width:100% !important;
 }
 
-.pagination{
+.pagination {
     padding: 0px 10px 5px 5px;
 }
 
-.form-control{
+.form-control {
     font-size: 15px !important;
 }
 
-#banner{
+.alert {
+    z-index: 1;
+}
+
+#banner {
     text-decoration: none;
     color: #000000;
     font-size: 36px;
 }
 
-#dtSearch_length{
+#dtSearch_length {
     padding: 0px 0px 0px 15px;
 }
 
-#dtSearch_filter{
+#dtSearch_filter {
     padding: 0px 15px 0px 0px;
 }
 
-#dtSearch_info{
+#dtSearch_info {
     padding: 0px 0px 0px 10px;
 }
 
-#dtSearch{
+#dtSearch {
     padding: 0px 0px 0px 0px;
 }
 
@@ -82,10 +86,10 @@ th {
     padding: 10px 0px 0px 10px;
 }
 
-#animalCard{
+#animalCard {
     font-size:15px;
 }
 
-a[data-wysihtml5-command="underline"]{
+a[data-wysihtml5-command="underline"] {
     display:none !important;
 }
