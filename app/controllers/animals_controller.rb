@@ -4,9 +4,11 @@ class AnimalsController < ApplicationController
   end
   
   def index
+    @allAnimals = Animal.joins(:diet)
     respond_to do |format|
       format.html
       format.json { render json: AnimalDatatable.new(view_context) }
+      format.csv { send_data @allAnimals.toCSV }
     end
     # @animals = Animal.all
   end
