@@ -42,7 +42,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal = Animal.find(params[:id])
     @animal.destroy
-    flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' deleted."
+    flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' successfully deleted."
     redirect_to animals_path
   end
 end

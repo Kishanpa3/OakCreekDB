@@ -20,9 +20,7 @@ class DietsController < ApplicationController
     end
     
     def show
-        id = params[:id]
         @diet = Diet.find_or_create_by(animal_id: params[:animal_id])
-        
     end
 
     def update
@@ -33,7 +31,10 @@ class DietsController < ApplicationController
     end
     
     def destroy
+        @diet = Diet.find_by(animal_id: params[:animal_id])
         @diet.destroy
+        flash[:notice] = "Diet for #{@animal.common_name} '#{@animal.name}' deleted."
+        redirect_to animal_diet_path(@animal)
     end
     
     def set_animal
