@@ -3,9 +3,8 @@
   %script{:type => "text/javascript", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", :integrity =>"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", :crossorigin => "anonymous"}
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
-  %script{:type => "text/javascript", :src => "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.js"}
+  %script{:type => "text/javascript", :src => "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"}
   = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons", "documents"
-
 
 %div.header
   %div.container
@@ -68,22 +67,25 @@
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
 
-%div.hacker-list
+%div.test-list
   %input.search
   %ul.list
     %li
       %h3.name Jonny
-      %p.city Stockholm
     %li
       %h3.name Jonas
-      %p.city Berlin
+    %li
+      %h3.name Jack
+  %ul.pagination
       
 :javascript
   var options = {
-    valueNames: [ 'name', 'city' ]
+    valueNames: ['name'],
+    page: 2,
+    pagination: true
   };
 
-  var filterList = new List('hacker-list', options);
+  var filterList = new List('test-list', options);
 
 
 

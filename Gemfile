@@ -12,7 +12,7 @@ gem 'sass-rails', '~> 5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-#gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 4.0'
 # Use Haml as the templating library
 gem 'haml'
 # Use jquery as the JavaScript library
@@ -42,8 +42,6 @@ gem "uppy-s3_multipart", "~> 0.3"   # resumable direct upload
 # gem "streamio-ffmpeg"             # transcoding videos - https://shrinerb.com/docs/processing#processing-other-filetypes
 # USEFUL SHRINE LINKS:
 # https://shrinerb.com/docs/getting-started
-
-gem 'webpacker', '~> 4.0'
 
 # Used for handling datatable AJAX requests
 gem 'will_paginate'
