@@ -66,27 +66,3 @@
                         = link_to 'Something else here', animal_documents_path, :class => "dropdown-item"
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
-
-%div.test-list
-  %input.search
-  %ul.list
-    %li
-      %h3.name Jonny
-    %li
-      %h3.name Jonas
-    %li
-      %h3.name Jack
-  %ul.pagination
-      
-:javascript
-  var options = {
-    valueNames: ['name'],
-    page: 2,
-    pagination: true
-  };
-
-  var filterList = new List('test-list', options);
-
-
-
-
