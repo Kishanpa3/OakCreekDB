@@ -22,7 +22,7 @@
 %div.container
   %div.row
     %div.col-12
-      .card{"data-toggle" => "lists", "data-options" => '{"valueNames": ["name"]}'.html_safe}
+      %div#filter-list.card{"data-toggle" => "lists", "data-options" => '{"valueNames": ["name", "meta"]}'.html_safe}
         %div.card-header
           %div.row.align-items-center
             %div.col
@@ -42,7 +42,7 @@
                 %div.input-group-prepend
                   %div.input-group-text
                     %span.material-icons.md-18 search
-        %div#filter-list.card-body
+        %div.card-body
           %ul.list-group.list-group-lg.list-group-flush.list.my-n4
             - @documents.each do |document|
               %li.list-group-item.px-0
@@ -66,3 +66,14 @@
                         = link_to 'Something else here', animal_documents_path, :class => "dropdown-item"
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
+      
+:javascript
+  var options = {
+    valueNames: [ 'name', 'meta' ]
+  };
+
+  var filterList = new List('filter-list', options);
+
+
+
+
