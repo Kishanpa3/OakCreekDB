@@ -9,6 +9,7 @@ class DocumentsController < ApplicationController
   end
   
   def index
+    # @documents = Document.where(animal_id: params[:animal_id])
     @documents = Document.where(animal_id: params[:animal_id]).paginate(page: params[:page], per_page: 25)
     @custom_paginate_renderer = custom_paginate_renderer
   end

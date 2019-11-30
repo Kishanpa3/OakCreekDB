@@ -1,10 +1,11 @@
 %head
-  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.slim.min.js", :integrity=> "sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n", :crossorigin=> "anonymous"}
   %script{:type => "text/javascript", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", :integrity =>"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", :crossorigin => "anonymous"}
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
-  %script{:src => "//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"}
+  %script{:type => "text/javascript", :src => "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.js"}
   = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons", "documents"
+
 
 %div.header
   %div.container
@@ -42,7 +43,7 @@
                 %div.input-group-prepend
                   %div.input-group-text
                     %span.material-icons.md-18 search
-        %div.card-body
+        %div#filter-list.card-body
           %ul.list-group.list-group-lg.list-group-flush.list.my-n4
             - @documents.each do |document|
               %li.list-group-item.px-0
@@ -53,7 +54,7 @@
                   %div.col.m1-n2
                     %h4.card-title.mb-1.name
                       = link_to document.file.original_filename, animal_documents_path
-                    %p.card-text.small.text-muted.mb-1.metadata Metadata
+                    %p.card-text.small.text-muted.mb-1.meta Metadata
                   %div.col-auto
                     = link_to 'Download', animal_documents_path, :class => "btn btn-sm btn-white d-none d-md-inline-block"
                   %div.col-auto
@@ -67,14 +68,22 @@
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
 
-%table
-  %thead
-    %tr
-      %th 
-  %tbody
-    - @documents.each do |document|
-      %tr
-        %img{:src => document.file_url(:small)}
+%div.hacker-list
+  %input.search
+  %ul.list
+    %li
+      %h3.name Jonny
+      %p.city Stockholm
+    %li
+      %h3.name Jonas
+      %p.city Berlin
+      
+:javascript
+  var options = {
+    valueNames: [ 'name', 'city' ]
+  };
+
+  var filterList = new List('hacker-list', options);
 
 
 
