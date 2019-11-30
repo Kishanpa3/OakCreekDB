@@ -61,9 +61,9 @@
                       %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
                         %i.material-icons.md-18 more_vert
                       %div.dropdown-menu.dropdown-menu-right
-                        = link_to 'Action', animal_documents_path, :class => "dropdown-item"
+                        = link_to 'Download', animal_documents_path, :class => "dropdown-item"
                         = link_to 'Another action', animal_documents_path, :class => "dropdown-item"
-                        = link_to 'Something else here', animal_documents_path, :class => "dropdown-item"
+                        = link_to 'Delete', animal_documents_path, :class => "dropdown-item text-danger"
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
       
