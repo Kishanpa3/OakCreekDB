@@ -11963,8 +11963,6 @@ button:focus {
 }
 .avatar-offline .avatar-img,
 .avatar-online .avatar-img {
- -webkit-mask-image:url(../img/masks/avatar-status.svg);
- mask-image:url(../img/masks/avatar-status.svg);
  -webkit-mask-size:100% 100%;
  mask-size:100% 100%
 }
@@ -12042,8 +12040,6 @@ button:focus {
  margin-left:-2rem
 }
 .avatar-group .avatar:not(:last-child) {
- -webkit-mask-image:url(../img/masks/avatar-group.svg);
- mask-image:url(../img/masks/avatar-group.svg);
  -webkit-mask-size:100% 100%;
  mask-size:100% 100%
 }
@@ -12053,14 +12049,10 @@ button:focus {
  z-index:1
 }
 .avatar-group .avatar:hover+.avatar {
- -webkit-mask-image:url(../img/masks/avatar-group-hover.svg);
- mask-image:url(../img/masks/avatar-group-hover.svg);
  -webkit-mask-size:100% 100%;
  mask-size:100% 100%
 }
 .avatar-group .avatar:hover+.avatar:last-child {
- -webkit-mask-image:url(../img/masks/avatar-group-hover-last.svg);
- mask-image:url(../img/masks/avatar-group-hover-last.svg)
 }
 .chart {
  position:relative;
@@ -12185,8 +12177,6 @@ button:focus {
  position:relative
 }
 .icon.active>.fe {
- -webkit-mask-image:url(../img/masks/icon-status.svg);
- mask-image:url(../img/masks/icon-status.svg);
  -webkit-mask-size:100% 100%;
  mask-size:100% 100%
 }
