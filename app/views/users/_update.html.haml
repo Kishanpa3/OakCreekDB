@@ -3,7 +3,7 @@
     %div.modal-content
       %div.modal-header
         %h5#exampleModalLongTitle.modal-title #{user[:first_name]} #{user[:last_name]}
-        = link_to 'Delete', users_destroy_path(user[:id], :approved => params[:approved]), :method => :delete, :data => {:confirm => 'Are you sure?'}, :class => "btn btn-danger float-right ml-2"
+        = link_to 'Delete', users_destroy_path(user[:id], :approved => params[:approved]), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{user[:first_name]} #{user[:last_name]} ?"}, :class => "btn btn-danger float-right ml-2"
       %div.modal-body
         = form_with url: users_update_path(user[:id]), :method => :patch, :html => { :onsubmit => "$('#userModal').modal('toggle');" } do |f|
           %div.form-row
