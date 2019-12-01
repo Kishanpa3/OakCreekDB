@@ -3,39 +3,39 @@
     %div.modal-content
       %div.modal-header
         %h5#exampleModalLongTitle.modal-title #{user[:first_name]} #{user[:last_name]}
-        = link_to 'Delete', users_destroy_path(user[:id], :approved => params[:approved]), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{user[:first_name]} #{user[:last_name]} ?"}, :class => "btn btn-danger float-right ml-2"
+        = link_to 'Delete', users_destroy_path(user[:id], :approved => params[:approved]), :method => :delete, :class => "btn btn-danger float-right ml-2"
       %div.modal-body
         = form_with url: users_update_path(user[:id]), :method => :patch, :html => { :onsubmit => "$('#userModal').modal('toggle');" } do |f|
           %div.form-row
             %div.form-group.col-sm-6
-              = label :user, :first_name, 'First Name'
+              = f.label "users_#{user[:id]}_first_name", "First Name"
               = text_field "users[#{user[:id]}]", 'first_name', value: user[:first_name], :class => "form-control"
             %div.form-group.col-sm-6
-              = label :user, :last_name, 'Last Name'
+              = f.label "users_#{user[:id]}_last_name", "Last Name"
               = text_field "users[#{user[:id]}]", 'last_name', value: user[:last_name], :class => "form-control"
           %div.form-row
             %div.form-group.col-sm-12
-              = label :user, :email, 'Email'
+              = f.label "users_#{user[:id]}_email", "Email"
               = text_field "users[#{user[:id]}]", 'email', value: user[:email], :class => "form-control"
           %div.form-row
             %div.form-group.col-sm-3{ :style => "border-right: 1px solid #333;" } 
               - if params[:approved]
-                = label :user, :approved, 'Approved'
+                = f.label "users[#{user[:id]}][approved]", "Approved"
                 = f.check_box "users[#{user[:id]}][approved]", {checked: (user[:approved] === "true"), :class => "form-control"}, 'true', 'false'
               - else 
-                = label :user, :admin, 'Administrator'
+                = f.label "users[#{user[:id]}][admin]", "Administrator"
                 = f.check_box "users[#{user[:id]}][admin]", {checked: (user[:admin] === "true"), :class => "form-control"}, 'true', 'false'
             %div.form-group.col-sm-2.ml-3
-              = label :user, :can_view, 'View'
+              = f.label "users[#{user[:id]}][can_view]", "View"
               = f.check_box "users[#{user[:id]}][can_view]", {checked: (user[:can_view] === "true"), :class => "form-control"}, 'true', 'false'
             %div.form-group.col-sm-2
-              = label :user, :can_edit, 'Edit'
+              = f.label "users[#{user[:id]}][can_edit]", "Edit"
               = f.check_box "users[#{user[:id]}][can_edit]", {checked: (user[:can_edit] === "true"), :class => "form-control"}, 'true', 'false'
             %div.form-group.col-sm-2
-              = label :user, :can_add, 'Add'
+              = f.label "users[#{user[:id]}][can_add]", "Add"
               = f.check_box "users[#{user[:id]}][can_add]", {checked: (user[:can_add] === "true"), :class => "form-control"}, 'true', 'false'
             %div.form-group.col-sm-2
-              = label :user, :can_delete, 'Delete'
+              = f.label "users[#{user[:id]}][can_delete]", "Delete"
               = f.check_box "users[#{user[:id]}][can_delete]", {checked: (user[:can_delete] === "true"), :class => "form-control"}, 'true', 'false'
           %div.modal-footer.flex-row
             %div.col-7.p-0

@@ -19,6 +19,6 @@ Background: Database Setup
     
     
 Scenario: Try to read entry
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     Then I should be on the "Otto" page
     

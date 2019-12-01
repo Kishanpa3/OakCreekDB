@@ -52,12 +52,71 @@ Scenario: Sorting Admin Dashboard
     Then I should see "User" in the first table row of "userTable"
     When I sort by "Email" on the table "userTable"
     Then I should see "User" in the first table row of "userTable"
+
+
+Scenario: Editing User Profile as an Admin
+    Then I should see "All Animals"
+    Then I follow the link "Admin Dashboard"
+    When I sort by "Last Name" on the table "userTable"
+    When I sort by "Last Name" on the table "userTable"
+    Then I should see "McUserFace" in the first table row of "userTable"
+    Then I click on the first table row of "userTable"
+    Then I should see "Created:" within the modal "#modalContainer"
+    Given I fill text field "First Name" with "Felipe" within the modal "#modalContainer"
+    And I press the button "Update" within the modal "#modalContainer"
+    Given I am on the Oak Creek home page
+    Then I follow the link "Admin Dashboard"
+    Then I should see "Felipe" in the table "userTable"
+    
+# # This test is really finicky (works some times) - seems like Capybara has trouble accepting confirms?
+# Scenario: Deleting User Profile as an Admin
+#     Then I should see "All Animals"
+#     Then I follow the link "Admin Dashboard"
+#     When I sort by "Last Name" on the table "userTable"
+#     When I sort by "Last Name" on the table "userTable"
+#     Then I should see "McUserFace" in the first table row of "userTable"
+#     Then I click on the first table row of "userTable"
+#     Then I should see "Created:" within the modal "#modalContainer"
+#     Given I follow the link "Delete" and confirm within the modal "#modalContainer"
+#     Then I should see "User 'User McUserFace' successfully deleted."
+#     Given I am on the Oak Creek home page
+#     Then I follow the link "Admin Dashboard"
+#     Then I should not see "McUserFace" in the table "userTable"
     
     
 Scenario: No Admin Dashboard
     Given I am signed out
-    Given I have registered a user with the credentials "Plain" "User" "use123r@email.com" "abc123"
+    Given I have registered a user with the credentials "Plain" "User" "plain_user@email.com" "abc123"
     Given I am on the User login page
-    Given I sign in as an "User" with the email "use123r@email.com" and the password "abc123"
+    Given I sign in as an "User" with the email "plain_user@email.com" and the password "abc123"
     Then I should see "All Animals"
     And I should not see "Admin Dashboard"
+    
+    
+Scenario: Editing User Profile
+    Given I am signed out
+    Given I have registered a user with the credentials "Plain" "User" "plain_user@email.com" "abc123"
+    Given I am on the User login page
+    Given I sign in as an "User" with the email "plain_user@email.com" and the password "abc123"
+    Given I follow the link "Plain User"
+    Then I should see "Edit User"
+    And I should see "Delete Account"
+    Given I fill text field "First name" with "Edited"
+    And I fill text field "Last name" with "Name"
+    And I fill text field "Current password" with "abc123"
+    And I press the button "Update"
+    Then I should see "Your account has been updated successfully."
+    Then I should see "Edited Name"
+    
+    
+Scenario: Deleting User Profile
+    Given I am signed out
+    Given I have registered a user with the credentials "Plain" "User" "plain_user@email.com" "abc123"
+    Given I am on the User login page
+    Given I sign in as an "User" with the email "plain_user@email.com" and the password "abc123"
+    Given I follow the link "Plain User"
+    Given I press the button "Delete my account"
+    Then I should see "You need to sign in or sign up before continuing."
+    Given I sign in as an "Admin" with the email "user@email.com" and the password "abc123"
+    Then I follow the link "Admin Dashboard"
+    Then I should not see "plain_user@email.com" in the table "userTable"

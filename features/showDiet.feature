@@ -23,13 +23,13 @@ Scenario: Try to read an existing diet
     Given the following Diet table
         | Dish              | Animal Name   |
         | Black Bowl        | Otto          |
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
     Then I should see "Black Bowl"
     
 Scenario: Try to read a diet that doesn't exist in diets table
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
     Then I should see "Dish"

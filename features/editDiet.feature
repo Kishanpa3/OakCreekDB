@@ -23,7 +23,7 @@ Scenario: Try to edit an existing diet
     Given the following Diet table
         | Dish              | Animal Name   |
         | Black Bowl        | Otto          |
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
     When I follow the link "Edit"

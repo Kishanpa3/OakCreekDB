@@ -19,6 +19,6 @@ Background: Database Setup
 
 
 Scenario: Try to delete entry
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     When I follow the link "Delete"
     Then I should see "Entry for Brown Bear 'Otto' successfully deleted."

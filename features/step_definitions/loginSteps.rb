@@ -51,3 +51,10 @@ Given("I sign in as an {string} with the email {string} and the password {string
   click_button "Log in"
   page.should have_content "All Animals"
 end
+
+Given("I follow the link {string} and confirm") do |string|
+  accept_confirm do
+    click_link string
+  end
+end
+
