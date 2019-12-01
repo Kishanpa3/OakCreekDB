@@ -8,11 +8,11 @@
         = text_field :animal, 'name', :class => "form-control"
       %div.form-group.col-sm-4.sm-3
         = label :animal, :tag, 'Tag'
-        = text_field :animal, 'tag', :class => "form-control"
+        = text_field :animal, 'tag',  :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
         = label :animal, :common_name, 'Common Name'
-        = text_field :animal, 'common_name', :class => "form-control"
+        = text_field :animal, 'common_name',  :class => "form-control"
       %div.form-group.col-sm-4.sm-3
         = label :animal, :habitat_num, 'Habitat #'
         = text_field :animal, 'habitat_num', :class => "form-control"
@@ -21,24 +21,29 @@
         = label :animal, :species, 'Species'
         = text_field :animal, 'species', :class => "form-control"
       %div.form-group.col-sm-4.sm-3
-        = label :animal, :weight, 'Weight'
-        = text_field :animal, 'weight', :class => "form-control"
-    %div.form-row
-      %div.form-group.col-sm-4.sm-3
         = label :animal, :age, 'Age'
         = text_field :animal, 'age', :class => "form-control"
-      %div.form-group.col-sm-4.sm-3
-        = label :animal, :neutered, 'Neutered', :class => "col-form-label"
-        %div
-          = select :animal, :neutered, ['Yes','No','N\A'], :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
-        = label :animal, :dob, 'Date of Birth'
-        %div
-          = date_select :animal, :dob, :class => "form-control"
+        = label :animal, :weight, 'Weight'
+        = text_field :animal, 'weight', :class => "form-control"
       %div.form-group.col-sm-4.sm-3
         = label :animal, :sex, 'Sex'
-        %div
-          = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
-    = submit_tag 'Update Animal Info', :class => "btn btn-primary"
-  = link_to "Back", animal_path(@animal), :class => "btn btn-primary"
+        = select(:animal, :sex,  options_for_select([['Male'], ['Female'], ['N\A']]), { }, { :class => 'form-control' })
+        // = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
+    %div.form-row
+      %div.form-group.col-sm-4.sm-3
+        %label Date
+        %input.form-control{:type => "date", :name => "animal[dob]", :value => @animal.dob}
+
+      %div.form-group.col-sm-4.sm-3
+        = label :animal, :neutered, 'Neutered'
+        = select(:animal, :neutered,  options_for_select([['Yes'], ['No'], ['N\A']]), { }, { :class => 'form-control' })
+        // = select :animal, :neutered, ['Yes','No','N\A'], :class => "form-control"
+    
+    %div.form-row 
+      %ul.nav.nav-pills
+        %li.nav-item.nav-link.pl-2
+          = submit_tag 'Update Animal Info', :class => "btn btn-primary"
+        %li.nav-item.nav-link
+          = link_to "Back", animal_path(@animal), :class => "btn btn-secondary"

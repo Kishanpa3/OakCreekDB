@@ -26,20 +26,25 @@
     %div.form-row
       %div.form-group.col-sm-4.sm-3
         = label :animal, :weight, 'Weight'
-        %div
-          = text_field :animal, 'weight', :class => "form-control"
+        = text_field :animal, 'weight', :class => "form-control"
       %div.form-group.col-sm-4.sm-3
         = label :animal, :sex, 'Sex'
-        %div
-          = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
+        = select(:animal, :sex,  options_for_select([['Male'], ['Female'], ['N\A']]), { }, { :class => 'form-control' })
+        // = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
-        = label :animal, :dob, 'Date of Birth'
-        %div
-          = date_select :animal, :dob, :class => "form-control"
+        %label Date
+        %input.form-control{:type => "date", :name => "animal[dob]", :value => Date.today}
+
       %div.form-group.col-sm-4.sm-3
         = label :animal, :neutered, 'Neutered'
-        %div
-          = select :animal, :neutered, ['Yes','No','N\A'], :class => "form-control"
-    = submit_tag 'Save New Animal', :class => "btn btn-primary"
-    = link_to "Back", animals_path, :class => "btn btn-primary"
+        = select(:animal, :neutered,  options_for_select([['Yes'], ['No'], ['N\A']]), { }, { :class => 'form-control' })
+        // = select :animal, :neutered, ['Yes','No','N\A'], :class => "form-control"
+   
+    %div.form-row 
+      %ul.nav.nav-pills
+        %li.nav-item.nav-link.pl-2
+          = submit_tag 'Save New Animal', :class => "btn btn-primary"
+        %li.nav-item.nav-link
+          = link_to "Back", animals_path, :class => "btn btn-secondary"
+    
