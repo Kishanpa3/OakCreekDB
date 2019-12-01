@@ -33,3 +33,17 @@ Then("I should not see {string} in the first table row of {string}") do |string,
     first_row.should have_no_content string
   end
 end
+
+Then("I should see {string} in the table {string}") do |string, _table|
+  within_table _table do
+    table_body = find('tbody')
+    table_body.should have_content string
+  end
+end
+
+Then("I should not see {string} in the table {string}") do |string, _table|
+  within_table _table do
+    table_body = find('tbody')
+    table_body.should have_no_content string
+  end
+end

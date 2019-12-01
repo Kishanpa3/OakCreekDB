@@ -32,14 +32,14 @@ Scenario: Admin Dashboard
     Then I should see "All Animals"
     Then I follow the link "Admin Dashboard"
     Then I should see "Approved Users"
-    Then I should see "Jimmy"
-    And I should see "McUserFace"
-    And I should not see "Redd"
+    Then I should see "Jimmy" in the table "userTable"
+    And I should see "McUserFace" in the table "userTable"
+    And I should not see "Redd" in the table "userTable"
     When I follow the link "Unapproved Users"
-    Then I should not see "Jimmy"
-    And I should not see "McUserFace"
-    And I should see "Redd"
-    And I should not see "Dder"
+    Then I should not see "Jimmy" in the table "userTable"
+    And I should not see "McUserFace" in the table "userTable"
+    And I should see "Redd" in the table "userTable"
+    And I should not see "Dder" in the table "userTable"
     
     
 Scenario: Sorting Admin Dashboard

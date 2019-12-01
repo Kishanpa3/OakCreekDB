@@ -16,7 +16,7 @@ Given("I am signed out") do
   wait_for_ajax
   if has_link? 'Logout'
     click_link 'Logout'
-    puts 'Logged Out!'
+    # puts 'Logged Out!'
   end
 end
 
