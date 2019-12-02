@@ -122,8 +122,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap-datepicker-rails (1.8.0.1)
-      railties (>= 3.0)
     bootstrap-wysihtml5-rails (0.3.3.8)
       railties (>= 3.0)
     builder (3.2.3)
@@ -350,7 +348,6 @@ PLATFORMS
 DEPENDENCIES
   american_date
   bootsnap (>= 1.4.2)
-  bootstrap-datepicker-rails
   bootstrap-wysihtml5-rails (~> 0.3.3.8)
   byebug
   capybara
