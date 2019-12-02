@@ -18,21 +18,27 @@
 
 //= require local-time
 
-$(function() {
-  $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5({
-        toolbar:{
-            'font-styles': false,
-            'color': false,
-            'emphasis':{
-                'small': true,
-            },
-            'lists': false,
-            'html': false,
-            'blockquote': false,
-            'link': false,
-            'image': false,
-        }
+
+$(document).on('ready', function() {
+    $('.close').on('click', function() {
+        $(this).closest('.alert').hide(); 
     });
-  });
-})
+    
+    
+    $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5({
+            toolbar:{
+                'font-styles': false,
+                'color': false,
+                'emphasis':{
+                    'small': true,
+                },
+                'lists': false,
+                'html': false,
+                'blockquote': false,
+                'link': false,
+                'image': false,
+            }
+        });
+    });
+});

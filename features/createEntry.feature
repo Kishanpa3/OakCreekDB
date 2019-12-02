@@ -21,7 +21,7 @@ Scenario: Create Animal
     And I fill text field "Common Name" with "Chinchilla"
     And I select the option "Yes" from "Neutered" field
     When I press the button "Save New Animal"
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     Then I should see "Scott"
     And I should see "Yes"
     And I should see "Chinchilla"

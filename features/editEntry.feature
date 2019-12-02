@@ -19,7 +19,7 @@ Background: Database Setup
     
     
 Scenario: Edit an existing animal
-    When I click on the first table row
+    When I click on the first table row of "dtSearch"
     When I follow the link "Edit"
     Then I should see "Edit Existing Animal"
     When I fill text field "Tag" with "1337"

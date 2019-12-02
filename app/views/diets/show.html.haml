@@ -43,7 +43,10 @@
 %ul.nav.nav-pills
   %li.nav-item.nav-link
     = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
-  %li.nav-item.nav-link
-    = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
-  %li.nav-item.nav-link
-    = link_to 'Delete', animal_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+    
+  - if has_edit_permissions
+    %li.nav-item.nav-link
+      = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
+  - if has_delete_permissions
+    %li.nav-item.nav-link
+      = link_to 'Delete', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
