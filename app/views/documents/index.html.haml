@@ -51,8 +51,8 @@
                     %a.avatar.avatar-lg{:href => document.file_url}
                       %img.avatar-img.rounded{:src => document.file_url(:small), :alt => "..."}
                   %div.col.m1-n2
-                    %h4.card-title.mb-1.name
-                      = link_to document.file.original_filename, document.file_url
+                    %h4.card-title.mb-1
+                      = link_to document.file.original_filename, document.file_url, :class => "name"
                     %p.card-text.small.text-muted.mb-1.meta=number_to_human_size(document.file.size)
                   %div.col-auto
                     = link_to 'Download', animal_documents_path, :class => "btn btn-sm btn-white d-none d-md-inline-block"
