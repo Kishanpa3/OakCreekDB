@@ -33,7 +33,7 @@
         // = select :animal, :sex, ['Male', 'Female', 'N\A'], :class => "form-control"
     %div.form-row
       %div.form-group.col-sm-4.sm-3
-        %label Date
+        %label Date of Birth
         %input.form-control{:type => "date", :name => "animal[dob]", :value => @animal.dob}
 
       %div.form-group.col-sm-4.sm-3
@@ -46,4 +46,4 @@
         %li.nav-item.nav-link.pl-2
           = submit_tag 'Update Animal Info', :class => "btn btn-primary"
         %li.nav-item.nav-link
-          = link_to "Back", animal_path(@animal), :class => "btn btn-secondary"
+          = link_to "Cancel", animal_path(@animal), :class => "btn btn-secondary"
