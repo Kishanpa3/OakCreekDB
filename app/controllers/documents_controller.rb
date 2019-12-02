@@ -9,9 +9,9 @@ class DocumentsController < ApplicationController
   end
   
   def index
-    # @documents = Document.where(animal_id: params[:animal_id])
+    # @documents = Document.where(animal_id: params[:animal_id]).order(created_at: :desc)
     # Note: will_paginate not consistent with list.js - list.js cannot filter through every page
-    @documents = Document.where(animal_id: params[:animal_id]).paginate(page: params[:page], per_page: 1000)
+    @documents = Document.where(animal_id: params[:animal_id]).paginate(page: params[:page], per_page: 1000).order(created_at: :desc)
     @custom_paginate_renderer = custom_paginate_renderer
   end
   
