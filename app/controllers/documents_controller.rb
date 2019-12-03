@@ -23,13 +23,17 @@ class DocumentsController < ApplicationController
   def destroy
     @document = Document.find(params[:id])
     @document.destroy
-    redirect_to animal_documents_path
+    respond_to do |format|
+      format.html { redirect_to animal_documents_path }
+      format.js
+    end
+    # redirect_to animal_documents_path
   end
   
   def download
     @document = Document.find(params[:id])
     remote_file = @document.file.download
-    remote_file.read   #=> "..." 
+    # remote_file.read   #=> "..." 
     send_file remote_file.path, :filename => @document.file.original_filename, :type => @document.file.mime_type
     # remote_file.close!
   end

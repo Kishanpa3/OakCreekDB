@@ -1,3 +1,4 @@
+# if [ "$(date +%u)" = 7 ]; then rake clear_cache; fi   # only run on Sundays
 desc "This task is called by the Heroku scheduler add-on"
 task :clear_cache => :environment do
   # S3 storage 

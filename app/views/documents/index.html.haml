@@ -63,9 +63,11 @@
                       %div.dropdown-menu.dropdown-menu-right
                         = link_to 'Download', download_animal_document_path(@animal, document), :class => "dropdown-item"
                         = link_to 'Another action', animal_documents_path, :class => "dropdown-item"
-                        = link_to 'Delete', animal_document_path(@animal, document), :method => :delete, :class => "dropdown-item text-danger"
+                        = link_to 'Delete', animal_document_path(@animal, document), :remote => true, :method => :delete, :class => "dropdown-item text-danger"
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
+  
+%ul.documents= render @documents
       
 :javascript
   var options = {
