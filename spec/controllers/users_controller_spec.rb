@@ -16,25 +16,20 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "GET #destroy" do
-    user = User.create(first_name: "User",
-      last_name: "Userr",
-      email: "user@user.com",
-      password:              "userrr",
-      password_confirmation: "userrr",
-      admin:    false,
-      approved: true,
-      confirmed_at: Time.zone.now)
+  describe "DELETE #destroy" do
+    user = FactoryBot.create(:user)
+    user2 = FactoryBot.create(:user)
     
     it "returns http success" do
-      get :destroy, params: { id: user.id }
-      expect(response).to have_http_status(:success)
+      sign_in FactoryBot.create(:user)
+      delete :destroy, params: { id: user2.id }
+      expect(response).to redirect_to(users_index_path)
     end
   end
 
-  describe "GET #update" do
+  describe "POST #update" do
     it "returns http success" do
-      get :update
+      post :update, params: { id: @user.id}
       expect(response).to have_http_status(:success)
     end
   end
