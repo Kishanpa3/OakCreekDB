@@ -1,0 +1,19 @@
+%li.list-group-item.px-0
+  %div.row.align-items-center
+    %div.col-auto
+      %a.avatar.avatar-lg{:href => document.file_url}
+        %img.avatar-img.rounded{:src => document.file_url(:small), :alt => "..."}
+    %div.col.m1-n2
+      %h4.card-title.mb-1
+        = link_to document.file.original_filename, document.file_url, :class => "name"
+      %p.card-text.small.text-muted.mb-1.meta= number_to_human_size(document.file.size)
+    %div.col-auto
+      = link_to 'Download', download_animal_document_path(@animal, document), :class => "btn btn-sm btn-white d-none d-md-inline-block"
+    %div.col-auto
+      %div.dropdown
+        %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
+          %i.material-icons.md-18 more_vert
+        %div.dropdown-menu.dropdown-menu-right
+          = link_to 'Download', download_animal_document_path(@animal, document), :class => "dropdown-item"
+          = link_to 'Another action', animal_documents_path, :class => "dropdown-item"
+          = link_to 'Delete', animal_document_path(@animal, document), :remote => true, :method => :delete, :class => "dropdown-item text-danger"
