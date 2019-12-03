@@ -20,6 +20,12 @@ class DocumentsController < ApplicationController
     @document = Document.find(id)
   end
   
+  def destroy
+    @document = Document.find(params[:id])
+    @document.destroy
+    redirect_to animal_documents_path
+  end
+  
   def download
     @document = Document.find(params[:id])
     remote_file = @document.file.download
