@@ -12,4 +12,33 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-wysihtml5
+//= bootstrap
 //= require_tree .
+
+//= require local-time
+
+
+$(document).on('ready', function() {
+    $('.close').on('click', function() {
+        $(this).closest('.alert').hide(); 
+    });
+    
+    
+    $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5({
+            toolbar:{
+                'font-styles': false,
+                'color': false,
+                'emphasis':{
+                    'small': true,
+                },
+                'lists': false,
+                'html': false,
+                'blockquote': false,
+                'link': false,
+                'image': false,
+            }
+        });
+    });
+});

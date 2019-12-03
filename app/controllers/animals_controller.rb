@@ -1,24 +1,32 @@
 class AnimalsController < ApplicationController
+  # before_action :authenticate_view_permissions, only: [:show, :edit]
+  before_action :authenticate_add_permissions, only: [:create, :new]
+  before_action :authenticate_edit_permissions, only: [:update, :edit]
+  before_action :authenticate_delete_permissions, only: [:destroy]
+  
   
   def index
+    @allAnimals = Animal.joins(:diet)
     respond_to do |format|
       format.html
       format.json { render json: AnimalDatatable.new(view_context) }
+      format.csv { send_data @allAnimals.toCSV }
     end
     # @animals = Animal.all
   end
 
   def show
-    id = params[:id]
+    id=params[:id]
     @animal = Animal.find(id)
   end
-
+  
   def new
     # default: render 'new' template
   end
   
   def create
-    @animal = Animal.create!(animal_params)
+    @animal = Animal.create!(animals_params)
+    @animal.diet = Diet.create!(animal_id: @animal.id)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path
   end
@@ -42,7 +50,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal = Animal.find(params[:id])
     @animal.destroy
-    flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' deleted."
+    flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' successfully deleted."
     redirect_to animals_path
   end
   

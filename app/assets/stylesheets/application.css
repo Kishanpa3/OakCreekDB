@@ -10,36 +10,92 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * require_tree .
+ * require_tree . // removed =
  *= require_self
+ *= require bootstrap-wysihtml5
  */
+ 
+#editor {max-height:300px}
+
 body {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    /*font-family: 'Raleway', sans-serif;*/
+    /*font-size: 15px;*/
     color: #000000;
     background:#f9f9f9;
 
     overflow-x: hidden;
 }
 
-.table.table-striped.table-bordered.table-lg{
+th {
+    color: #f9f9f9;
+    background-color: #3A95FF;
+}
+
+.title {
+    /*background-color: #5f5f5f;    */
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+.table.table-striped.table-bordered.table-lg {
     width:100% !important;
 }
 
-.pagination{
+.pagination {
     padding: 0px 10px 5px 5px;
 }
 
-#dtSearch_length{
+.form-control {
+    font-size: 15px !important;
+}
+
+.alert {
+    z-index: 1;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.logo-item {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+#nav-logo img {
+    height: 30px;
+    width: auto;
+}
+
+#nav-text {
+    padding-left: 0.5rem;
+}
+
+#navbar-container a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#dtSearch_length {
     padding: 0px 0px 0px 15px;
 }
 
-#dtSearch_filter{
+#dtSearch_filter {
     padding: 0px 15px 0px 0px;
 }
 
-#dtSearch_info{
+#dtSearch_info {
     padding: 0px 0px 0px 10px;
+}
+
+#dtSearch {
+    padding: 0px 0px 0px 0px;
 }
 
 #dtSearch tr:hover {background-color:#cccccc;}
@@ -49,21 +105,14 @@ body {
     text-decoration: none;
 }
 
-th {
-    color: #f9f9f9;
-    background-color: #3A95FF;
-}
-
-#banner{
-    text-decoration: none;
-    color: #000000;
-    font-size: 36px;
-}
-
-#dtSearch{
-    padding: 0px 0px 0px 0px;
-}
-
 #aniForm{
     padding: 10px 0px 0px 10px;
+}
+
+#animalCard {
+    font-size:15px;
+}
+
+a[data-wysihtml5-command="underline"] {
+    display:none !important;
 }

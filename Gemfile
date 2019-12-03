@@ -46,12 +46,35 @@ gem "uppy-s3_multipart", "~> 0.3"   # resumable direct upload
 # Used for handling datatable AJAX requests
 gem 'will_paginate'
 
+# Handles User Authentication
+gem 'devise', '~> 4.2'
+
+# Converts time to user's on client-side
+gem 'local_time'
+
+# Makes setting configs easier
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+# Gives Text Area boxes WYSYWIG toolbar 
+gem 'tinymce-rails'
+gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.8'
+# Gives calendar
+gem 'american_date'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   
-  gem 'rspec-rails'
-  gem 'guard-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  
+  #gem 'rspec-rails'
+  gem 'rspec-core', git: 'https://github.com/rspec/rspec-core'
+  gem 'rspec-expectations', git: 'https://github.com/rspec/rspec-expectations'
+  gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks'
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails'
+  gem 'rspec-support', git: 'https://github.com/rspec/rspec-support'
+  
+  #gem 'guard-rspec'
   gem 'cucumber-rails', require: false
   # gem 'puma'
   gem 'capybara'
@@ -59,8 +82,11 @@ group :development, :test do
   gem 'database_cleaner'
   
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4' 
   
+  # Used to verify emails sent from devise
+  # Run with : mailcatcher --http-port 8081 --http-ip $IP --smtp-port 1025 --smtp-ip $IP
+  gem 'mailcatcher'
 end
 
 group :development do
@@ -75,6 +101,7 @@ end
 group :production do
   gem 'pg', '~> 0.21' # for Heroku deployment
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

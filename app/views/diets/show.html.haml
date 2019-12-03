@@ -1,0 +1,52 @@
+%head
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Details', animal_path(@animal), :class => "nav-link"
+  %li.nav-item
+    %a.nav-link.active Diet
+  %li.nav-item
+    = link_to 'Documents', animals_path, :class => "nav-link"
+%div#animalCard.card
+  %div.form-row
+    %div.form-group.col-sm-1.col-sm-3
+      = image_tag("transparent logo.png", :size => "200x200")
+    %div.form-group.col-sm-9.col-sm-3
+      %h3= @animal.name
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :dish, 'Instructions:'
+              %div.card-text= simple_format(@diet.instructions)
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :dish, 'Dish:'
+              %div.card-text= simple_format(@diet.dish)
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :am, 'AM:'
+              %div.card-text= simple_format(@diet.am)
+      %div.form-row
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card{:style => "width: 22rem;"}
+            %div.card-body
+              %h5.card-title.mb-0= label :diet, :pm, 'PM:'
+              %div.card-text= simple_format(@diet.pm)
+%ul.nav.nav-pills
+  %li.nav-item.nav-link
+    = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
+    
+  - if has_edit_permissions
+    %li.nav-item.nav-link
+      = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
+  - if has_delete_permissions
+    %li.nav-item.nav-link
+      = link_to 'Delete', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"

@@ -1,0 +1,28 @@
+%head
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+  %scipt{:type => "text/javascript", :src => "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+  %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css", :crossorigin=>"anonymous"}
+
+%h1 Editing Diet for #{@animal.name}
+%div#aniForm
+  = form_tag animal_diet_path(@animal), :method => :put do
+    %div.form-row
+      %div.form-group.col-sm-4.sm-3
+        = label :diet, :dish, 'Instructions:'
+        = text_area :diet, 'instructions', :class => "wysihtml5"
+      %div.form-group.col-sm-4.sm-3
+        = label :diet, :dish, 'Dish:'
+        = text_area :diet, 'dish', :class => "wysihtml5"
+    %div.form-row
+      %div.form-group.col-sm-4.sm-3
+        = label :diet, :am, 'AM:'
+        = text_area :diet, 'am', :class => "wysihtml5"
+      %div.form-group.col-sm-4.sm-3
+        = label :diet, :pm, 'PM:'
+        = text_area :diet, 'pm', :class => "wysihtml5"
+      
+    
+    = submit_tag 'Update Diet Info', :class => "btn btn-primary"
+
+%div#customButton.form-group.col-sm-4.sm-3
+  = link_to 'Back', animal_diet_path(@animal), :class => "btn btn-primary"

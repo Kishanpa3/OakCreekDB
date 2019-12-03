@@ -4,12 +4,21 @@ Feature: Delete an Animal Entry
     So that I can delete information about the animals
     I want to delete animal entries from the database
  
-   
-Scenario: Try to delete entry
-    Given the following exists
+
+Background: Database Setup
+    Given I have registered a user with the credentials "Jimmy" "John" "user@email.com" "abc123"
+    Given I am on the User login page
+    Given I sign in as an "Admin" with the email "user@email.com" and the password "abc123"
+    
+    Given the following Animal table
         | Exhibit       | Common Name   | Name      |
         | 32            | Brown Bear    | Otto      |
-    Given I am on the Oak Creek home page    
-    When I click on the table row
+        | 70            | Panda Bear    | Cleetus   |
+    
+    Given I am on the Oak Creek home page
+
+
+Scenario: Try to delete entry
+    When I click on the first table row of "dtSearch"
     When I follow the link "Delete"
-    Then I should see "Entry for Brown Bear 'Otto' deleted."
+    Then I should see "Entry for Brown Bear 'Otto' successfully deleted."

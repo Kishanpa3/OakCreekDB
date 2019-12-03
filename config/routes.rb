@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
   root 'animals#index'
-  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -24,8 +24,18 @@ Rails.application.routes.draw do
   # mount ImageUploader.derivation_endpoint => "/derivations/image"
   mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"
   
-  #GET '/animals/showEntry'
   
+  #GET '/animals/showEntry'
+  get 'users/index'
+  match 'users/:id' => 'users#update', :via => :patch, :as => :users_update
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :users_destroy
+  get '/update_form' => "application#update_form_partial", as: :update_form
+  get 'users/index_partial', to: 'users#serve_index_partial', as: 'request_index_partial'
+  
+  #Redirect non-existent routes to animals index page  
+  match '/*paths', :to => 'animals#index', via: [:get, :post]
+
+
   # Example resource route with options:
   #   resources :products do
   #     member do

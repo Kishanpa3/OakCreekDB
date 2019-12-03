@@ -45,4 +45,22 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+  
+  
+  # Devise: Ensure you have defined default url options in your environments files.
+  # In production, :host should be set to the actual host of your application.
+  # IMPORTANT: fill 'host' with YOUR aws preview url
+  config.action_mailer.default_url_options = { :host => 'https://secret-falls-03839.herokuapp.com/'}
+  
+  
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: "25",
+    domain: 'heroku.com',
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"],
+    authentication: 'plain',
+    enable_starttls_auto: true
+}
 end

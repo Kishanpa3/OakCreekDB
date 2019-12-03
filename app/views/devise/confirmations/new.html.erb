@@ -1,0 +1,49 @@
+<head>
+  <%= stylesheet_link_tag 'devise/login'%>
+  <% no_content_for :stylesheet %>
+  <% no_content_for :title %>
+  <% no_content_for :alerts %>
+</head>
+
+
+<body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first" id="icon-container">
+        <%= image_tag("text logo.png", id: "icon", alt: "Oak Creek DB text logo") %>
+      </div>
+  
+      <div id="form_modal">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "layouts/alerts" %>
+      
+          <div class="field fadeIn first">
+            <%= f.label :email, style: 'display: none' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "email", class: "form-field" %>
+          </div>
+        
+          <div class="actions">
+            <%= f.submit "Resend confirmation instructions" %>
+          </div>
+        <% end %>
+          
+        <div id="formFooter">
+          <%= render "devise/shared/links", form: 'confirm' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  function updateForm(partial) {
+    console.log('clicked');
+      $.get( "/update_form?form=" + partial, function(data) {
+        $("#form_modal").html(data.html);
+    });
+  }
+</script>

@@ -1,0 +1,171 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pagination{
+    padding: 0px 10px 5px 5px;
+}
+
+#userTable_length{
+    padding: 0px 0px 0px 15px;
+}
+
+#userTable_filter{
+    padding: 0px 15px 0px 0px;
+}
+
+#userTable_info{
+    padding: 0px 0px 0px 10px;
+}
+
+#userTable tr:hover {background-color:#cccccc;}
+
+
+#userTable th {
+    color: #f9f9f9;
+    background-color: #9140FE;
+}
+
+#userTable div {
+    padding: 0;
+}
+
+// #userTable .checkbox {
+//     z-index: 1;
+//     opacity: 1;
+//     margin: 0;
+    
+//     width: 20px;
+//     height: 20px;
+//     background-color: #2196F3;
+// }
+
+/* Styling Checkbox Starts */
+// Reference - https://appitventures.com/blog/styling-checkbox-css-tips/
+.checkbox-label {
+    display: block;
+    position: relative;
+    margin: auto;
+    cursor: default;
+    font-size: 22px;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    clear: both;
+}
+
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: default;
+}
+
+.checkbox-label .checkbox-custom {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid #dc3545;
+    // background-color: transparent;
+    background-color: #dc3545;
+    
+    color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1em;
+    // font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1em;
+}
+
+
+.checkbox-label input:checked ~ .checkbox-custom {
+    background-color: #007bff;
+    border-radius: 3px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 2px solid #007bff;
+}
+
+
+.checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 3px;
+    border: solid #007bff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity:1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
+    opacity:1;
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+
+
+/* For Ripple Effect */
+.checkbox-label .checkbox-custom::before {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 10px;
+    width: 0px;
+    height: 0px;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);    
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::before {
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+    opacity:0;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
