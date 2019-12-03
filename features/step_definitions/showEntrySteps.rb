@@ -11,6 +11,7 @@ end
 
 When("I follow the link {string}") do |string|
   click_link string
+  wait_for_ajax
 end
 
 Then("I should be on the {string} page") do |string|

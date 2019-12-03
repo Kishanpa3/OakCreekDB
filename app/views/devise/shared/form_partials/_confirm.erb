@@ -1,6 +1,7 @@
 <div>
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render "layouts/alerts" %>
 
     <div class="field fadeIn first">
       <%= f.label :email, style: 'display: none' %><br />

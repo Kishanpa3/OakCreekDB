@@ -122,8 +122,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap-datepicker-rails (1.8.0.1)
-      railties (>= 3.0)
     bootstrap-wysihtml5-rails (0.3.3.8)
       railties (>= 3.0)
     builder (3.2.3)
@@ -235,6 +233,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.21.0)
     public_suffix (4.0.1)
+    puma (4.3.0)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
@@ -348,7 +348,6 @@ PLATFORMS
 DEPENDENCIES
   american_date
   bootsnap (>= 1.4.2)
-  bootstrap-datepicker-rails
   bootstrap-wysihtml5-rails (~> 0.3.3.8)
   byebug
   capybara
@@ -366,6 +365,7 @@ DEPENDENCIES
   local_time
   mailcatcher
   pg (~> 0.21)
+  puma
   rails (~> 6.0.0)
   rails_12factor
   rspec-core!

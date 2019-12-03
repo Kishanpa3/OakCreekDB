@@ -1,96 +1,87 @@
 %head
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
-  = stylesheet_link_tag "application"
+  %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   = stylesheet_link_tag "devise/users"
     
-%div.d-flex.flex-row 
+%div.d-flex.flex-row.mb-3
   %div.col-6
     %ul.nav.nav-tabs
       %li.nav-item
         = link_to 'Approved Users', users_index_path, :class => "nav-link"
       %li.nav-item
         %a.nav-link.active Unapproved Users
-  %div.col-6.mb-1
-    = link_to 'Logout', destroy_user_session_path, :method => 'DELETE', :class => "btn btn-danger float-right ml-2"
-    = link_to 'Animal Dashboard', animals_path, :class => "btn btn-primary float-right"
 
 %table#userTable.table.table-striped.table-bordered.table-lg
-  %thead
-    %tr
-      %th ID
-      %th Approved
-      %th First Name
-      %th Last Name
-      %th Email
-      %th View
-      %th Edit
-      %th Add
-      %th Delete
-      %th Created At
-      
-  %tbody
-    - @users.each do |user|
-      %tr
-        // %td= user.admin
-        %td= user.id
-        %td= user.approved
-        %td= user.first_name
-        %td= user.last_name
-        %td= user.email
-        %td= user.can_view
-        %td= user.can_edit
-        %td= user.can_add
-        %td= user.can_delete
-        %td= local_time(user.created_at)
-        
-        %div.modal.fade{:id => "myModal_#{user.id}", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
-          %div.modal-dialog.modal-dialog-centered{:role => "document"}
-            %div.modal-content
-              = render 'users/update', user: user
-        
-        
+
+%div#modalContainer
+
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
     var simple_checkbox = function (data, type, full, meta) {
-      var is_checked = (data === 'true') ? "checked" : "";
+      var is_checked = (data) ? "checked" : "";
+      var unchecked_content = (is_checked) ? "" : "&#xd7";
       // console.log("DATA: " + is_checked);
       return '<label class="checkbox-label">' +
               '<input type="checkbox" class="checkbox" ' + is_checked + ' disabled/>' +
-              '<span class="checkbox-custom rectangular"></span>' +
+              '<span class="checkbox-custom rectangular">' + unchecked_content + '</span>' +
             '</label>'
     }
     
+    var convert_from_utc = function (data, type, full, meta) {
+      // console.log("DATA: " + data);
+      return new Date(data).toString();
+    }
+    
     var dataTable = $('#userTable').DataTable({
+      "serverSide": true,
       "pageLength": 50,
       "search": {
         "caseInsensitive": true
       },
       "stateSave" : true,
+      "ajax": '/users/index?approved=false',
       "columns": [
-          { "data": "ID", "searchable": false, "orderable": false, "visible": false},
-          { "data": "Approved", "render": simple_checkbox, "orderable": false, "className": "text-center"},
-          { "data": "First Name"},
-          { "data": "Last Name"},
-          { "data": "Email"},
-          { "data": "View", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Edit", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Add", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Delete", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
-          { "data": "Created At"}
+          { "title": "ID", "searchable": false, "orderable": false, "visible": false},
+          { "title": "Approved", "render": simple_checkbox, "orderable": false, "className": "text-center"},
+          { "title": "First Name"},
+          { "title": "Last Name"},
+          { "title": "Email"},
+          { "title": "View", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Edit", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Add", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Delete", "searchable": false, "orderable": false, "render": simple_checkbox, "className": "text-center"},
+          { "title": "Created At", "render": convert_from_utc}
       ],
       "drawCallback": function(settings) {
-          $("tbody tr").on('click', function() {
-            var user_id = dataTable.row(this).data()["ID"];
-            // console.log("Hello World: " + user_id);
-              
-            $('#myModal_' + user_id).modal('toggle');
-            
-            // $('#myModal_' + user_id).on('hidden.bs.modal', function () {
-            //     window.location.reload(true);
-            // });
+        $("tbody tr").on('click', function() {
+          var data = dataTable.row(this).data()
+          var person = { id: data[0], approved: data[1], first_name: data[2], last_name: data[3], email: data[4],
+             can_view: data[5], can_edit: data[6], can_add: data[7], can_delete: data[8], created_at: data[9] };
+
+          $.ajax({
+              url: "/users/index_partial",
+              data: person,
+              cache: false,
+              type: "GET",
+              success: function(response) {
+                // console.log('nice' + response.html);
+                $('#modalContainer').html(response.html);
+                $('#userModal').modal('toggle');
+                $('#userModal').on('hide.bs.modal', function() {
+                    // We should call to reload after server gets updated info - so wait 1s before reload
+                    setTimeout(function() {
+                      $('#userTable').DataTable().ajax.reload();
+                    }, 1);
+                });
+              },
+              error: function(xhr) {
+          
+              }
           });
+        });
       }
     });
     $('.dataTables_length').addClass('bs-select');
