@@ -19,6 +19,14 @@ class DocumentsController < ApplicationController
     id = params[:id]
     @document = Document.find(id)
   end
+  
+  def download
+    @document = Document.find(params[:id])
+    remote_file = @document.file.download
+    remote_file.read   #=> "..." 
+    send_file remote_file.path, :filename => @document.file.original_filename, :type => @document.file.mime_type
+    # remote_file.close!
+  end
  
   private
   

@@ -23,6 +23,7 @@ Shrine.plugin :derivation_endpoint,   # on-the-fly processing
   secret_key: Rails.application.credentials.secret_key_base
 
 Shrine.plugin :uppy_s3_multipart
+Shrine.plugin :url_options, cache: { expires_in: 7*24*60*60 }, store: { expires_in: 7*24*60*60 }
 
 # delay promoting and deleting files to a background job (`backgrounding` plugin)
 Shrine.plugin :backgrounding

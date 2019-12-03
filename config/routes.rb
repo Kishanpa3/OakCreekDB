@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :animals do
-    resources :diets
-    resources :documents
+    resources :diets, except: :index
+    resources :documents do
+      get :download, on: :member
+    end
   end
   
   mount DocumentUploader.derivation_endpoint => "/derivations/image"

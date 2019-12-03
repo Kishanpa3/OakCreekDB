@@ -55,7 +55,7 @@
                       = link_to document.file.original_filename, document.file_url, :class => "name"
                     %p.card-text.small.text-muted.mb-1.meta=number_to_human_size(document.file.size)
                   %div.col-auto
-                    = link_to 'Download', animal_documents_path, :class => "btn btn-sm btn-white d-none d-md-inline-block"
+                    = link_to 'Download', download_animal_document_path(@animal, document), :class => "btn btn-sm btn-white d-none d-md-inline-block"
                   %div.col-auto
                     %div.dropdown
                       %a.dropdown-ellipses.dropdown-toggle{:href => "#", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}

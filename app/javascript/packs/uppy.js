@@ -71,6 +71,7 @@ uppy.on('upload-success', function (file, response) {
 
   document.querySelector('form').appendChild(hiddenField)
   
+  // document.getElementById("form-uppy").submit();
   // // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
   // var hiddenInput = document.querySelector('.upload-hidden')
   // hiddenInput.value = uploadedFileData
