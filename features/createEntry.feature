@@ -19,8 +19,15 @@ Scenario: Create Animal
     When I fill text field "Tag" with "1337"
     And I fill text field "Name" with "Scott"
     And I fill text field "Common Name" with "Chinchilla"
+    And I fill text field "Habitat #" with "12345"
+    And I fill text field "Species" with "Crimson Chin"
+    And I fill text field "Weight" with "50"
+    And I fill text field "Age" with "10"
+    And I fill text field "Date of Birth" with "01202016"
     And I select the option "Yes" from "Neutered" field
+    And I select the option "Male" from "Sex" field
     When I press the button "Save New Animal"
+    Then I should see "All Animals"
     When I click on the first table row of "dtSearch"
     Then I should see "Scott"
     And I should see "Yes"
