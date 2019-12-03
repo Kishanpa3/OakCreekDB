@@ -18,7 +18,7 @@
         .invalid-feedback Animal Common Name Required
       %div.form-group.col-sm-4.sm-3
         = label :animal, :habitat_num, 'Habitat #'
-        = text_field :animal, 'habitat_num', :class => "form-control", :required => ""
+        = text_field :animal, 'habitat_num', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
         .invalid-feedback Animal Habitat Number Required
     %div.form-row
       %div.form-group.col-sm-4.sm-3
@@ -27,12 +27,12 @@
         .invalid-feedback Animal Species Required
       %div.form-group.col-sm-4.sm-3
         = label :animal, :weight, 'Weight'
-        = text_field :animal, 'weight', :class => "form-control", :required => ""
+        = text_field :animal, 'weight', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
         .invalid-feedback Animal Weight in Pounds Required
     %div.form-row
       %div.form-group.col-sm-4.sm-3
         = label :animal, :age, 'Age'
-        = text_field :animal, 'age', :class => "form-control", :required => ""
+        = text_field :animal, 'age', :class => "form-control", :oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
         .invalid-feedback Animal Age Required
       %div.form-group.col-sm-4.sm-3
         = label :animal, :neutered, 'Neutered'
