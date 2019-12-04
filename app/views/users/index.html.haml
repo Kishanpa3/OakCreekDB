@@ -8,15 +8,16 @@
   %script{:language => "javascript", :src => "https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js", :type => "text/javascript"}
   %script{:language => "javascript", :src => "https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js", :type => "text/javascript"}
   = stylesheet_link_tag "devise/users"
-  
+
 %div.container
-  %div.d-flex.flex-row.mb-3
-    %div.col-6
-      %ul.nav.nav-tabs
-        %li.nav-item
-          %a.nav-link.active Approved Users
-        %li.nav-item
-          = link_to 'Unapproved Users', users_index_path(:approved => false), :class => "nav-link"
+  %div.header
+    %div.row.align-items-center
+      %div.col
+        %ul.nav.nav-tabs.nav-overflow
+          %li.nav-item
+            = link_to 'Approved Users', users_index_path, :class => "nav-link active"
+          %li.nav-item
+            = link_to 'Unapproved Users', users_index_path(:approved => false), :class => "nav-link"
   
   %table#userTable.table.table-striped.table-bordered.table-lg
   
