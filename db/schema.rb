@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_201518) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["animal_id"], name: "index_documents_on_animal_id"
   end
-  
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
