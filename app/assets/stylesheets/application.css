@@ -116,11 +116,3 @@ th {
 a[data-wysihtml5-command="underline"] {
     display:none !important;
 }
-
-.container {
- width:100%;
- padding-right:12px;
- padding-left:12px;
- margin-right:auto;
- margin-left:auto
-}

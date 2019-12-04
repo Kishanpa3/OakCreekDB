@@ -32,7 +32,6 @@
               %button.UppyModalOpenerBtn.btn.btn-sm.btn-outline-primary Upload
               %div.DashboardContainer
               = form_with model: @animal, id: "form-uppy"
-              = javascript_pack_tag 'application'
         %div.card-header
           %div.row
             %div.col-12
@@ -46,7 +45,9 @@
             = render @documents
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer
-      
+
+= javascript_pack_tag 'application'
+
 :javascript
   var options = {
     valueNames: [ 'name', 'meta' ]
