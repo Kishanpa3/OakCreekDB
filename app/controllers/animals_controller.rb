@@ -25,7 +25,7 @@ class AnimalsController < ApplicationController
   end
   
   def create
-    @animal = Animal.create!(animals_params)
+    @animal = Animal.create!(animal_params)
     @animal.diet = Diet.create!(animal_id: @animal.id)
     flash[:notice] = "#{@animal.tag} was successfully created."
     redirect_to animals_path

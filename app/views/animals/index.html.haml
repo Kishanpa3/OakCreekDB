@@ -18,7 +18,7 @@
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
 :javascript
   $(document).ready(function () {
-     var dataTable = $('#dtSearch').dataTable({
+     var dataTable = $('#dtSearch').DataTable({
         // "processing": true,
         "serverSide": true,
         "pageLength": 50,
@@ -27,21 +27,21 @@
         },
         "ajax": '/animals',
         "columns": [
-          {title: 'Tag'},
-          {title: 'Name'},
-          {title: 'Common Name'},
-          {title: 'Habitat #'},
+          { "title": 'ID', "searchable": false, "visible": false},
+          { "title": 'Tag'},
+          { "title": 'Name'},
+          { "title": 'Common Name'},
+          { "title": 'Habitat #'},
         ],
         "stateSave" : true,
-        "drawCallback": function( settings ) {
-          // alert( 'DataTables has redrawn the table' );
-          
-          $('#dtSearch tbody tr').click(function () {
+        "drawCallback": function(settings) {
+          $('tbody tr').on('click', function() {
             // console.log($(this).html());
+            var animal_id = dataTable.row(this).data()[0]
       
             // redirect
-            var href = $(this).find("a")[0].getAttribute('href');
-            window.location = window.location.origin + href;
+            var animal_href = "/animals/" + animal_id;
+            window.location = window.location.origin + animal_href;
           });
         }
       });

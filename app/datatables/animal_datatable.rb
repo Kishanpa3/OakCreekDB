@@ -4,10 +4,11 @@ private
   def data
     animals.map do |animal|
       [].tap do |column|
-        column << link_to(animal.tag, "/animals/#{animal.id}")
-        column << link_to(animal.name, "/animals/#{animal.id}")
-        column << link_to(animal.common_name, "/animals/#{animal.id}")
-        column << link_to(animal.habitat_num, "/animals/#{animal.id}")
+        column << animal.id
+        column << animal.tag
+        column << animal.name
+        column << animal.common_name
+        column << animal.habitat_num
       end
     end
   end
@@ -36,6 +37,6 @@ private
   end
 
   def columns
-    %w(tag name common_name habitat_num)
+    %w(id tag name common_name habitat_num)
   end
 end
