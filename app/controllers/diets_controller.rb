@@ -36,7 +36,7 @@ class DietsController < ApplicationController
   def destroy
     @diet = Diet.find_by(animal_id: params[:animal_id])
     @diet.destroy
-    flash[:notice] = "Diet for #{@animal.common_name} '#{@animal.name}' deleted."
+    # flash[:notice] = "Diet for #{@animal.common_name} '#{@animal.name}' deleted."
     redirect_to animal_diet_path(@animal)
   end
   
