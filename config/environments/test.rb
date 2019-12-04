@@ -50,7 +50,7 @@ Rails.application.configure do
   # Devise: Ensure you have defined default url options in your environments files.
   # In production, :host should be set to the actual host of your application.
   # IMPORTANT: fill 'host' with YOUR aws preview url
-  config.action_mailer.default_url_options = { :host => 'https://secret-falls-03839.herokuapp.com/'}
+  config.action_mailer.default_url_options = { :host => 'https://shielded-citadel-23359.herokuapp.com/'}
   
   
   ActionMailer::Base.delivery_method = :smtp
