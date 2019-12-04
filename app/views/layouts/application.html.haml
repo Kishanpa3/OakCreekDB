@@ -38,8 +38,8 @@
                 #{current_user.first_name} #{current_user.last_name}
               %div.dropdown-menu.dropdown-menu-right
                 = link_to 'Profile', edit_user_registration_path, :class => "dropdown-item"
-                = link_to 'Settings', "#", :class => "dropdown-item"
-                %hr.dropdown-divider/
+                /= link_to 'Settings', "#", :class => "dropdown-item"
+                /%hr.dropdown-divider/
                 = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item text-danger"
                 
     - unless content_for?(:alerts)
