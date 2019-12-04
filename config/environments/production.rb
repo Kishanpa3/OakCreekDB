@@ -113,7 +113,7 @@ Rails.application.configure do
   
   
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'https://shielded-citadel-23359.herokuapp.com/'}
+  config.action_mailer.default_url_options = { :host => 'https://secret-eyrie-12615.herokuapp.com/'}
   
   
   ActionMailer::Base.delivery_method = :smtp
