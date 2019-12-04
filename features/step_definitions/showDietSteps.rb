@@ -1,5 +1,3 @@
-
-
 Given("the following Diet table") do |table|
   for row in table.rows do
     @animal = Animal.find(1)
