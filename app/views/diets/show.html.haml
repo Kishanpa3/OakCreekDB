@@ -7,14 +7,15 @@
   %li.nav-item
     = link_to 'Details', animal_path(@animal), :class => "nav-link"
   %li.nav-item
-    %a.nav-link.active Diet
+    = link_to 'Diet', animal_diet_path, :class => "nav-link active"
   %li.nav-item
     = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
+    
 %div#animalCard.card
   %div.form-row
     %div.form-group.col-sm-1.col-sm-3
       = image_tag("transparent logo.png", :size => "200x200")
-    %div.form-group.col-sm-9.col-sm-3
+    %div.form-group.col-sm-9.col-sm-3  
       %h3= @animal.name
       %div.form-row
         %div.form-group.col-sm-6.col-sm-3
@@ -49,4 +50,4 @@
       = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
   - if has_delete_permissions
     %li.nav-item.nav-link
-      = link_to 'Reset', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+      = link_to 'Delete', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"

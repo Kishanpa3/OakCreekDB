@@ -1,10 +1,11 @@
 %ul.nav.nav-tabs
   %li.nav-item
-    %a.nav-link.active Details
+    = link_to 'Details', animal_path, :class => "nav-link active"
   %li.nav-item
     = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
   %li.nav-item
     = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
+
 %div#animalCard.card
   %div.form-row
     %div.form-group.col-sm-1.col-sm-3
