@@ -513,7 +513,8 @@ pre code {
 }
 @media (min-width:1200px) {
  .container {
-  max-width:1140px
+  // max-width:1140px
+  max-width:80%
  }
 }
 .container-fluid {
@@ -12984,8 +12985,6 @@ a[data-wysihtml5-command="underline"] {
     height: 30px;
     width: auto;
 }
-
-
 
 #userTable_length{
     padding: 0px 0px 0px 15px;
