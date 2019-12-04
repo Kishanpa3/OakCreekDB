@@ -25,13 +25,6 @@
           %a.navbar-brand.order-lg-first{:href => root_path}
             = image_tag "logo-notext.png"
             OakCreekDB
-          %div#navbar.collapse.navbar-collapse.mr-auto.order-lg-first
-            %ul.navbar-nav.mr-auto
-              %li.nav-item
-                = link_to 'Home', root_path, class: "nav-link"
-              - if current_user.admin?
-                %li.nav-item
-                  = link_to 'Admin Dashboard', users_index_path, class: "nav-link"
           %div.navbar-user
             %div.dropdown
               %a#dropdown-profile.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -41,6 +34,13 @@
                 /= link_to 'Settings', "#", :class => "dropdown-item"
                 /%hr.dropdown-divider/
                 = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item text-danger"
+          %div#navbar.collapse.navbar-collapse.mr-auto.order-lg-first
+            %ul.navbar-nav.mr-auto
+              %li.nav-item
+                = link_to 'Home', root_path, class: "nav-link"
+              - if current_user.admin?
+                %li.nav-item
+                  = link_to 'Admin Dashboard', users_index_path, class: "nav-link"
                 
     - unless content_for?(:alerts)
       = render "layouts/alerts"
