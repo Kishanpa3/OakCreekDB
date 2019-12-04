@@ -65,6 +65,7 @@ const uppy = Uppy({
     { id: 'caption', name: 'Caption', placeholder: 'describe what the file is about' }
   ],
   browserBackButtonClose: true,
+  closeModalOnClickOutside: true,
   closeAfterFinish: false
 })
 // .use(GoogleDrive, { target: Dashboard, companionUrl: '/' })
