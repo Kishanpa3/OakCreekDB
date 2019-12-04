@@ -34,7 +34,7 @@
                   = link_to 'Admin Dashboard', users_index_path, class: "nav-link"
           %div.navbar-user
             %div.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              %a#dropdown-profile.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 #{current_user.first_name} #{current_user.last_name}
               %div.dropdown-menu.dropdown-menu-right
                 = link_to 'Profile', edit_user_registration_path, :class => "dropdown-item"
