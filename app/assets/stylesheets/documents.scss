@@ -12945,3 +12945,77 @@ button:focus {
   -moz-osx-font-smoothing: grayscale;
 }
 .material-icons.md-18 { font-size: 18px; }
+
+
+
+
+// *************************ADDITIONAL STYLING CHANGES*****************************
+
+a[data-wysihtml5-command="underline"] {
+    display:none !important;
+}
+
+#top-nav a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+#nav-logo img {
+  height: 30px;
+  width: auto;
+}
+
+.alert {
+    z-index: 1;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.logo-item {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+#nav-logo img {
+    height: 30px;
+    width: auto;
+}
+
+
+
+#userTable_length{
+    padding: 0px 0px 0px 15px;
+}
+
+#dtSearch_filter{
+    padding: 0px 15px 0px 0px;
+}
+
+#dtSearch_info{
+    padding: 0px 0px 0px 10px;
+}
+
+#dtSearch tr:hover {background-color:#cccccc;}
+
+
+#dtSearch th {
+    color: #f9f9f9;
+    background-color: #9140FE;
+}
+
+#dtSearch div {
+    padding: 0;
+}
+
+.pagination{
+    padding: 0px 10px 5px 5px;
+}
+
+.table.table-striped.table-bordered.table-lg {
+    width:100% !important;
+}
+
