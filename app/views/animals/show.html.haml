@@ -1,66 +1,71 @@
-%ul.nav.nav-tabs
-  %li.nav-item
-    = link_to 'Details', animal_path, :class => "nav-link active"
-  %li.nav-item
-    = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
-  %li.nav-item
-    = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
+%div.header
+  %div.container
+    %div.header-body
+      %div.row.align-items-center
+        %div.col
+          %ul.nav.nav-tabs.nav-overflow.card-header-tabs
+            %li.nav-item
+              = link_to 'Details', animal_path, :class => "nav-link active"
+            %li.nav-item
+              = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
+            %li.nav-item
+              = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
 
-%div#animalCard.card
-  %div.form-row
-    %div.form-group.col-sm-1.col-sm-3
-      = image_tag("transparent logo.png", :size => "200x200")
-    %div.form-group.col-sm-9.col-sm-3
-      %h3= @animal.name
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Tag:'
-          %div.form-control
-            = @animal.tag
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Habitat Number:'
-          %div.form-group.form-control
-            = @animal.habitat_num
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Common Name:'
-          %div.form-control
-            = @animal.common_name
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Species:'
-          %div.form-control
-            = @animal.species
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Sex:'
-          %div.form-control
-            = @animal.sex
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Neutered:'
-          %div.form-control
-            = @animal.neutered
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Age:'
-          %div.form-control 
-            = @animal.age
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Date of Birth:'
-          %div.form-control
-            = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
-      %div.form-row
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Weight:'
-          %div.form-control
-            = "#{@animal.weight} lbs"
-  
-%ul.nav.nav-pills
-  %li.nav-item.nav-link
-    = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
+%div.container
+  %div#animalCard.card
+    %div.form-row
+      %div.form-group.col-sm-1.col-sm-3
+        = image_tag("transparent logo.png", :size => "200x200")
+      %div.form-group.col-sm-9.col-sm-3
+        %h3= @animal.name
+        %div.form-row
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Tag:'
+            %div.form-control
+              = @animal.tag
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Habitat Number:'
+            %div.form-group.form-control
+              = @animal.habitat_num
+        %div.form-row
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Common Name:'
+            %div.form-control
+              = @animal.common_name
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Species:'
+            %div.form-control
+              = @animal.species
+        %div.form-row
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Sex:'
+            %div.form-control
+              = @animal.sex
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Neutered:'
+            %div.form-control
+              = @animal.neutered
+        %div.form-row
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Age:'
+            %div.form-control 
+              = @animal.age
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Date of Birth:'
+            %div.form-control
+              = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
+        %div.form-row
+          %div.form-group.col-sm-5.col-sm-3
+            = label_tag 'Weight:'
+            %div.form-control
+              = "#{@animal.weight} lbs"
     
-  - if has_edit_permissions
+  %ul.nav.nav-pills
     %li.nav-item.nav-link
-      = link_to 'Edit', edit_animal_path(@animal), :class => "btn btn-primary"
-  - if has_delete_permissions
-    %li.nav-item.nav-link
-      = link_to 'Delete', animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
+      = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
+    - if has_edit_permissions
+      %li.nav-item.nav-link
+        = link_to 'Edit', edit_animal_path(@animal), :class => "btn btn-primary"
+    - if has_delete_permissions
+      %li.nav-item.nav-link
+        = link_to 'Delete Animal', animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"

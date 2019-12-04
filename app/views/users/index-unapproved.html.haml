@@ -3,18 +3,19 @@
   %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   = stylesheet_link_tag "devise/users"
-    
-%div.d-flex.flex-row.mb-3
-  %div.col-6
-    %ul.nav.nav-tabs
-      %li.nav-item
-        = link_to 'Approved Users', users_index_path, :class => "nav-link"
-      %li.nav-item
-        %a.nav-link.active Unapproved Users
+  
+%div.container
+  %div.d-flex.flex-row.mb-3
+    %div.col-6
+      %ul.nav.nav-tabs
+        %li.nav-item
+          = link_to 'Approved Users', users_index_path, :class => "nav-link"
+        %li.nav-item
+          %a.nav-link.active Unapproved Users
 
-%table#userTable.table.table-striped.table-bordered.table-lg
-
-%div#modalContainer
+  %table#userTable.table.table-striped.table-bordered.table-lg
+  
+  %div#modalContainer
 
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"}
 %script{:type => "text/javascript", :src => "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"}
