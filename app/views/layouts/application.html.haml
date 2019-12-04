@@ -19,7 +19,7 @@
     - unless content_for?(:title)
       %nav#nav-top.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-5
         %div.container
-          %button.navbar-toggler.mr-auto{"aria-controls" => "navbar", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+          %button.navbar-toggler{"aria-controls" => "navbar", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
             %span.navbar-toggler-icon
           %a.navbar-brand.order-lg-first{:href => root_path}
             = image_tag "logo-notext.png"

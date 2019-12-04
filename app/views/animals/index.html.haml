@@ -1,12 +1,16 @@
 %head
   // %link{:rel => :stylesheet, :type => "text/css", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", :crossorigin=>"anonymous"}
   %link{:rel => :stylesheet, :type => "text/css", :href => "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css", :crossorigin=>"anonymous"}
+  %script{:language => "javascript", :src => "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js", :type => "text/javascript"}
+  %script{:language => "javascript", :src => "https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js", :type => "text/javascript"}
+  %script{:language => "javascript", :src => "https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js", :type => "text/javascript"}
+
   // = stylesheet_link_tag "application"
 
 .container
   %div.d-flex.flex-row 
     %div.col-6
-      %h2 All Animals
+      %h1 All Animals
     %div.col-6.mb-1
       - if has_add_permissions
         = link_to 'Add New Animal', new_animal_path, :class => "btn btn-success float-right ml-2"
@@ -19,6 +23,10 @@
 :javascript
   $(document).ready(function () {
      var dataTable = $('#dtSearch').DataTable({
+        rowReorder: {
+              selector: 'td:nth-child(2)'
+        },
+        responsive: true,
         // "processing": true,
         "serverSide": true,
         "pageLength": 50,
