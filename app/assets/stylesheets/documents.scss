@@ -12958,12 +12958,22 @@ a[data-wysihtml5-command="underline"] {
 
 #top-nav a {
   text-decoration: none;
-  color: #FFFFFF;
 }
 
 #nav-logo img {
   height: 30px;
   width: auto;
+}
+
+
+#nav-logo img {
+    height: 30px;
+    width: auto;
+}
+
+#dtSearch th {
+    color: #f9f9f9;
+    background-color: #9140FE;
 }
 
 .alert {
@@ -12981,14 +12991,12 @@ a[data-wysihtml5-command="underline"] {
     vertical-align:middle;
 }
 
-#nav-logo img {
-    height: 30px;
-    width: auto;
+.dropdown-toggle {
+  color: #FFFFFF;
 }
 
-#dtSearch th {
-    color: #f9f9f9;
-    background-color: #9140FE;
+.dropdown-toggle:hover {
+  color: #6e84a3;
 }
 
 .table.table-striped.table-bordered.table-lg {
