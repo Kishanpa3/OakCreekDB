@@ -45,20 +45,20 @@ Scenario: Admin Dashboard
 Scenario: Sorting Admin Dashboard
     Then I should see "All Animals"
     Then I follow the link "Admin Dashboard"
-    When I sort by "First Name" on the table "userTable"
+    When I sort by "FIRST NAME" on the table "userTable"
     Then I should see "Jimmy" in the first table row of "userTable"
-    When I sort by "Last Name" on the table "userTable"
-    When I sort by "Last Name" on the table "userTable"
+    When I sort by "LAST NAME" on the table "userTable"
+    When I sort by "LAST NAME" on the table "userTable"
     Then I should see "User" in the first table row of "userTable"
-    When I sort by "Email" on the table "userTable"
+    When I sort by "EMAIL" on the table "userTable"
     Then I should see "User" in the first table row of "userTable"
 
 
 Scenario: Editing User Profile as an Admin
     Then I should see "All Animals"
     Then I follow the link "Admin Dashboard"
-    When I sort by "Last Name" on the table "userTable"
-    When I sort by "Last Name" on the table "userTable"
+    When I sort by "LAST NAME" on the table "userTable"
+    When I sort by "LAST NAME" on the table "userTable"
     Then I should see "McUserFace" in the first table row of "userTable"
     Then I click on the first table row of "userTable"
     Then I should see "Created:" within the modal "#modalContainer"
@@ -114,7 +114,7 @@ Scenario: Deleting User Profile
     Given I have registered a user with the credentials "Plain" "User" "plain_user@email.com" "abc123"
     Given I am on the User login page
     Given I sign in as an "User" with the email "plain_user@email.com" and the password "abc123"
-    Given I follow the link "Plain User"
+    Given I visit the profile page for "Plain User"
     Given I press the button "Delete my account"
     Then I should see "You need to sign in or sign up before continuing."
     Given I sign in as an "Admin" with the email "user@email.com" and the password "abc123"

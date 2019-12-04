@@ -36,10 +36,10 @@ Scenario: Search Entries
     And I should not see "Otto"
     
 Scenario: Sort Entries
-    When I sort by "Name" on the table "dtSearch"
+    When I sort by "NAME" on the table "dtSearch"
     Then I should see "Cleetus" in the first table row of "dtSearch"
-    When I sort by "Habitat #" on the table "dtSearch"
+    When I sort by "HABITAT #" on the table "dtSearch"
     Then I should see "32" in the first table row of "dtSearch"
-    When I sort by "Common Name" on the table "dtSearch"
-    When I sort by "Common Name" on the table "dtSearch"
+    When I sort by "COMMON NAME" on the table "dtSearch"
+    When I sort by "COMMON NAME" on the table "dtSearch"
     Then I should see "Panda Bear" in the first table row of "dtSearch"
