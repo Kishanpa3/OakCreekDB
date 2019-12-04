@@ -89,7 +89,9 @@ Now you should be able to navigate to your app's URL.
 [Source](https://github.com/saasbook/rottenpotatoes-rails-intro/blob/master/instructions/docs/part_0_B.md)
 
 ## References
-* [Shrine](https://github.com/shrinerb/shrine) gem - File uploading
+* [Webpacker](https://github.com/rails/webpacker) - Manages app-like JavaScript modules in Rails
+* [Shrine](https://github.com/shrinerb/shrine) - File attachment toolkit for Ruby applications
+* [Devise](https://github.com/plataformatec/devise) - Devise is a flexible authentication solution for Rails based on Warden
 
 ## License
 This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license.
