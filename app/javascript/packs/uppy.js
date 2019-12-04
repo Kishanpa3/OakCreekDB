@@ -14,9 +14,13 @@ const Webcam = require('@uppy/webcam')
 const AwsS3Multipart = require('@uppy/aws-s3-multipart')
 
 // And their styles (for UI plugins)
-require('@uppy/core/dist/style.min.css')
-require('@uppy/dashboard/dist/style.min.css')
-require('@uppy/webcam/dist/style.min.css')
+// require('@uppy/core/dist/style.min.css')
+// require('@uppy/dashboard/dist/style.min.css')
+// require('@uppy/webcam/dist/style.min.css')
+
+import '@uppy/core/dist/style.min.css'
+import '@uppy/dashboard/dist/style.min.css'
+import '@uppy/webcam/dist/style.min.css'
 
 const uppy = Uppy({
   // debug: true,
