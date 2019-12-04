@@ -98,7 +98,7 @@ Scenario: Editing User Profile
     Given I have registered a user with the credentials "Plain" "User" "plain_user@email.com" "abc123"
     Given I am on the User login page
     Given I sign in as an "User" with the email "plain_user@email.com" and the password "abc123"
-    Given I follow the link "Plain User"
+    Given I visit the profile page for "Plain User"
     Then I should see "Edit User"
     And I should see "Delete Account"
     Given I fill text field "First name" with "Edited"

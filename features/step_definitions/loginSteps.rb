@@ -14,13 +14,12 @@ end
 Given("I am signed out") do
   visit animals_path
   wait_for_ajax
-  if has_link? 'Logout'
-    click_link 'Logout'
-    # puts 'Logged Out!'
-  end
+  find('.navbar-user').click.click_link('Logout')
+  # puts 'Logged Out!'
 end
 
 Given("I have registered a user with the credentials {string} {string} {string} {string}") do |_first, _last, _email, _password|
+  # puts page.html
   visit new_user_registration_path
   fill_in "First name", :with => _first
   fill_in "Last name", :with => _last
@@ -56,5 +55,11 @@ Given("I follow the link {string} and confirm") do |string|
   accept_confirm do
     click_link string
   end
+end
+
+
+Given("I visit the profile page for {string}") do |string|
+  click_link string
+  click_link 'Profile'
 end
 
