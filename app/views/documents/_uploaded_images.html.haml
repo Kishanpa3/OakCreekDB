@@ -1,0 +1,9 @@
+%div.modal.fade{:id => "imageModal", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
+  %div.modal-dialog.modal-dialog-centered{:role => "document"}
+    %div.modal-content
+      %div.modal-header
+        %h1#exampleModalLongTitle.modal-title
+          Uploaded images
+      %div.modal-body
+        - documents.each do |document|
+          %img.avatar-img.rounded{:src => document.file_url(:small), :alt => "..."}

@@ -1,3 +1,10 @@
+%head
+  - no_content_for(:application_imports)
+  = javascript_include_tag 'application'
+  // %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
+
+
 %div.header
   %div.container
     %div.header-body
@@ -15,7 +22,7 @@
   %div#animalCard.card
     %div.form-row
       %div.form-group.col-sm-1.col-sm-3
-        = image_tag("transparent logo.png", :size => "200x200")
+        = image_tag("transparent logo.png", :size => "200x200", :class => "animal-profile-logo")
       %div.form-group.col-sm-9.col-sm-3
         %h3= @animal.name
         %div.form-row
@@ -69,3 +76,29 @@
     - if has_delete_permissions
       %li.nav-item.nav-link
         = link_to 'Delete Animal', animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
+
+  %div#modalContainer
+
+:javascript
+  $(document).on('ready', function() {
+      $('.animal-profile-logo').on('click', function() {
+          console.log('clicked logo!');
+          
+          var animal = { animal_id: "#{@animal.id}" };
+          
+          $.ajax({
+              url: "/documents/uploaded_images",
+              data: animal,
+              cache: false,
+              type: "GET",
+              success: function(response) {
+                // console.log('nice' + response.html);
+                $('#modalContainer').html(response.html);
+                $('#imageModal').modal('toggle');
+              },
+              error: function(xhr) {
+          
+              }
+          });
+      });
+  });

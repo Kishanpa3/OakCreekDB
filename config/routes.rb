@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   # mount ImageUploader.derivation_endpoint => "/derivations/image"
   mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"
   
+  get 'documents/uploaded_images', to: 'documents#serve_uploaded_images', as: 'request_uploaded_images'
+  
   
   #GET '/animals/showEntry'
   get 'users/index'

@@ -37,6 +37,14 @@ class DocumentsController < ApplicationController
     send_file remote_file.path, :filename => @document.file.original_filename, :type => @document.file.mime_type
     # remote_file.close!
   end
+  
+  def serve_uploaded_images
+    @documents = Document.where(animal_id: params[:animal_id]).order(created_at: :desc)
+    # @documents.each do |document|
+    #   puts document.file_data
+    # end
+    render json: { html: render_to_string(partial: 'documents/uploaded_images', locals: {:documents => @documents}) }
+  end
  
   private
   
