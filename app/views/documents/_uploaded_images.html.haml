@@ -5,5 +5,5 @@
         %h1#exampleModalLongTitle.modal-title
           Uploaded images
       %div.modal-body
-        - documents.each do |document|
-          %img.avatar-img.rounded{:src => document.file_url(:small), :alt => "..."}
+        - images.each do |image|
+          %img.avatar-img.rounded{:src => image.file_url(:small), :alt => "..."}

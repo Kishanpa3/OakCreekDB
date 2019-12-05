@@ -39,11 +39,16 @@ class DocumentsController < ApplicationController
   end
   
   def serve_uploaded_images
-    @documents = Document.where(animal_id: params[:animal_id]).order(created_at: :desc)
+    # @documents = Document.where(animal_id: params[:animal_id]).order(created_at: :desc)
+    @images = Document.where("animal_id = ? AND file_data like ?", params[:animal_id], "%\"mime_type\":\"image/%\"%").order(created_at: :desc)
     # @documents.each do |document|
     #   puts document.file_data
     # end
-    render json: { html: render_to_string(partial: 'documents/uploaded_images', locals: {:documents => @documents}) }
+    if @images != nil
+      render json: { html: render_to_string(partial: 'documents/uploaded_images', locals: {:images => @images}) }
+    else
+      flash[:notice] = "Could not find any uploaded documents for #{@animal.name}"
+    end
   end
  
   private
