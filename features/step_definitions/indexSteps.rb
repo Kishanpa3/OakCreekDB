@@ -14,7 +14,8 @@ When("I search for {string}") do |string|
 end
 
 When("I sort by {string} on the table {string}") do |string, _table|
-  within_table _table do
+  # within_table _table do
+  within first('table.dataTable') do
     find('th', text: string, match: :prefer_exact).click()
   end
   wait_for_ajax

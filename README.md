@@ -9,6 +9,7 @@ Make sure you have installed all of the following prerequisites on your Linux ma
 * [Rails](https://rubyonrails.org/) - You should have Rails 6.0.0 installed.
 * [Node.js 8.16.0+](https://nodejs.org/en/) - You should have Node.js installed.
 * [Yarn 1.x+](https://yarnpkg.com/lang/en/) - [Download & Install Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable).
+* [ImageMagick](https://imagemagick.org/script/download.php)
 
 Install Ruby and Rails:
 ```bash
