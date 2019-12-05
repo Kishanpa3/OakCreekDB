@@ -46,9 +46,9 @@ const uppy = Uppy({
   // debug: true,
   autoProceed: false,
   restrictions: {
-  //   maxFileSize: 1000000,
+    maxFileSize: 1000000000,
     maxNumberOfFiles: 10,
-  //   minNumberOfFiles: null,
+    minNumberOfFiles: null,
   //   allowedFileTypes: ['image/*', 'video/*']
   }
 })
@@ -59,7 +59,7 @@ const uppy = Uppy({
   replaceTargetContent: false,
   showProgressDetails: true,
   // note: 'Images and video only, 2–3 files, up to 1 MB',
-  note: 'Up to 10 files',
+  note: 'Up to 10 files, up to 1 GB',
   height: 470,
   metaFields: [
     { id: 'name', name: 'Name', placeholder: 'file name' },
