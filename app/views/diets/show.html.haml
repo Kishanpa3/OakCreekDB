@@ -1,3 +1,6 @@
+%head
+  = stylesheet_link_tag "application"
+
 %div.header
   %div.container
     %div.header-body
@@ -17,30 +20,30 @@
       %div.form-group.col-sm-1.col-sm-3
         = image_tag("transparent logo.png", :size => "200x200")
       %div.form-group.col-sm-9.col-sm-3
-        %h3= @animal.name
+        %h1= @animal.name
         %div.form-row
           %div.form-group.col-sm-6.col-sm-3
             %div.card{:style => "width: 22rem;"}
               %div.card-body
-                %h5.card-title.mb-0= label :diet, :dish, 'Instructions:'
+                %h3.card-title.mb-0= label :diet, :dish, 'Instructions:'
                 %div.card-text= simple_format(@diet.instructions)
         %div.form-row
           %div.form-group.col-sm-6.col-sm-3
             %div.card{:style => "width: 22rem;"}
               %div.card-body
-                %h5.card-title.mb-0= label :diet, :dish, 'Dish:'
+                %h3.card-title.mb-0= label :diet, :dish, 'Dish:'
                 %div.card-text= simple_format(@diet.dish)
         %div.form-row
           %div.form-group.col-sm-6.col-sm-3
             %div.card{:style => "width: 22rem;"}
               %div.card-body
-                %h5.card-title.mb-0= label :diet, :am, 'AM:'
+                %h3.card-title.mb-0= label :diet, :am, 'AM:'
                 %div.card-text= simple_format(@diet.am)
         %div.form-row
           %div.form-group.col-sm-6.col-sm-3
             %div.card{:style => "width: 22rem;"}
               %div.card-body
-                %h5.card-title.mb-0= label :diet, :pm, 'PM:'
+                %h3.card-title.mb-0= label :diet, :pm, 'PM:'
                 %div.card-text= simple_format(@diet.pm)
   %ul.nav.nav-pills
     %li.nav-item.nav-link

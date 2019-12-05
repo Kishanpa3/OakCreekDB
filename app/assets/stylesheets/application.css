@@ -109,9 +109,18 @@ th {
     padding: 10px 0px 0px 10px;
 }
 
-#animalCard {
+#animalCard{
     font-size:15px;
 }
+
+#animalCard h3{
+    font-size:18px;
+}
+
+h1{
+    margin-top: 10px;
+}
+
 
 a[data-wysihtml5-command="underline"] {
     display:none !important;
