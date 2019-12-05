@@ -97,35 +97,38 @@
               success: function(response) {
                 // console.log('nice' + response.html);
                 $('#modalContainer').html(response.html);
+                $('#imageModal').modal('toggle');
                 
                 $('#imageModal img').on('click', function() {
-                  var new_img = $(this).attr('src');
-                  img_logo.attr("src", new_img);
+                  var img_src = $(this).attr('src');
+                  var img_id = $(this).attr('alt');
+                  console.log(img_id);
                   
-                //   var img_id = $(this).attr('alt');
-                //   console.log(img_id);
+                  var post_data = { animal_id: "#{@animal.id}", image_id: img_id };
                   
-                //   var img_data = { image_id: img_id };
+                  $.ajax({
+                    url: "/update_image",
+                    data: post_data,
+                    cache: false,
+                    type: "POST",
+                    xhrFields: {
+                      withCredentials: true
+                    },
+                    success: function(response) {
+                      // console.log('nice' + response.html);
+                      img_logo.attr("src", img_src);
                   
-                //   $.ajax({
-                //     url: "/documents/uploaded_images",
-                //     data: img_data,
-                //     cache: false,
-                //     type: "POST",
-                //     xhrFields: {
-                //       withCredentials: true
-                //     },
-                //     success: function(response) {
-                //       // console.log('nice' + response.html);
-
-                //     },
-                //     error: function(xhr) {
+                      $('#imageModal').modal('toggle');
+                    },
+                    error: function(xhr) {
+                      // jQuery('#alerts').html('Uh Oh!');
+                    }
+                  });
+                  
+    
                 
-                //     }
-                //   });
-                  
-                //   $('#imageModal').modal('toggle');
-                // });
+                });
+                
               },
               error: function(xhr) {
           

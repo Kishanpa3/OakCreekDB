@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
   
+  match '/update_image' => 'animals#update_image', :via => :post, :as => :animals_update_image
+  
   mount DocumentUploader.derivation_endpoint => "/derivations/image"
   # mount ImageUploader.derivation_endpoint => "/derivations/image"
   mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"

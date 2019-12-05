@@ -6,4 +6,4 @@
           Uploaded images
       %div.modal-body
         - images.each do |image|
-          %img.avatar-img.rounded{:src => image.file_url(:small), :alt => "..."}
+          %img.avatar-img.rounded{:src => image.file_url(:small), :alt => image.id}
