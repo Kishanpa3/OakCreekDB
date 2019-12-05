@@ -1,5 +1,6 @@
 class Animal < ApplicationRecord
   has_one :diet, dependent: :destroy
+  has_one :animal_profile_images, dependent: :destroy
   accepts_nested_attributes_for :diet, allow_destroy: true
   #validates :tag, presence: true
   #validates :sex, length: {minimum: 6}

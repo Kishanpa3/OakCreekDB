@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_201518) do
+ActiveRecord::Schema.define(version: 2019_12_05_214800) do
+
+  create_table "animal_profile_images", force: :cascade do |t|
+    t.integer "animal_id", null: false
+    t.integer "document_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_animal_profile_images_on_animal_id"
+    t.index ["document_id"], name: "index_animal_profile_images_on_document_id"
+  end
 
   create_table "animals", force: :cascade do |t|
     t.integer "habitat_num"
@@ -72,6 +81,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_201518) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "animal_profile_images", "animals"
+  add_foreign_key "animal_profile_images", "documents"
   add_foreign_key "diets", "animals"
   add_foreign_key "documents", "animals"
 end
