@@ -44,9 +44,9 @@ module ApplicationHelper
   
   def get_animal_profile_image(_animal_id)
     begin
-      profile_image = Document.find(AnimalProfileImage.where(animal_id: _animal_id).first.document_id).file_url(:small)
+      profile_image = Document.find(AnimalProfileImage.where(animal_id: _animal_id).first.document_id).file_url(:medium)
     rescue StandardError
-      profile_image = "transparent logo.png"
+      profile_image = "logo-notext.png"
     end
     profile_image
   end
