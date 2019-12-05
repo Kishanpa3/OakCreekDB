@@ -12971,7 +12971,12 @@ a[data-wysihtml5-command="underline"] {
     width: auto;
 }
 
-#dtSearch th {
+// #dtSearch th {
+//     color: #f9f9f9;
+//     background-color: #9140FE;
+// }
+
+table.dataTable th {
     color: #f9f9f9;
     background-color: #9140FE;
 }
