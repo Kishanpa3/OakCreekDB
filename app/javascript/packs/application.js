@@ -72,7 +72,7 @@ const uppy = Uppy({
 // .use(Dropbox, { target: Dashboard, companionUrl: '/' })
 // .use(Facebook, { target: Dashboard, companionUrl: '/' })
 // .use(Instagram, { target: Dashboard, companionUrl: '/' })
-.use(Webcam, { target: Dashboard, facingMode: 'environment' })
+.use(Webcam, { target: Dashboard, mirror: false, facingMode: 'environment' })
 .use(AwsS3Multipart, { companionUrl: '/' })
 
 //Assumes temporary Shrine S3 storage has prefix: "cache" set
