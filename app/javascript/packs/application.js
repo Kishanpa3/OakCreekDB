@@ -45,12 +45,12 @@ import '@uppy/webcam/dist/style.min.css'
 const uppy = Uppy({
   // debug: true,
   autoProceed: false,
-  // restrictions: {
+  restrictions: {
   //   maxFileSize: 1000000,
-  //   maxNumberOfFiles: 10,
+    maxNumberOfFiles: 10,
   //   minNumberOfFiles: null,
   //   allowedFileTypes: ['image/*', 'video/*']
-  // }
+  }
 })
 .use(Dashboard, {
   trigger: '.UppyModalOpenerBtn',
@@ -96,7 +96,10 @@ uppy.on('upload-success', function (file, response) {
 
   document.querySelector('form').appendChild(hiddenField)
   
+  // You could submit one form for each individual file, but that would use much more requests
   // document.getElementById("form-uppy").submit();
+  // document.getElementsByClassName("upload-hidden").remove();
+  
   // // set hidden field value to the uploaded file data so that it's submitted with the form as the attachment
   // var hiddenInput = document.querySelector('.upload-hidden')
   // hiddenInput.value = uploadedFileData
@@ -104,6 +107,14 @@ uppy.on('upload-success', function (file, response) {
 
 uppy.on('complete', result => {
   document.getElementById("form-uppy").submit();
+  
+  // Clear form input child elements after form submission
+  var elements = document.getElementById("form-uppy")
+                   .getElementsByClassName("upload-hidden");
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
+  }
+  
   console.log('successful files:', result.successful)
   console.log('failed files:', result.failed)
 })
