@@ -59,6 +59,7 @@ const uppy = Uppy({
   replaceTargetContent: false,
   showProgressDetails: true,
   // note: 'Images and video only, 2–3 files, up to 1 MB',
+  note: 'Up to 10 files',
   height: 470,
   metaFields: [
     { id: 'name', name: 'Name', placeholder: 'file name' },

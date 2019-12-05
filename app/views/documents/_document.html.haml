@@ -15,5 +15,5 @@
           %i.material-icons.md-18 more_vert
         %div.dropdown-menu.dropdown-menu-right
           = link_to 'Download', download_animal_document_path(@animal, document), :class => "dropdown-item"
-          = link_to 'Another action', animal_documents_path, :class => "dropdown-item"
+          /= link_to 'Another action', "#", :class => "dropdown-item"
           = link_to 'Delete', animal_document_path(@animal, document), :remote => true, :method => :delete, :class => "dropdown-item text-danger"
