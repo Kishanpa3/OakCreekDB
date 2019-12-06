@@ -26,7 +26,7 @@ Scenario: Try to edit an existing diet
     When I click on the first table row of "dtSearch"
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
-    When I follow the link "Edit"
+    When I follow the link "Edit Diets"
     When I fill text area "dish_area" with "Blue Bowl"
     When I press the button "Update Diet Info"
     Then I should see "Blue Bowl"

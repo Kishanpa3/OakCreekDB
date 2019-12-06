@@ -24,7 +24,7 @@
   %div.container.card.pl-0.pr-0
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
-        %h1.font-weight-bold.mb-1= label_tag 'Notes'
+        %h1.font-weight-bold.mb-1= label_tag 'Notes', nil, :class => "mb-1"
         %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
           = @animal.notes
 
