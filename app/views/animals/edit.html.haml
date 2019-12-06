@@ -60,5 +60,5 @@
               %h1.font-weight-bold.mb-1= label :animal, :notes, "#{@animal.name}'s Notes", :class => "mb-1"
               = text_area :animal, 'notes', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
             
-        = submit_tag 'Update Animal Info', :class => "btn btn-primary"
+        = submit_tag 'Update Detail Info', :class => "btn btn-primary"
         = link_to "Cancel", animal_path(@animal), :class => "btn btn-secondary ml-4"
