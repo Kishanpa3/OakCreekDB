@@ -1,53 +1,64 @@
 %div.container 
-  %h1.display-4 Editing #{@animal.name}'s Information
+  %h1.container.display-4 Editing #{@animal.name}'s Information
   
-  %div#aniForm.was-validated
-    = form_tag animal_path(@animal),:method => :put do
-      %div.form-row
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :name, 'Name'
-          = text_field :animal, 'name', :class => "form-control", :required => ""
-          .invalid-feedback Animal Name Required
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :tag, 'Tag'
-          = text_field :animal, 'tag', :class => "form-control", :required => ""
-          .invalid-feedback Tag Number Required
-      %div.form-row
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :common_name, 'Common Name'
-          = text_field :animal, 'common_name', :class => "form-control", :required => ""
-          .invalid-feedback Animal Common Name Required
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :habitat_num, 'Habitat #'
-          = text_field :animal, 'habitat_num', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
-          .invalid-feedback Animal Habitat Number Required
-      %div.form-row
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :species, 'Species'
-          = text_field :animal, 'species', :class => "form-control", :required => ""
-          .invalid-feedback Animal Species Required
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :weight, 'Weight'
-          = text_field :animal, 'weight', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
-          .invalid-feedback Animal Weight in Pounds Required
-      %div.form-row
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :age, 'Age'
-          = text_field :animal, 'age', :class => "form-control", :oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
-          .invalid-feedback Animal Age Required
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :neutered, 'Neutered'
-          = select :animal, :neutered, ['Yes','No','N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
-          .invalid-feedback Animal Neutered Status Required
-      %div.form-row
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :dob, 'Date of Birth'
-          = date_field :animal, :dob, :class => "form-control", :required => ""
-          .invalid-feedback Animal Date of Birth Required
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :sex, 'Sex'
-          %div
-            = select :animal, :sex, ['Male', 'Female', 'N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
-            .invalid-feedback Animal Sex Required
-      = submit_tag 'Update Animal Info', :class => "btn btn-primary"
-      = link_to "Cancel", animal_path(@animal), :class => "btn btn-secondary ml-2"
+  %div.container.d-flex.flex-row.justify-content-center
+    %div#aniForm.was-validated.col-12.mb-4
+      = form_tag animal_path(@animal),:method => :put do
+        %div.card.p-5
+          %div.d-flex.flex-row
+            %h1.font-weight-bold.mb-4= "#{@animal.name}'s Card Info"
+        
+          %div.d-flex.flex-row
+            %div.form-group.col-6
+              = label :animal, :name, 'Name'
+              = text_field :animal, 'name', :class => "form-control", :required => ""
+              .invalid-feedback Animal Name Required
+            %div.form-group.col-6
+              = label :animal, :tag, 'Tag'
+              = text_field :animal, 'tag', :class => "form-control", :required => ""
+              .invalid-feedback Tag Number Required
+          %div.d-flex.flex-row
+            %div.form-group.col-6
+              = label :animal, :common_name, 'Common Name'
+              = text_field :animal, 'common_name', :class => "form-control", :required => ""
+              .invalid-feedback Animal Common Name Required
+            %div.form-group.col-6
+              = label :animal, :habitat_num, 'Habitat #'
+              = text_field :animal, 'habitat_num', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
+              .invalid-feedback Animal Habitat Number Required
+          %div.d-flex.flex-row
+            %div.form-group.col-6
+              = label :animal, :species, 'Species'
+              = text_field :animal, 'species', :class => "form-control", :required => ""
+              .invalid-feedback Animal Species Required
+            %div.form-group.col-6
+              = label :animal, :weight, 'Weight'
+              = text_field :animal, 'weight', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
+              .invalid-feedback Animal Weight in Pounds Required
+          %div.d-flex.flex-row
+            %div.form-group.col-6
+              = label :animal, :age, 'Age'
+              = text_field :animal, 'age', :class => "form-control", :oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
+              .invalid-feedback Animal Age Required
+            %div.form-group.col-6
+              = label :animal, :neutered, 'Neutered'
+              = select :animal, :neutered, ['Yes','No','N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
+              .invalid-feedback Animal Neutered Status Required
+          %div.d-flex.flex-row
+            %div.form-group.col-6
+              = label :animal, :dob, 'Date of Birth'
+              = date_field :animal, :dob, :class => "form-control", :required => ""
+              .invalid-feedback Animal Date of Birth Required
+            %div.form-group.col-6
+              = label :animal, :sex, 'Sex'
+              %div
+                = select :animal, :sex, ['Male', 'Female', 'N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
+                .invalid-feedback Animal Sex Required
+          
+          %div.d-flex.flex-row.mt-2   
+            %div.form-group.col-12
+              %h1.font-weight-bold.mb-1= label :animal, :notes, "#{@animal.name}'s Notes", :class => "mb-1"
+              = text_area :animal, 'notes', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
+            
+        = submit_tag 'Update Animal Info', :class => "btn btn-primary"
+        = link_to "Cancel", animal_path(@animal), :class => "btn btn-secondary ml-4"
