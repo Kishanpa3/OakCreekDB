@@ -73,7 +73,7 @@
       
     %ul.nav.nav-pills.mb-5
       %li.nav-item.nav-link
-        = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
+        = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
       - if has_edit_permissions
         %li.nav-item.nav-link
           = link_to 'Edit Details', edit_animal_path(@animal), :class => "btn btn-primary"
