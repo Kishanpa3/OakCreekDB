@@ -14,40 +14,45 @@
 
 = render "animals/info"
         
-.d-flex.flex-row
-  %div.container  
-    %div#animalCard.card
-      %div.form-row.d-flex.justify-content-center.mt-5
-        %div.form-group.col-sm-6.col-sm-3
-          %div.card
-            %div.card-body
-              %h3.card-title.mb-0.font-weight-bold= label :diet, :dish, 'Instructions:'
-              %div.card-text= simple_format(@diet.instructions)
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-6.col-sm-3
-          %div.card
-            %div.card-body
-              %h3.card-title.mb-0.font-weight-bold= label :diet, :dish, 'Dish:'
-              %div.card-text= simple_format(@diet.dish)
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-6.col-sm-3
-          %div.card
-            %div.card-body
-              %h3.card-title.mb-0.font-weight-bold= label :diet, :am, 'AM:'
-              %div.card-text= simple_format(@diet.am)
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-6.col-sm-3
-          %div.card
-            %div.card-body
-              %h3.card-title.mb-0.font-weight-bold= label :diet, :pm, 'PM:'
-              %div.card-text= simple_format(@diet.pm)
-    
-    %ul.nav.nav-pills.mb-5
+%div.d-flex.flex-row
+  %div.container.card.mb-3
+    %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+      %div.form-group.col-sm-11
+        %h1.font-weight-bold.mb-1= label :diet, :dish, 'Dish'
+        %div.form-control{ :style => "height: 5vw; overflow-y: auto" }
+          = simple_format(@diet.dish)
+
+%div.d-flex.flex-row
+  %div.container.card.mb-3
+    %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+      %div.form-group.col-sm-11
+        %h1.font-weight-bold.mb-1= label :diet, :dish, 'Instructions'
+        %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
+          = simple_format(@diet.instructions)
+          
+%div.d-flex.flex-row
+  %div.container.card.mb-3
+    %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+      %div.form-group.col-sm-11
+        %h1.font-weight-bold.mb-1= label :diet, :dish, 'AM Diet'
+        %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
+          = simple_format(@diet.am)
+          
+%div.d-flex.flex-row
+  %div.container.card.mb-3
+    %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+      %div.form-group.col-sm-11
+        %h1.font-weight-bold.mb-1= label :diet, :dish, 'PM Diet'
+        %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
+          = simple_format(@diet.pm)
+          
+%div.container   
+  %ul.nav.nav-pills.mb-5
+    %li.nav-item.nav-link
+      = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
+    - if has_edit_permissions
       %li.nav-item.nav-link
-        = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
-      - if has_edit_permissions
-        %li.nav-item.nav-link
-          = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
-      - if has_delete_permissions
-        %li.nav-item.nav-link
-          = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+        = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
+    - if has_delete_permissions
+      %li.nav-item.nav-link
+        = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"

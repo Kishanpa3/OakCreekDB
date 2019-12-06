@@ -22,10 +22,11 @@
 
 %div.d-flex.flex-row
   %div.container.card
-    %div.form-group.col-sm-12.mt-4
-      %h1= label_tag 'Notes', nil , class: "font-weight-bold"
-      %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
-        = @animal.notes
+    %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+      %div.form-group.col-sm-11
+        %h1.font-weight-bold.mb-1= label_tag 'Notes'
+        %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
+          = @animal.notes
 
 %div.container     
   %ul.nav.nav-pills.mb-5
