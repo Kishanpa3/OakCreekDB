@@ -2,14 +2,12 @@
 require "image_processing/mini_magick"
 
 class ImageUploader < Shrine
-  ALLOWED_TYPES  = %w[image/jpeg image/png image/webp]
-  MAX_SIZE       = 10*1024*1024 # 10 MB
+  ALLOWED_TYPES  = %w[image/jpeg image/png image/webp image/bmp image/x-icon image/tiff]
+  MAX_SIZE       = 50*1024*1024 # 50 MB
   MAX_DIMENSIONS = [5000, 5000] # 5000x5000
 
   THUMBNAILS = {
     small:  [300, 300],
-    medium: [600, 600],
-    large:  [800, 800],
   }
 
   plugin :remove_attachment

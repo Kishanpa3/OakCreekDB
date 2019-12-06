@@ -13,15 +13,15 @@
                 = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
 
 
-%div.d-flex.flex-row
-  %div.col-12.d-flex.justify-content-center
+.d-flex.flex-row
+  .col-12.d-flex.justify-content-center
     %div
       %div.profile-animalpic.mb-3
         = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo")
       %h1.text-center.display-4= @animal.name
       
               
-%div.d-flex.flex-row
+.d-flex.flex-row
   %div.container  
     %div#animalCard.card
       %div.form-row.d-flex.justify-content-center.mt-5
@@ -54,7 +54,7 @@
         = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
       - if has_edit_permissions
         %li.nav-item.nav-link
-          = link_to 'Edit Diets', edit_animal_diet_path(@animal), :class => "btn btn-primary"
+          = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
       - if has_delete_permissions
         %li.nav-item.nav-link
           = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
