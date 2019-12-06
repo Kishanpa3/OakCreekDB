@@ -10,10 +10,13 @@ module DocumentsHelper
     "%.1f%s" % [bytes.to_f / 1024 ** exp, FILESIZE_UNITS[exp]]
   end
   
-  # Change file icon depending on file mime type
+  # Display file icon depending on file mime type
   def display_file_type(document)
     case document.file.mime_type
     when /^image\//
+      # image_url = image_path("image.svg")
+      # image_url = document.file_url(:small) unless document.file_url(:small).nil?
+      # return image_url
       return document.file_url(:small)
     when /^video\//
       return image_path("film.svg")

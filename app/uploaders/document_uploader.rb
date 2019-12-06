@@ -70,6 +70,7 @@ class DocumentUploader < Shrine
     #     .loader(page: 0) # specify page number
     #     .resize_to_limit!(width, height)
     # end
+    
     # ImageProcessing::Vips
     ImageProcessing::MiniMagick
       .source(file)
