@@ -19,7 +19,7 @@
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
         %h1.font-weight-bold.mb-1= label :diet, :dish, 'Dish'
-        %div.form-control{ :style => "height: 5vw; overflow-y: auto" }
+        %div.form-control{ :style => "height: 5vh; overflow-y: auto" }
           = simple_format(@diet.dish)
 
 %div.d-flex.flex-row
@@ -38,7 +38,7 @@
         %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
           = simple_format(@diet.am)
           
-%div.d-flex.flex-row
+%div.d-flex.flex-row.mb-3
   %div.container.card.mb-3
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
