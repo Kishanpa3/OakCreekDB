@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  # include Error::ErrorHandler
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  
   before_action :authenticate_user!, except: :update_form_partial
 
   # Used for updating the partials on the login page

@@ -7,13 +7,14 @@
   // = stylesheet_link_tag "application"
 
 %div.container
-  %div.d-flex.flex-row 
-    %div.col-6
-      %h1 All Animals
-    %div.col-6.mb-1
+  %div.row.align-items-start
+    %div.col.mb-3
+      %h1.header-title
+        All Animals
+    %div.col-12.col-md-auto.mt-md-0.mb-2
+      = link_to 'Export CSV', "/animals.csv", :class => "btn btn-outline-info d-block mb-2 d-md-inline-block mb-md-0 lift"
       - if has_add_permissions
-        = link_to 'Add New Animal', new_animal_path, :class => "btn btn-success float-right ml-2"
-      = link_to 'CSV Export', "/animals.csv", :class => "btn btn-info float-right ml-2"
+        = link_to 'Add New Animal', new_animal_path, :class => "btn btn-info d-block d-md-inline-block lift"
   
   %table#dtSearch.table.table-striped.table-bordered.table-lg
 

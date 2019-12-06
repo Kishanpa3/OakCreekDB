@@ -41,7 +41,7 @@
                   %div.input-group-text
                     %span.material-icons.md-18 search
         %div.card-body
-          %ul.list-group.list-group-lg.list-group-flush.list.my-n4
+          %ul#render-list.list-group.list-group-lg.list-group-flush.list.my-n4
             = render @documents
                       
   = will_paginate @documents, renderer: @custom_paginate_renderer

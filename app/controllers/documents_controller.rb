@@ -23,6 +23,7 @@ class DocumentsController < ApplicationController
   def destroy
     @document = Document.find(params[:id])
     @document.destroy
+    # flash[:alert] = "File has already been deleted."
     respond_to do |format|
       format.html { redirect_to animal_documents_path }
       format.js
