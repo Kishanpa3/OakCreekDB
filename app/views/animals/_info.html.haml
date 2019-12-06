@@ -1,0 +1,41 @@
+%div.d-flex.flex-row.mb-4
+  %div.col-12.d-flex.justify-content-center
+    %div.container.p-3.d-flex.row.align-items-center
+      %div.animal-headshot-container.text-center.col-12.col-md-4.mb-3.mb-md-0
+        %div.profile-animalpic
+          = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo shadow mb-2 rounded")
+          %h1.display-4= @animal.name
+      %div.col-12.col-md-8.animal-info-container{:style => "overflow-x: auto"}
+        %div.card.d-flex{ :style => "height: 85%" }
+          .justify-content-center{ :style => "height: 100%; width: 100%" }
+            %div.d-flex.flex-row.mt-4
+              %div.form-group.col-5.mb-1
+                = label_tag 'Tag:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.tag
+              %div.form-group.col-5.mb-1
+                = label_tag 'Habitat Number:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.habitat_num
+            %div.d-flex.flex-row
+              %div.form-group.col-5.mb-1
+                = label_tag 'Common Name:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.common_name
+              %div.form-group.col-5.mb-1
+                = label_tag 'Species:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.species
+            %div.d-flex.flex-row
+              %div.form-group.col-5.mb-1
+                = label_tag 'Sex:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.sex
+              %div.form-group.col-5.mb-1
+                = label_tag 'Neutered:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.neutered
+            %div.d-flex.flex-row
+              %div.form-group.col-5.mb-1
+                = label_tag 'Weight:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= "#{@animal.weight} lbs"
+              %div.form-group.col-4.mb-1
+                = label_tag 'Date of Birth:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
+              %div.form-group.col-3.mb-1
+                = label_tag 'Age:', nil , class: "h3 font-weight-bold"
+                %span.h3.text-muted= @animal.age

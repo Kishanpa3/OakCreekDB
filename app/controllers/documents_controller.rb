@@ -45,11 +45,7 @@ class DocumentsController < ApplicationController
     # @documents.each do |document|
     #   puts document.file_data
     # end
-    if @images != nil
-      render json: { html: render_to_string(partial: 'documents/uploaded_images', locals: {:images => @images}) }
-    else
-      flash[:notice] = "Could not find any uploaded documents for #{@animal.name}"
-    end
+    render json: { html: render_to_string(partial: 'documents/uploaded_images', locals: {:images => @images}) }
   end
  
   private
