@@ -21,7 +21,7 @@ class DocumentUploader < Shrine
   Attacher.validate do
     case file.mime_type
     when /^image\//
-      validate_size 0..50*1024*1024 # 50 MB
+      validate_size 0..1*1024*1024 # 50 MB
       if validate_mime_type %w[image/jpeg image/png image/webp image/bmp image/gif image/x-icon image/tiff]
         validate_extension %w[jpg jpeg png webp bmp gif ico cur tiff tif]
         validate_max_dimensions [5000, 5000] # 5000x5000

@@ -8,9 +8,9 @@
 
 %div.container
   %div.d-flex.flex-row 
-    %div.col-6
+    %div.col-6.pl-0
       %h1 All Animals
-    %div.col-6.mb-1
+    %div.col-6.mb-1.pr-0
       - if has_add_permissions
         = link_to 'Add New Animal', new_animal_path, :class => "btn btn-success float-right ml-2"
       = link_to 'CSV Export', "/animals.csv", :class => "btn btn-info float-right ml-2"

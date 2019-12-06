@@ -37,7 +37,7 @@
           .invalid-feedback Animal Age Required
         %div.form-group.col-sm-4.sm-3
           = label :animal, :neutered, 'Neutered'
-          = select :animal, :neutered, ['Yes','No','N\A'],{include_blank: "Select..."}, {class: "form-control", required: true }
+          = select :animal, :neutered, ['Yes','No','N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
           .invalid-feedback Animal Neutered Status Required
       %div.form-row
         %div.form-group.col-sm-4.sm-3
@@ -47,7 +47,7 @@
         %div.form-group.col-sm-4.sm-3
           = label :animal, :sex, 'Sex'
           %div
-            = select :animal, :sex, ['Male', 'Female', 'N\A'],{include_blank: "Select..."}, {class: "form-control", required: true }
+            = select :animal, :sex, ['Male', 'Female', 'N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
             .invalid-feedback Animal Sex Required
       = submit_tag 'Update Animal Info', :class => "btn btn-primary"
       = link_to "Cancel", animal_path(@animal), :class => "btn btn-secondary ml-2"
