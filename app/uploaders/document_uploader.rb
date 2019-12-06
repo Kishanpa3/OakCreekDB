@@ -51,10 +51,24 @@ class DocumentUploader < Shrine
 
   # Dynamic thumbnail definition (requires `derivation_endpoint` plugin)
   derivation :thumbnail do |file, width, height|
-    THUMBNAILER.call(file, width.to_i, height.to_i)
+    if file.mime_type =~ /^image\//
+      THUMBNAILER.call(file, width.to_i, height.to_i)
+    end
   end
 
   THUMBNAILER = -> (file, width, height) do
+    # case file.mime_type
+    # when /^image\//
+    #   # ImageProcessing::Vips
+    #   ImageProcessing::MiniMagick
+    #     .source(file)
+    #     .resize_to_limit!(width, height)
+    # when /\/pdf$/
+    #   ImageProcessing::MiniMagick
+    #     .source(file)
+    #     .loader(page: 0) # specify page number
+    #     .resize_to_limit!(width, height)
+    # end
     # ImageProcessing::Vips
     ImageProcessing::MiniMagick
       .source(file)
