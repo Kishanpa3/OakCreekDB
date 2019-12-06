@@ -29,7 +29,8 @@
             %div.col-auto
               %div.dropdown
             %div.col-auto
-              %button.UppyModalOpenerBtn.btn.btn-sm.btn-outline-primary Upload
+              - if has_edit_permissions
+                %button.UppyModalOpenerBtn.btn.btn-sm.btn-outline-primary Upload
               %div.DashboardContainer
               = form_with model: @animal, id: "form-uppy"
         %div.card-header
