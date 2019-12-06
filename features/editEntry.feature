@@ -20,8 +20,8 @@ Background: Database Setup
     
 Scenario: Edit an existing animal
     When I click on the first table row of "dtSearch"
-    When I follow the link "Edit"
-    Then I should see "Edit Existing Animal"
+    When I follow the link "Edit Details"
+    Then I should see "Editing Otto's Information"
     When I fill text field "Tag" with "1337"
     And I fill text field "Weight" with "570"
     When I fill text field "Tag" with "1337"

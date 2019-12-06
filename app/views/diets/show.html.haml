@@ -1,56 +1,60 @@
-%head
-  = stylesheet_link_tag "application"
+%div.d-flex.flex-row
+  %div.header.header.col-12
+    %div.container
+      %div.header-body
+        %div.row.align-items-center
+          %div.col
+            %ul.nav.nav-tabs.nav-overflow.card-header-tabs
+              %li.nav-item
+                = link_to 'Details', animal_path(@animal), :class => "nav-link"
+              %li.nav-item
+                = link_to 'Diet', animal_diet_path, :class => "nav-link active"
+              %li.nav-item
+                = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
 
-%div.header
-  %div.container
-    %div.header-body
-      %div.row.align-items-center
-        %div.col
-          %ul.nav.nav-tabs.nav-overflow.card-header-tabs
-            %li.nav-item
-              = link_to 'Details', animal_path(@animal), :class => "nav-link"
-            %li.nav-item
-              = link_to 'Diet', animal_diet_path, :class => "nav-link active"
-            %li.nav-item
-              = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
 
-%div.container  
-  %div#animalCard.card
-    %div.form-row
-      %div.form-group.col-sm-1.col-sm-3
-        = image_tag("transparent logo.png", :size => "200x200")
-      %div.form-group.col-sm-9.col-sm-3
-        %h1= @animal.name
-        %div.form-row
-          %div.form-group.col-sm-6.col-sm-3
-            %div.card{:style => "width: 22rem;"}
-              %div.card-body
-                %h3.card-title.mb-0= label :diet, :dish, 'Instructions:'
-                %div.card-text= simple_format(@diet.instructions)
-        %div.form-row
-          %div.form-group.col-sm-6.col-sm-3
-            %div.card{:style => "width: 22rem;"}
-              %div.card-body
-                %h3.card-title.mb-0= label :diet, :dish, 'Dish:'
-                %div.card-text= simple_format(@diet.dish)
-        %div.form-row
-          %div.form-group.col-sm-6.col-sm-3
-            %div.card{:style => "width: 22rem;"}
-              %div.card-body
-                %h3.card-title.mb-0= label :diet, :am, 'AM:'
-                %div.card-text= simple_format(@diet.am)
-        %div.form-row
-          %div.form-group.col-sm-6.col-sm-3
-            %div.card{:style => "width: 22rem;"}
-              %div.card-body
-                %h3.card-title.mb-0= label :diet, :pm, 'PM:'
-                %div.card-text= simple_format(@diet.pm)
-  %ul.nav.nav-pills
-    %li.nav-item.nav-link
-      = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
-    - if has_edit_permissions
+.d-flex.flex-row
+  .col-12.d-flex.justify-content-center
+    %div
+      %div.profile-animalpic.mb-3
+        = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo")
+      %h1.text-center.display-4= @animal.name
+      
+              
+.d-flex.flex-row
+  %div.container  
+    %div#animalCard.card
+      %div.form-row.d-flex.justify-content-center.mt-5
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card
+            %div.card-body
+              %h3.card-title.mb-0.font-weight-bold= label :diet, :dish, 'Instructions:'
+              %div.card-text= simple_format(@diet.instructions)
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card
+            %div.card-body
+              %h3.card-title.mb-0.font-weight-bold= label :diet, :dish, 'Dish:'
+              %div.card-text= simple_format(@diet.dish)
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card
+            %div.card-body
+              %h3.card-title.mb-0.font-weight-bold= label :diet, :am, 'AM:'
+              %div.card-text= simple_format(@diet.am)
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-6.col-sm-3
+          %div.card
+            %div.card-body
+              %h3.card-title.mb-0.font-weight-bold= label :diet, :pm, 'PM:'
+              %div.card-text= simple_format(@diet.pm)
+    
+    %ul.nav.nav-pills.mb-5
       %li.nav-item.nav-link
-        = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
-    - if has_delete_permissions
-      %li.nav-item.nav-link
-        = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+        = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
+      - if has_edit_permissions
+        %li.nav-item.nav-link
+          = link_to 'Edit', edit_animal_diet_path(@animal), :class => "btn btn-primary"
+      - if has_delete_permissions
+        %li.nav-item.nav-link
+          = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"

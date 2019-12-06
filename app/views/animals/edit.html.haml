@@ -1,5 +1,5 @@
 %div.container 
-  %h2 Edit Existing Animal
+  %h1.display-4 Editing #{@animal.name}'s Information
   
   %div#aniForm.was-validated
     = form_tag animal_path(@animal),:method => :put do

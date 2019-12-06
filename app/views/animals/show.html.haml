@@ -1,75 +1,137 @@
-%header
-  = stylesheet_link_tag "application"
+%head
+  - no_content_for(:application_imports)
+  = javascript_include_tag 'application'
+  // %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
+  %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
 
-%div.header
+%div.d-flex.flex-row
+  %div.header.col-12
+    %div.container
+      %div.header-body
+        %div.row.align-items-center
+          %div.col
+            %ul.nav.nav-tabs.nav-overflow.card-header-tabs
+              %li.nav-item
+                = link_to 'Details', animal_path, :class => "nav-link active"
+              %li.nav-item
+                = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
+              %li.nav-item
+                = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
+                
+%div.d-flex.flex-row
+  %div.col-12.d-flex.justify-content-center
+    %div
+      %div.profile-animalpic.mb-3
+        = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo")
+      %h1.text-center.display-4= @animal.name
+
+%div.d-flex.flex-row
   %div.container
-    %div.header-body
-      %div.row.align-items-center
-        %div.col
-          %ul.nav.nav-tabs.nav-overflow.card-header-tabs
-            %li.nav-item
-              = link_to 'Details', animal_path, :class => "nav-link active"
-            %li.nav-item
-              = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
-            %li.nav-item
-              = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
-
-%div.container
-  %div#animalCard.card
-    %div.form-row
-      %div.form-group.col-sm-1.col-sm-3
-        = image_tag("transparent logo.png", :size => "200x200")
-      %div.form-group.col-sm-9.col-sm-3
-        %h1
-          = @animal.name
-        %div.form-row
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Tag:'
-            %div.form-control
-              = @animal.tag
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Habitat Number:'
-            %div.form-group.form-control
-              = @animal.habitat_num
-        %div.form-row
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Common Name:'
-            %div.form-control
-              = @animal.common_name
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Species:'
-            %div.form-control
-              = @animal.species
-        %div.form-row
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Sex:'
-            %div.form-control
-              = @animal.sex
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Neutered:'
-            %div.form-control
-              = @animal.neutered
-        %div.form-row
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Age:'
-            %div.form-control 
-              = @animal.age
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Date of Birth:'
-            %div.form-control
-              = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
-        %div.form-row
-          %div.form-group.col-sm-5.col-sm-3
-            = label_tag 'Weight:'
-            %div.form-control
-              = "#{@animal.weight} lbs"
-    
-  %ul.nav.nav-pills
-    %li.nav-item.nav-link
-      = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
-    - if has_edit_permissions
+    %div#animalCard.card
+      %div.form-row.d-flex.justify-content-center.mt-4
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Tag:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.tag
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Habitat Number:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.habitat_num
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Common Name:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.common_name
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Species:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.species
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Sex:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.sex
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Neutered:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.neutered
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Age:', nil , class: "font-weight-bold"
+          %div.form-control 
+            = @animal.age
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Date of Birth:', nil , class: "font-weight-bold"
+          %div.form-control
+            = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
+      %div.form-row.d-flex.justify-content-center
+        %div.form-group.col-sm-5.col-sm-3
+          = label_tag 'Weight:', nil , class: "font-weight-bold"
+          %div.form-control
+            = "#{@animal.weight} lbs"
+      
+    %ul.nav.nav-pills.mb-5
       %li.nav-item.nav-link
-        = link_to 'Edit', edit_animal_path(@animal), :class => "btn btn-primary"
-    - if has_delete_permissions
-      %li.nav-item.nav-link
-        = link_to 'Delete Animal', animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
+        = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
+      - if has_edit_permissions
+        %li.nav-item.nav-link
+          = link_to 'Edit Details', edit_animal_path(@animal), :class => "btn btn-primary"
+      - if has_delete_permissions
+        %li.nav-item.nav-link
+          = link_to "Delete #{@animal.name}'s Page", animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
+          
+    %div#modalContainer
+        
+:javascript
+  $(document).on('ready', function() {
+      var img_logo = $('.animal-profile-logo').on('click', function() {
+          console.log('clicked logo!');
+          
+          var animal = { animal_id: "#{@animal.id}" };
+          
+          $.ajax({
+              url: "/documents/uploaded_images",
+              data: animal,
+              cache: false,
+              type: "GET",
+              xhrFields: {
+                withCredentials: true
+              },
+              success: function(response) {
+                // console.log('nice' + response.html);
+                $('#modalContainer').html(response.html);
+                $('#imageModal').modal('toggle');
+                
+                $('#imageModal img').on('click', function() {
+                  var img_src = $(this).attr('src');
+                  var img_id = $(this).attr('alt');
+                  console.log(img_id);
+                  
+                  var post_data = { animal_id: "#{@animal.id}", image_id: img_id };
+                  
+                  $.ajax({
+                    url: "/update_image",
+                    data: post_data,
+                    cache: false,
+                    type: "POST",
+                    xhrFields: {
+                      withCredentials: true
+                    },
+                    success: function(response) {
+                      // console.log('nice' + response.html);
+                      img_logo.attr("src", img_src);
+                  
+                      $('#imageModal').modal('toggle');
+                    },
+                    error: function(xhr) {
+                      // jQuery('#alerts').html('Uh Oh!');
+                    }
+                  });
+                });
+              },
+              error: function(xhr) {
+          
+              }
+          });
+      });
+  });

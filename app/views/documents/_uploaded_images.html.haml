@@ -1,0 +1,12 @@
+%div.modal.fade{:id => "imageModal", "aria-hidden" => "true", "aria-labelledby" => "exampleModalCenterTitle", :role => "dialog", :tabindex => "-1"}
+  %div.modal-dialog.modal-dialog-centered{:role => "document"}
+    %div.modal-dialog-scrollable.modal-content
+      %div.modal-dialog-scrollable.modal-header
+        %h1#exampleModalLongTitle.modal-title
+          Uploaded images
+      %div.modal-dialog-scrollable.modal-body
+        %div.row.text-center.text-lg-left
+          - images.each do |image|
+            %div.col-lg-3.col-md-4.col-6
+              %a.d-block.mb-4.h-100{:href => "#"}
+                %img.img-fluid.img-thumbnail.rounded{:src => image.file_url(:medium), :alt => image.id}

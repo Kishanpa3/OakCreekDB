@@ -4,6 +4,8 @@ class AnimalsController < ApplicationController
   before_action :authenticate_edit_permissions, only: [:update, :edit]
   before_action :authenticate_delete_permissions, only: [:destroy]
   
+  before_action :authenticate_animal_image, only: [:update_image]
+  
   
   def index
     @animals = Animal.all
@@ -54,10 +56,21 @@ class AnimalsController < ApplicationController
     redirect_to animals_path
   end
   
+  def update_image
+    profile_image = AnimalProfileImage.where(animal_id: params[:animal_id]).first_or_initialize
+    profile_image.document_id = params[:image_id]
+    profile_image.save
+    puts 'CREATED ANIMAL PROFILE IMAGE'
+  end
+  
   private
   
   def animal_params
     params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight, :documents_attributes => {})
     # params.require(:animal).permit!
+  end
+  
+  def authenticate_animal_image
+    params.require([:animal_id, :image_id]);
   end
 end
