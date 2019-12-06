@@ -20,55 +20,54 @@
                 
 %div.d-flex.flex-row
   %div.col-12.d-flex.justify-content-center
-    %div
-      %div.profile-animalpic.mb-3
-        = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo")
-      %h1.text-center.display-4= @animal.name
+    %div.container.card.p-3.d-flex.flex-row.align-items-center
+      %div.col-3.animal-headshot-container.text-center{ :style => "border-right: 1px #CDCDCD solid" }
+        %div.profile-animalpic
+          = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo mb-1")
+          %h1.text-center.display-4= @animal.name
+      %div.col-9.animal-info-container
+        %div.d-flex.flex-row
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Tag:', nil , class: "font-weight-bold"
+            = @animal.tag
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Habitat Number:', nil , class: "font-weight-bold"
+            = @animal.habitat_num
+        %div.d-flex.flex-row
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Common Name:', nil , class: "font-weight-bold"
+            = @animal.common_name
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Species:', nil , class: "font-weight-bold"
+            = @animal.species
+        %div.d-flex.flex-row
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Sex:', nil , class: "font-weight-bold"
+            = @animal.sex
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Neutered:', nil , class: "font-weight-bold"
+            = @animal.neutered
+        %div.d-flex.flex-row
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Date of Birth:', nil , class: "font-weight-bold"
+            = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Age:', nil , class: "font-weight-bold"
+            = @animal.age
+        %div.d-flex.flex-row
+          %div.form-group.col-sm-5.mb-1
+            = label_tag 'Weight:', nil , class: "font-weight-bold"
+            = "#{@animal.weight} lbs"
+          
+      
+      
 
 %div.d-flex.flex-row
-  %div.container
-    %div#animalCard.card
-      %div.form-row.d-flex.justify-content-center.mt-4
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Tag:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.tag
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Habitat Number:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.habitat_num
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Common Name:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.common_name
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Species:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.species
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Sex:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.sex
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Neutered:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.neutered
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Age:', nil , class: "font-weight-bold"
-          %div.form-control 
-            = @animal.age
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Date of Birth:', nil , class: "font-weight-bold"
-          %div.form-control
-            = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
-      %div.form-row.d-flex.justify-content-center
-        %div.form-group.col-sm-5.col-sm-3
-          = label_tag 'Weight:', nil , class: "font-weight-bold"
-          %div.form-control
-            = "#{@animal.weight} lbs"
+  %div.container.card
+    %div.form-group.col-sm-12.mt-4
+      %h1= label_tag 'Notes', nil , class: "font-weight-bold"
+      %div.form-control{ :style => "height: 300px; overflow-y: auto" }
+        = @animal.notes
       
     %ul.nav.nav-pills.mb-5
       %li.nav-item.nav-link
@@ -80,7 +79,7 @@
         %li.nav-item.nav-link
           = link_to "Delete #{@animal.name}'s Page", animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
           
-    %div#modalContainer
+%div#modalContainer
         
 :javascript
   $(document).on('ready', function() {
