@@ -1,3 +1,4 @@
 class AnimalProfileImage < ApplicationRecord
-  belongs_to :animal, :document
+  belongs_to :animal
+  belongs_to :document
 end
