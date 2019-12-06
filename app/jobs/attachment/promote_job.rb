@@ -8,7 +8,8 @@ class Attachment::PromoteJob < ApplicationJob
     attacher = attacher_class.retrieve(model: record, name: name, file: file_data)
     # attacher.refresh_metadata!
     # attacher.create_derivatives if record.is_a?(Document)
-    if record.is_a?(Document) && (record.file.mime_type =~ /^image\// || record.file.mime_type =~ /\/pdf$/)
+    # if record.is_a?(Document) && (record.file.mime_type =~ /^image\// || record.file.mime_type =~ /\/pdf$/)
+    if record.is_a?(Document) && record.file.mime_type =~ /^image\//
       attacher.create_derivatives
     end
     attacher.atomic_promote
