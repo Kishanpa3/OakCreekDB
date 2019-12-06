@@ -4,7 +4,7 @@
   // %script{:type => "text/javascript", :src=> "https://code.jquery.com/jquery-3.4.1.js", :integrity=> "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :crossorigin=> "anonymous"}
   %script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
 
-.d-flex.flex-row
+%div.d-flex.flex-row
   %div.header.col-12
     %div.container
       %div.header-body
@@ -18,18 +18,18 @@
               %li.nav-item
                 = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
                 
-.d-flex.flex-row
-  .col-12.d-flex.justify-content-center
+%div.d-flex.flex-row
+  %div.col-12.d-flex.justify-content-center
     %div
       %div.profile-animalpic.mb-3
         = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo")
       %h1.text-center.display-4= @animal.name
     
 
-.d-flex.flex-row
+%div.d-flex.flex-row
   %div.container
     %div#animalCard.card
-      %div.form-row.d-flex.justify-content-center.mt-5
+      %div.form-row.d-flex.justify-content-center.mt-4
         %div.form-group.col-sm-5.col-sm-3
           = label_tag 'Tag:', nil , class: "font-weight-bold"
           %div.form-control
