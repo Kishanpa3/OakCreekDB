@@ -15,7 +15,7 @@
 = render "animals/info"
         
 %div.d-flex.flex-row
-  %div.container.card.mb-3
+  %div.container.card.mb-3.pl-0.pr-0
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
         %h1.font-weight-bold.mb-1= label :diet, :dish, 'Dish'
@@ -23,7 +23,7 @@
           = simple_format(@diet.dish)
 
 %div.d-flex.flex-row
-  %div.container.card.mb-3
+  %div.container.card.mb-3.pl-0.pr-0
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
         %h1.font-weight-bold.mb-1= label :diet, :dish, 'Instructions'
@@ -31,7 +31,7 @@
           = simple_format(@diet.instructions)
           
 %div.d-flex.flex-row
-  %div.container.card.mb-3
+  %div.container.card.mb-3.pl-0.pr-0
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
         %h1.font-weight-bold.mb-1= label :diet, :dish, 'AM Diet'
@@ -39,7 +39,7 @@
           = simple_format(@diet.am)
           
 %div.d-flex.flex-row.mb-3
-  %div.container.card.mb-3
+  %div.container.card.mb-3.pl-0.pr-0
     %div.form-row.d-flex.justify-content-center.mt-4.mb-3
       %div.form-group.col-sm-11
         %h1.font-weight-bold.mb-1= label :diet, :dish, 'PM Diet'
