@@ -27,6 +27,9 @@ Scenario: Try to edit an existing diet
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
     When I follow the link "Edit Diets"
-    When I fill text area "dish_area" with "Blue Bowl"
-    When I press the button "Update Diet Info"
+    When I fill text field "Dish" with "Blue Bowl"
+    When I fill text area "#diet_instructions" with "Blue goldfish"
+    When I press the button "Update Diets"
+    Then I should see "Diet was successfully updated."
     Then I should see "Blue Bowl"
+    And I should see "Blue goldfish"
