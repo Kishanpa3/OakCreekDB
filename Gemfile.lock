@@ -410,6 +410,7 @@ DEPENDENCIES
   local_time
   mailcatcher
   marcel (~> 0.3)
+  mini_mime
   pg (~> 0.21)
   puma
   rails (~> 6.0.0)

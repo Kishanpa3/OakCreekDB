@@ -1,6 +1,6 @@
 module DocumentsHelper
   # Convert bytes into other units
-  FILESIZE_UNITS = ["bytes", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb"].freeze
+  FILESIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"].freeze
   def format_bytes(bytes)
     return "0.0 B" if bytes == 0
 
@@ -30,5 +30,22 @@ module DocumentsHelper
     else
       return image_path("volume-2.svg")
     end
+  end
+  
+  def infer_file_extension(mime_type)
+    return nil if mime_type.nil?
+
+    extension = infer_with_mini_mime(mime_type)
+    extension = extension.upcase unless extension.nil?
+    extension
+  end
+  
+  private
+  
+  def infer_with_mini_mime(mime_type)
+    require "mini_mime"
+
+    info = MiniMime.lookup_by_content_type(mime_type)
+    info.extension if info
   end
 end

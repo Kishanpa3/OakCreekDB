@@ -39,7 +39,7 @@ gem "image_processing", "~> 1.8"
 gem "marcel", "~> 0.3"              # extract MIME type from file content 
 gem "aws-sdk-s3", "~> 1.14"         # for AWS S3 storage
 gem "uppy-s3_multipart", "~> 0.3"   # resumable direct upload
-# gem "streamio-ffmpeg"             # transcoding videos - https://shrinerb.com/docs/processing#processing-other-filetypes
+gem 'mini_mime'
 # USEFUL SHRINE LINKS:
 # https://shrinerb.com/docs/getting-started
 

@@ -6,8 +6,10 @@
     %div.col.m1-n2
       %h4.card-title.mb-1
         = link_to document.file.original_filename, document.file_url, :class => "name"
-      %p.card-text.small.text-muted.mb-1.meta= number_to_human_size(document.file.size)
-      /%p.card-text.small.text-muted.mb-1.meta= format_bytes(document.file.size) = Shrine.
+      %p.card-text.small.text-muted.mb-0.meta
+        = number_to_human_size(document.file.size) 
+        /= format_bytes(document.file.size)
+        /= infer_file_extension(document.file.mime_type)
     %div.col-auto
       = link_to 'Download', download_animal_document_path(@animal, document), :class => "btn btn-sm btn-white d-none d-md-inline-block"
     %div.col-auto
