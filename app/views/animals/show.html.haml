@@ -76,10 +76,10 @@
         = link_to 'Back to Animal List', animals_path, :class => "btn btn-primary"
       - if has_edit_permissions
         %li.nav-item.nav-link
-          = link_to 'Edit', edit_animal_path(@animal), :class => "btn btn-primary"
+          = link_to 'Edit Details', edit_animal_path(@animal), :class => "btn btn-primary"
       - if has_delete_permissions
         %li.nav-item.nav-link
-          = link_to 'Delete Animal', animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
+          = link_to "Delete #{@animal.name}'s Page", animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
           
     %div#modalContainer
         
