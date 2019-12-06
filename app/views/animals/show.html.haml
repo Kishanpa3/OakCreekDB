@@ -17,67 +17,26 @@
                 = link_to 'Diet', animal_diet_path(@animal), :class => "nav-link"
               %li.nav-item
                 = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
-                
-%div.d-flex.flex-row
-  %div.col-12.d-flex.justify-content-center
-    %div.container.card.p-3.d-flex.flex-row.align-items-center
-      %div.col-3.animal-headshot-container.text-center{ :style => "border-right: 1px #CDCDCD solid" }
-        %div.profile-animalpic
-          = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo mb-1")
-          %h1.text-center.display-4= @animal.name
-      %div.col-9.animal-info-container
-        %div.d-flex.flex-row
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Tag:', nil , class: "font-weight-bold"
-            = @animal.tag
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Habitat Number:', nil , class: "font-weight-bold"
-            = @animal.habitat_num
-        %div.d-flex.flex-row
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Common Name:', nil , class: "font-weight-bold"
-            = @animal.common_name
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Species:', nil , class: "font-weight-bold"
-            = @animal.species
-        %div.d-flex.flex-row
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Sex:', nil , class: "font-weight-bold"
-            = @animal.sex
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Neutered:', nil , class: "font-weight-bold"
-            = @animal.neutered
-        %div.d-flex.flex-row
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Date of Birth:', nil , class: "font-weight-bold"
-            = @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Age:', nil , class: "font-weight-bold"
-            = @animal.age
-        %div.d-flex.flex-row
-          %div.form-group.col-sm-5.mb-1
-            = label_tag 'Weight:', nil , class: "font-weight-bold"
-            = "#{@animal.weight} lbs"
-          
-      
-      
+
+= render "animals/info"
 
 %div.d-flex.flex-row
   %div.container.card
     %div.form-group.col-sm-12.mt-4
       %h1= label_tag 'Notes', nil , class: "font-weight-bold"
-      %div.form-control{ :style => "height: 300px; overflow-y: auto" }
+      %div.form-control{ :style => "height: 25vh; overflow-y: auto" }
         = @animal.notes
-      
-    %ul.nav.nav-pills.mb-5
+
+%div.container     
+  %ul.nav.nav-pills.mb-5
+    %li.nav-item.nav-link
+      = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
+    - if has_edit_permissions
       %li.nav-item.nav-link
-        = link_to 'Back to Animal List', animals_path, :class => "btn btn-secondary"
-      - if has_edit_permissions
-        %li.nav-item.nav-link
-          = link_to 'Edit Details', edit_animal_path(@animal), :class => "btn btn-primary"
-      - if has_delete_permissions
-        %li.nav-item.nav-link
-          = link_to "Delete #{@animal.name}'s Page", animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
+        = link_to 'Edit Details', edit_animal_path(@animal), :class => "btn btn-primary"
+    - if has_delete_permissions
+      %li.nav-item.nav-link
+        = link_to "Delete #{@animal.name}'s Page", animal_path(@animal), :method => :delete, :data => {:confirm => "Are you sure you want to remove #{@animal.name}?"}, :class => "btn btn-danger"
           
 %div#modalContainer
         

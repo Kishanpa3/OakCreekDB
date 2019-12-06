@@ -12,15 +12,8 @@
               %li.nav-item
                 = link_to 'Documents', animal_documents_path(@animal), :class => "nav-link"
 
-
-.d-flex.flex-row
-  .col-12.d-flex.justify-content-center
-    %div
-      %div.profile-animalpic.mb-3
-        = image_tag(get_animal_profile_image(@animal.id), :class => "animal-profile-logo")
-      %h1.text-center.display-4= @animal.name
-      
-              
+= render "animals/info"
+        
 .d-flex.flex-row
   %div.container  
     %div#animalCard.card
