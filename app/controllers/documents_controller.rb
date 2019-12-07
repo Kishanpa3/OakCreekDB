@@ -21,25 +21,17 @@ class DocumentsController < ApplicationController
   end
   
   def destroy
-    @document = Document.find(params[:id])
-    respond_to do |format|
-      if !@document.destroyed?
-        @document.destroy
-        format.html { redirect_to animal_documents_path }
+    begin
+      @document = Document.find(params[:id])
+      @document.destroy
+      respond_to do |format|
+        format.html { redirect_back fallback_location: root_path }
         format.js
-      else
-        format.html { redirect_to request.referrer, alert: "File has already been deleted." }
       end
+    rescue StandardError
+      flash[:alert] = "File has already been deleted."
+      render :js => "window.location = '/animals/#{@animal.id}/documents'"
     end
-    # if !@document.destroyed?
-    #   @document.destroy
-    #   respond_to do |format|
-    #     format.html { redirect_to animal_documents_path }
-    #     format.js
-    #   end
-    # else
-    #   redirect_to request.referrer, status: 303, alert: "File has already been deleted."
-    # end
   end
   
   def download
