@@ -55,23 +55,23 @@ class DocumentUploader < Shrine
   end
 
   THUMBNAILER = -> (file, width, height, type) do
-    case type
-    when /^image\//
+    if type =~ /^image\//
       # ImageProcessing::Vips
       ImageProcessing::MiniMagick
         .source(file)
-        .resize_to_limit!(width, height)
-    when /\/pdf$/
-      # ImageProcessing::Vips
-      ImageProcessing::MiniMagick
-        .source(file)
-        .loader(page: 0) # specify page number
         .resize_to_limit!(width, height)
     end
-    # if type =~ /^image\//
+    # case type
+    # when /^image\//
     #   # ImageProcessing::Vips
     #   ImageProcessing::MiniMagick
     #     .source(file)
+    #     .resize_to_limit!(width, height)
+    # when /\/pdf$/
+    #   # ImageProcessing::Vips
+    #   ImageProcessing::MiniMagick
+    #     .source(file)
+    #     .loader(page: 0) # specify page number
     #     .resize_to_limit!(width, height)
     # end
   end

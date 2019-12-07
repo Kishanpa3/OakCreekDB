@@ -44,7 +44,7 @@
         %div.card-body
           %ul#render-list.list-group.list-group-lg.list-group-flush.list.my-n4
             = render @documents
-                      
+            
   = will_paginate @documents, renderer: @custom_paginate_renderer
 
 = javascript_pack_tag 'application'
