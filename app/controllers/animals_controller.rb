@@ -44,7 +44,7 @@ class AnimalsController < ApplicationController
     # puts "DOC ATR: #{animal_params[:documents_attributes]}"
     if (animal_params.key?(:documents_attributes))
       respond_to do |format|
-        format.html { redirect_to animal_documents_path(@animal) }
+        # format.html { redirect_back fallback_location: root_path }
         format.js
       end
     else
