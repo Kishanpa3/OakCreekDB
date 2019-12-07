@@ -27,7 +27,7 @@ Shrine.plugin :determine_mime_type, analyzer: :marcel, log_subscriber: nil
 Shrine.plugin :cached_attachment_data # for retaining the cached file across form redisplays
 Shrine.plugin :restore_cached_data    # re-extract metadata when attaching a cached file
 Shrine.plugin :derivatives            # up front processing
-Shrine.plugin :derivation_endpoint,   # on-the-fly processing
+Shrine.plugin :derivation_endpoint, metadata: ["mime_type"],   # on-the-fly processing
   # secret_key: Rails.application.credentials.shrine_secret_key_base
   secret_key: ENV["SHRINE_SECRET_KEY_BASE"]
 

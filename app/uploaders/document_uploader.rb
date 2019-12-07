@@ -40,7 +40,7 @@ class DocumentUploader < Shrine
   # Thumbnails processor (requires `derivatives` plugin)
   Attacher.derivatives_processor do |original|
     THUMBNAILS.inject({}) do |result, (name, (width, height))|
-      result.merge! name => THUMBNAILER.call(original, width, height)
+      result.merge! name => THUMBNAILER.call(original, width, height, file.mime_type)
     end
   end
 
@@ -51,29 +51,28 @@ class DocumentUploader < Shrine
 
   # Dynamic thumbnail definition (requires `derivation_endpoint` plugin)
   derivation :thumbnail do |file, width, height|
-    # if file.mime_type =~ /^image\//
-    #   THUMBNAILER.call(file, width.to_i, height.to_i)
-    # end
-    THUMBNAILER.call(file, width.to_i, height.to_i)
+    THUMBNAILER.call(file, width.to_i, height.to_i, source.mime_type)
   end
 
-  THUMBNAILER = -> (file, width, height) do
-    # case file.mime_type
-    # when /^image\//
+  THUMBNAILER = -> (file, width, height, type) do
+    case type
+    when /^image\//
+      # ImageProcessing::Vips
+      ImageProcessing::MiniMagick
+        .source(file)
+        .resize_to_limit!(width, height)
+    when /\/pdf$/
+      # ImageProcessing::Vips
+      ImageProcessing::MiniMagick
+        .source(file)
+        .loader(page: 0) # specify page number
+        .resize_to_limit!(width, height)
+    end
+    # if type =~ /^image\//
     #   # ImageProcessing::Vips
     #   ImageProcessing::MiniMagick
     #     .source(file)
     #     .resize_to_limit!(width, height)
-    # when /\/pdf$/
-    #   ImageProcessing::MiniMagick
-    #     .source(file)
-    #     .loader(page: 0) # specify page number
-    #     .resize_to_limit!(width, height)
     # end
-    
-    # ImageProcessing::Vips
-    ImageProcessing::MiniMagick
-      .source(file)
-      .resize_to_limit!(width, height)
   end
 end
