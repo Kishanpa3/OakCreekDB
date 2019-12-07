@@ -107,7 +107,8 @@ uppy.on('upload-success', function (file, response) {
 })
 
 uppy.on('complete', result => {
-  document.getElementById("form-uppy").submit();
+  // document.getElementById("form-uppy").submit();
+  $("#form-uppy").trigger('submit.rails');
   
   // Clear form input child elements after form submission
   var elements = document.getElementById("form-uppy")

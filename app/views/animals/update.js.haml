@@ -1,1 +1,2 @@
-$(console.log("UPDATE TEST"));
+- content = j (render partial: "documents/document", collection: @animal.documents.order(created_at: :desc))
+$('#render-list').html("#{content}")
