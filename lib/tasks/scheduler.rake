@@ -7,6 +7,7 @@ task :clear_cache => :environment do
 end
 
 task :clear_unconfirmed_users => :environment do
-  users = User.where("approved = ? AND confirmed_at IS NOT NULL", false)
-  users.destroy_all! { |object| object.last_modified < Time.now - 3*7*24*60*60 } unless users.nil? # delete unconfirmed users older than 3 weeks 
+  users = User.where("confirmed_at IS NULL")
+  # users = User.where("confirmed_at IS NULL AND created_at < NOW() - INTERVAL 15 DAY")
+  users.destroy_all! unless users.nil? # delete unconfirmed users older than 2 weeks 
 end
