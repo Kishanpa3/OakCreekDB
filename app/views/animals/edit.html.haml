@@ -4,9 +4,9 @@
   %div.container.d-flex.flex-row.justify-content-center
     %div#aniForm.was-validated.col-12.mb-4
       = form_tag animal_path(@animal),:method => :put do
-        %div.card.p-5
+        %div.card.p-4
           %div.d-flex.flex-row
-            %h1.font-weight-bold.mb-4= "#{@animal.name}'s Card Info"
+            %h1.font-weight-bold.mb-4= "General Info"
         
           %div.d-flex.flex-row
             %div.form-group.col-6
@@ -54,10 +54,11 @@
               %div
                 = select :animal, :sex, ['Male', 'Female', 'N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
                 .invalid-feedback Animal Sex Required
-          
+        
+        %div.card.p-4
           %div.d-flex.flex-row.mt-2   
             %div.form-group.col-12
-              %h1.font-weight-bold.mb-1= label :animal, :notes, "#{@animal.name}'s Notes", :class => "mb-1"
+              %h1.font-weight-bold.mb-1= label :animal, :notes, "Notes", :class => "mb-1"
               = text_area :animal, 'notes', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
             
         = submit_tag 'Update Details', :class => "btn btn-primary"
