@@ -451,10 +451,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat
@@ -1323,10 +1319,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat
@@ -2195,10 +2187,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat
@@ -3067,10 +3055,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat
@@ -3939,10 +3923,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat
@@ -4811,10 +4791,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat
@@ -5683,10 +5659,6 @@ Yak
 Yellow perch
 Zebra
 Zebra finch
-Animals by number of neurons
-Animals by size
-Common household pests
-Common names of poisonous animals
 Alpaca
 Bali cattle
 Cat

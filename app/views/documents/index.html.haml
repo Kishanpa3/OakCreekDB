@@ -77,7 +77,7 @@
   // observer.observe(targetNode, config);
   $('.file-delete').on('ajax:send', function() {
     console.log('ajax:complete!');
-    filterList= new List('filter-list', options);
+    filterList.reIndex();
   });
   $('#form-uppy').on('ajax:complete', function() {
     filterList.reIndex();

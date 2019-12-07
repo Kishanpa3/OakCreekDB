@@ -27,8 +27,9 @@ class DocumentsController < ApplicationController
       respond_to do |format|
         format.html { redirect_back fallback_location: root_path }
         format.js
+        format.json { status :ok }
       end
-    rescue StandardError
+    rescue StandardError # ActiveRecord::RecordNotFound 
       flash[:alert] = "File has already been deleted."
       render :js => "window.location = '/animals/#{@animal.id}/documents'"
     end

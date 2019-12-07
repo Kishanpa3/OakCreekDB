@@ -53,4 +53,4 @@
         = link_to 'Edit Diets', edit_animal_diet_path(@animal), :class => "btn btn-primary"
     - if has_delete_permissions
       %li.nav-item.nav-link
-        = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger"
+        = link_to 'Reset Diets', animal_diet_path(@animal), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-danger"
