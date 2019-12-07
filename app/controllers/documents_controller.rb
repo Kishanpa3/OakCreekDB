@@ -22,13 +22,24 @@ class DocumentsController < ApplicationController
   
   def destroy
     @document = Document.find(params[:id])
-    @document.destroy
-    # flash[:alert] = "File has already been deleted."
     respond_to do |format|
-      format.html { redirect_to animal_documents_path }
-      format.js
+      if !@document.destroyed?
+        @document.destroy
+        format.html { redirect_to animal_documents_path }
+        format.js
+      else
+        format.html { redirect_to request.referrer, alert: "File has already been deleted." }
+      end
     end
-    # redirect_to animal_documents_path
+    # if !@document.destroyed?
+    #   @document.destroy
+    #   respond_to do |format|
+    #     format.html { redirect_to animal_documents_path }
+    #     format.js
+    #   end
+    # else
+    #   redirect_to request.referrer, status: 303, alert: "File has already been deleted."
+    # end
   end
   
   def download
