@@ -1,5 +1,22 @@
-%h3 Document #{@document.id}
+%head
 
+%div.header
+  %div.container
+    %div.header-body
+      %div.row.align-items-center
+        %div.col
+          %ul.nav.nav-tabs.nav-overflow.card-header-tabs
+            %li.nav-item
+              = link_to 'Details', animal_path(@animal), :class => "nav-link"
+            %li.nav-item
+              = link_to 'Diet', animal_diet_path(@animal, @animal), :class => "nav-link"
+            %li.nav-item
+              = link_to 'Documents', animal_documents_path, :class => "nav-link active"
+%div.container.mb-4.embed-responsive
+  %div.embed-responsive.embed-responsive-21by9.rounded
+  %iframe{:src => @document.file_url}
 
-%div#customButton.form-group.col-sm-4.sm-3
-  = link_to 'Back to Document List', animal_documents_path(@animal), :class => "btn btn-primary"
+%div.container     
+  %ul.nav.nav-pills.mb-5
+    %li.nav-item.nav-link
+      = link_to 'Back to Document List', animal_documents_path(@animal), :class => "btn btn-secondary"
