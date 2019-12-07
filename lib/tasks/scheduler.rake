@@ -7,7 +7,10 @@ task :clear_cache => :environment do
 end
 
 task :clear_unconfirmed_users => :environment do
-  users = User.where("confirmed_at IS NULL")
-  # users = User.where("confirmed_at IS NULL AND created_at < NOW() - INTERVAL 15 DAY")
+  #SQLLITE VALID QUERY
+  # users = User.where("confirmed_at IS NULL AND created_at < datetime('now', '-15 days')")
+  
+  #PG VALID QUERY
+  users = User.where("confirmed_at IS NULL AND created_at < CURRENT_DATE - INTERVAL '15 days'") 
   users.destroy_all! unless users.nil? # delete unconfirmed users older than 2 weeks 
 end
