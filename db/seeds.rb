@@ -22,7 +22,8 @@ puts 'STARTING TO SEED'
   Animal.delete_all
   rand_habitat = rand(10000..100000)
   for i in 0..list_of_animals.length-1 do
-    Animal.create(:tag => SecureRandom.hex, :name => list_of_names[i], :common_name => list_of_animals[i], :habitat_num => rand_habitat, :dob => Time.new(2016,1,20))
+    animal = Animal.create(:tag => SecureRandom.hex, :name => list_of_names[i], :common_name => list_of_animals[i], :habitat_num => rand_habitat, :dob => Time.new(2016,1,20))
+    # Diet.create(animal_id: animal.id)
     rand_habitat = (rand_habitat % 69 == 0) ? rand(10000..100000) : rand_habitat + rand(10000..100000)
   end
 puts 'DONE SEEDING'
