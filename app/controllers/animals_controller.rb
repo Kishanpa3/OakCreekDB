@@ -6,7 +6,6 @@ class AnimalsController < ApplicationController
   
   before_action :authenticate_animal_image, only: [:update_image]
   
-  
   def index
     @animals = Animal.all
     @allAnimals = @animals.joins(:diet)
