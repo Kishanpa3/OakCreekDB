@@ -23,32 +23,25 @@
           .invalid-feedback Animal Habitat Number Required
       %div.form-row
         %div.form-group.col-sm-4.sm-3
-          = label :animal, :species, 'Species'
-          = text_field :animal, 'species', :class => "form-control", :required => ""
-          .invalid-feedback Animal Species Required
-        %div.form-group.col-sm-4.sm-3
-          = label :animal, :age, 'Age'
-          = text_field :animal, 'age', :class => "form-control", :required => "", :oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text"
-          .invalid-feedback Animal Age Required
-          = label :animal, :age_units, 'Age Units'
-          %div
-            = select :animal, :age_units, ['d', 'mo', 'yr'],{include_blank: "Select..."}, {class: "form-control", required: true }
-            .invalid-feedback Age Units Required
-      %div.form-row
-        %div.form-group.col-sm-4.sm-3
           = label :animal, :weight, 'Weight'
           %div
             = text_field :animal, 'weight', :class => "form-control", :required => "",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text"
             .invalid-feedback Animal Weight Required
+        %div.form-group.col-sm-4.sm-3
           = label :animal, :weight_units, 'Weight Units'
           %div
             = select :animal, :weight_units, ['g', 'kg', 'lbs'],{include_blank: "Select..."}, {class: "form-control", required: true }
             .invalid-feedback Weight Units Required
+      %div.form-row
         %div.form-group.col-sm-4.sm-3
-          = label :animal, :sex, 'Sex'
+          = label :animal, :species, 'Species'
+          = text_field :animal, 'species', :class => "form-control", :required => ""
+          .invalid-feedback Animal Species Required
+        %div.form-group.col-sm-4.sm-3
+          = label :animal, :neutered, 'Neutered'
           %div
-            = select :animal, :sex, ['Male', 'Female', 'N\A'], {include_blank: "Select..."}, {class: "form-control", required: true }
-            .invalid-feedback Animal Sex Required
+            = select :animal, :neutered, ['Yes','No','N\A'], {include_blank: "Select..."}, {class: "form-control", required: true }
+            .invalid-feedback Animal Neutered Status Required
       %div.form-row
         %div.form-group.col-sm-4.sm-3
           = label :animal, :dob, 'Date of Birth'
@@ -56,10 +49,10 @@
             = date_field :animal, :dob, :class => "form-control", :required => ""
             .invalid-feedback Animal Date of Birth Required
         %div.form-group.col-sm-4.sm-3
-          = label :animal, :neutered, 'Neutered'
+          = label :animal, :sex, 'Sex'
           %div
-            = select :animal, :neutered, ['Yes','No','N\A'], {include_blank: "Select..."}, {class: "form-control", required: true }
-            .invalid-feedback Animal Neutered Status Required
+            = select :animal, :sex, ['Male', 'Female', 'N\A'], {include_blank: "Select..."}, {class: "form-control", required: true }
+            .invalid-feedback Animal Sex Required
       = submit_tag 'Save New Animal', :class => "btn btn-primary"
       = link_to "Cancel", animals_path, :class => "btn btn-secondary ml-2"
   

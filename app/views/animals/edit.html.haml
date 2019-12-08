@@ -28,26 +28,19 @@
               .invalid-feedback Animal Habitat Number Required
           %div.d-flex.flex-row
             %div.form-group.col-6
-              = label :animal, :species, 'Species'
-              = text_field :animal, 'species', :class => "form-control", :required => ""
-              .invalid-feedback Animal Species Required
-            %div.form-group.col-6
               = label :animal, :weight, 'Weight'
               = text_field :animal, 'weight', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
               .invalid-feedback Animal Weight in Pounds Required
+            %div.form-group.col-6
               = label :animal, :weight_units, 'Weight Units'
               %div
                 = select :animal, :weight_units, ['g', 'kg', 'lbs'],{include_blank: "Select..."}, {class: "form-control", required: true }
                 .invalid-feedback Weight Units Required
           %div.d-flex.flex-row
             %div.form-group.col-6
-              = label :animal, :age, 'Age'
-              = text_field :animal, 'age', :class => "form-control", :oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
-              .invalid-feedback Animal Age Required
-              = label :animal, :age_units, 'Age Units'
-              %div
-                = select :animal, :age_units, ['d', 'mo', 'yr'],{include_blank: "Select..."}, {class: "form-control", required: true }
-                .invalid-feedback Age Units Required
+              = label :animal, :species, 'Species'
+              = text_field :animal, 'species', :class => "form-control", :required => ""
+              .invalid-feedback Animal Species Required
             %div.form-group.col-6
               = label :animal, :neutered, 'Neutered'
               = select :animal, :neutered, ['Yes','No','N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }

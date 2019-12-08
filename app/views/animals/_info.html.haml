@@ -38,4 +38,4 @@
                 %span.h3.text-muted= @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
               %div.form-group.col-3.mb-1
                 = label_tag 'Age:', nil , class: "h3 font-weight-bold"
-                %span.h3.text-muted= "#{@animal.age} #{@animal.age_units}"
+                %span.h3.text-muted= @animal.age

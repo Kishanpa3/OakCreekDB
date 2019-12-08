@@ -25,6 +25,8 @@ Scenario: Create Animal
     And I fill text field "Age" with "10"
     And I fill text field "Date of Birth" with "01202016"
     And I select the option "Yes" from "Neutered" field
+    And I select the option "yr" from "Age Units" field
+    And I select the option "lbs" from "Weight Units" field
     And I select the option "Male" from "Sex" field
     When I press the button "Save New Animal"
     Then I should see "All Animals"
