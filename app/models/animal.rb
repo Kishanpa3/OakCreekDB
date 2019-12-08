@@ -13,6 +13,14 @@ class Animal < ApplicationRecord
   validates :tag, presence: true
   validates :habitat_num, numericality: { only_integer: true, allow_nil: true }
   validates :weight, numericality: { allow_nil: true }
+  validates :common_name, format: { with: /\A[a-zA-Z\-]+( +[a-zA-Z\-]+)*\z/,
+    message: "only allows letters and dashes", allow_nil: true }
+  validates :species, format: { with: /\A[a-zA-Z\.]+( +[a-zA-Z\.]+)*\z/,
+  message: "only allows letters", allow_nil: true }
+  # validates :name, format: { with: /\A[a-zA-Z\-\.]+( +[a-zA-Z\-\.]+)*\z/,
+  # message: "only allows letters", allow_nil: true }
+  # validates :tag, format: { with: /\A[a-zA-Z0-9]+\z/,
+  # message: "only allows letters and numbers" }
   # validates :sex, inclusion: { in: %w(male female n/a), allow_nil: true }
   # validates :neutered, inclusion: { in: %w(yes no n/a), allow_nil: true }
   # validates :weight_units, inclusion: { in: %w(g kg lbs), allow_nil: true }
@@ -60,11 +68,11 @@ class Animal < ApplicationRecord
       days = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.day.seconds).floor
       seconds = (Time.zone.now + Time.zone_offset('CST') - dob.to_time)
       if years > 0
-        years.to_s.concat(" Year(s)")
+        years = "#{years} Year(s)"
       elsif months > 0
-        months.to_s.concat(" Month(s)")
+        months = "#{months} Month(s)"
       elsif days > 0
-        days.to_s.concat(" Day(s)")
+        days = "#{days} Day(s)"
       elsif seconds > 0
         "0 Day(s)"
       else

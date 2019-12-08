@@ -7,54 +7,68 @@
         %div.card.p-4
           %div.d-flex.flex-row
             %h1.font-weight-bold.mb-4= "General Info"
-        
+          
+          %div.d-flex.flex-row
+            %div.form-group.col-6.mb-0
+              %p.note.text-danger Fields marked with * are required.
           %div.d-flex.flex-row
             %div.form-group.col-6
               = label :animal, :name, 'Name'
-              = text_field :animal, 'name', :class => "form-control", :required => ""
-              .invalid-feedback Animal Name Required
+              %span.text-danger *
+              = text_field :animal, 'name', :class => "form-control", :oninput => "this.value = this.value.replace(/[^a-zA-Z\-\. ]/g, '');", :required => ""
+              .invalid-feedback Name Required
             %div.form-group.col-6
               = label :animal, :tag, 'Tag'
+              %span.text-danger *
+              /= text_field :animal, 'tag', :class => "form-control", :oninput => "this.value = this.value.replace(/[^a-zA-Z0-9]/g, '');", :required => ""
               = text_field :animal, 'tag', :class => "form-control", :required => ""
               .invalid-feedback Tag Number Required
           %div.d-flex.flex-row
             %div.form-group.col-6
               = label :animal, :common_name, 'Common Name'
-              = text_field :animal, 'common_name', :class => "form-control", :required => ""
-              .invalid-feedback Animal Common Name Required
+              %span.text-danger *
+              = text_field :animal, 'common_name', :class => "form-control", :oninput => "this.value = this.value.replace(/[^a-zA-Z\- ]/g, '');", :required => ""
+              .invalid-feedback Common Name Required
             %div.form-group.col-6
               = label :animal, :habitat_num, 'Habitat #'
-              = text_field :animal, 'habitat_num', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
-              .invalid-feedback Animal Habitat Number Required
+              %span.text-danger *
+              = text_field :animal, 'habitat_num', :class => "form-control", :oninput => "this.value = this.value.replace(/[^0-9]/g, '');", :required => ""
+              .invalid-feedback Habitat Number Required
           %div.d-flex.flex-row
             %div.form-group.col-6
               = label :animal, :weight, 'Weight'
-              = text_field :animal, 'weight', :class => "form-control",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text", :required => ""
-              .invalid-feedback Animal Weight in Pounds Required
+              %span.text-danger *
+              = text_field :animal, 'weight', :class => "form-control", :oninput => "this.value = this.value.replace(/[^0-9.]/g, '');", :required => ""
+              .invalid-feedback Weight Required
             %div.form-group.col-6
               = label :animal, :weight_units, 'Weight Units'
+              %span.text-danger *
               %div
-                = select :animal, :weight_units, ['g', 'kg', 'lbs'],{include_blank: "Select..."}, {class: "form-control", required: true }
+                = select :animal, :weight_units, ['g', 'kg', 'lbs'], {include_blank: "Select..."}, {class: "form-control", required: true }
                 .invalid-feedback Weight Units Required
           %div.d-flex.flex-row
             %div.form-group.col-6
               = label :animal, :species, 'Species'
-              = text_field :animal, 'species', :class => "form-control", :required => ""
-              .invalid-feedback Animal Species Required
+              %span.text-danger *
+              = text_field :animal, 'species', :class => "form-control", :oninput => "this.value = this.value.replace(/[^a-zA-Z\. ]/g, '');", :required => ""
+              .invalid-feedback Species Required
             %div.form-group.col-6
               = label :animal, :neutered, 'Neutered'
-              = select :animal, :neutered, ['Yes','No','N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
-              .invalid-feedback Animal Neutered Status Required
+              %span.text-danger *
+              = select :animal, :neutered, ['Yes','No','N/A'], {include_blank: "Select..."}, {class: "form-control", required: true }
+              .invalid-feedback Neutered Status Required
           %div.d-flex.flex-row
             %div.form-group.col-6
               = label :animal, :dob, 'Date of Birth'
-              = date_field :animal, :dob, :class => "form-control", :required => ""
-              .invalid-feedback Animal Date of Birth Required
+              %span.text-danger *
+              = date_field :animal, :dob, :class => "form-control", max: Date.today, :required => ""
+              .invalid-feedback Date of Birth Required
             %div.form-group.col-6
               = label :animal, :sex, 'Sex'
+              %span.text-danger *
               %div
-                = select :animal, :sex, ['Male', 'Female', 'N/A'],{include_blank: "Select..."}, {class: "form-control", required: true }
-                .invalid-feedback Animal Sex Required
+                = select :animal, :sex, ['Male', 'Female', 'N/A'], {include_blank: "Select..."}, {class: "form-control", required: true }
+                .invalid-feedback Sex Required
         
         %div.card.p-4
           %div.d-flex.flex-row.mt-2   

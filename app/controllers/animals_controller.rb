@@ -81,7 +81,6 @@ class AnimalsController < ApplicationController
     profile_image = AnimalProfileImage.where(animal_id: params[:animal_id]).first_or_initialize
     profile_image.document_id = params[:image_id]
     profile_image.save
-    puts 'CREATED ANIMAL PROFILE IMAGE'
   end
   
   private
