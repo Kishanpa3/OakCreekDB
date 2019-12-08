@@ -21,9 +21,9 @@ Background: Database Setup
         |      Dder     |     Elppa     |   fdaf@email.com    |      321654      |                          |     false     |
     
     Given the following Animal table
-        | Exhibit       | Common Name   | Name      |
-        | 32            | Brown Bear    | Otto      |
-        | 70            | Panda Bear    | Cleetus   |
+        | Exhibit       | Common Name   | Name      | Tag     |
+        | 32            | Brown Bear    | Otto      | ab12    |
+        | 70            | Panda Bear    | Cleetus   | cd34    |
     
     Given I am on the Oak Creek home page
     

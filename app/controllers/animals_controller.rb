@@ -27,10 +27,17 @@ class AnimalsController < ApplicationController
   end
   
   def create
-    @animal = Animal.create!(animal_params)
-    @animal.diet = Diet.create!(animal_id: @animal.id)
-    flash[:notice] = "#{@animal.tag} was successfully created."
-    redirect_to animals_path
+    @animal = Animal.new(animal_params)
+    if @animal.valid?
+      @animal.save
+      @animal.diet = Diet.create(animal_id: @animal.id)
+      flash[:notice] = "#{@animal.tag} was successfully created."
+      redirect_to animals_path
+      # redirect_to animal_path(@animal)
+    else
+      flash[:alert] = "Failed to create new animal."
+      render :new
+    end
   end
 
   def edit
@@ -48,7 +55,7 @@ class AnimalsController < ApplicationController
         format.js
       end
     else
-      flash[:notice] = "#{@animal.tag} was successfully updated."
+      flash[:notice] = "#{@animal.name} was successfully updated."
       redirect_to animal_path(@animal)
     end
   end
@@ -70,7 +77,7 @@ class AnimalsController < ApplicationController
   private
   
   def animal_params
-    params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight, :notes, :documents_attributes => {})
+    params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :weight, :weight_units, :notes, :documents_attributes => {})
     # params.require(:animal).permit!
   end
   

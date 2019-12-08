@@ -8,9 +8,9 @@ FactoryBot.define do
     tag {"BBO001"} 
     species {"Ursus Arctos"}
     weight {325}
+    weight_units {"lbs"}
     sex {"Male"} 
-    neutered {"Yes"} 
-    age {3} 
+    neutered {"Yes"}
     dob {Time.new(2016,1,20)}
   end
 end

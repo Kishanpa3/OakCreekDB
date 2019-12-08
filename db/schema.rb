@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_214800) do
+ActiveRecord::Schema.define(version: 2019_12_08_000658) do
 
   create_table "animal_profile_images", force: :cascade do |t|
     t.integer "animal_id", null: false
@@ -27,14 +27,15 @@ ActiveRecord::Schema.define(version: 2019_12_05_214800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "species"
-    t.string "sex", limit: 6
-    t.string "neutered", limit: 3
-    t.integer "age"
+    t.string "sex"
+    t.string "neutered"
     t.date "dob"
     t.float "weight"
-    t.string "tag"
+    t.string "tag", null: false
     t.string "name"
     t.text "notes"
+    t.string "weight_units"
+    t.index ["tag"], name: "index_animals_on_tag", unique: true
   end
 
   create_table "diets", force: :cascade do |t|
