@@ -5,7 +5,6 @@ class AddAttributesToAnimals < ActiveRecord::Migration[6.0]
       t.column :species, :string
       t.column :sex, :string, limit: 6
       t.column :neutered, :string, limit: 3
-      t.column :age, :integer
       t.column :dob, :date
       t.column :weight, :float
       t.column :tag, :string

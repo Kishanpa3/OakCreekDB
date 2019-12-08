@@ -14,7 +14,7 @@ class Animal < ApplicationRecord
 
 
   def self.toCSV
-      attributes = %w{tag name common_name habitat_num species sex dob age weight neutered notes instructions am pm dish}
+      attributes = %w{tag name common_name habitat_num species sex dob weight neutered notes instructions am pm dish}
       # dietAttributes = %w{instructions am pm dish}
       
       CSV.generate(headers: true) do |csv|
