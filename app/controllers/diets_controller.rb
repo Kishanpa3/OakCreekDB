@@ -10,8 +10,7 @@ class DietsController < ApplicationController
   end
   
   def new
-    @diet = Diet.new 
-    @diet.animal_id = @animal.id
+    # default: render 'new' template
   end
 
   def edit
@@ -19,7 +18,13 @@ class DietsController < ApplicationController
   end
 
   def create
-    @diet = Diet.create(diet_params)
+    @diet = Diet.new(diet_params)
+    if @diet.valid?
+      @diet.save
+      redirect_to @diet
+    else
+      render :new
+    end
   end
   
   def show
@@ -28,9 +33,16 @@ class DietsController < ApplicationController
 
   def update
     @diet = Diet.find_by(animal_id: params[:animal_id])
-    @diet.update!(diet_params)
-    flash[:notice] = "Diet was successfully updated."
-    redirect_to animal_diet_path(@animal)
+    @diet.assign_attributes(diet_params)
+
+    if @diet.valid?
+      @diet.save
+      flash[:notice] = "#{@animal.name}'s diet was successfully updated."
+      redirect_to animal_diet_path(@animal)
+    else
+      flash[:alert] = "Failed to update diet."
+      render :show
+    end
   end
   
   def destroy
