@@ -7,8 +7,6 @@ class Animal < ApplicationRecord
   accepts_nested_attributes_for :documents, allow_destroy: true
   validates_associated :documents
   
-  # before_validation :downcase_fields
-  
   validates :tag, uniqueness: { case_sensitive: false }
   validates :tag, presence: true
   
@@ -18,7 +16,7 @@ class Animal < ApplicationRecord
   validates :common_name, format: { with: /\A[a-zA-Z\-]+( +[a-zA-Z\-]+)*\z/,
     message: "only allows letters and dashes", allow_nil: true }
   validates :species, format: { with: /\A[a-zA-Z\.]+( +[a-zA-Z\.]+)*\z/,
-  message: "only allows letters", allow_nil: true }
+    message: "only allows letters", allow_nil: true }
   # validates :name, format: { with: /\A[a-zA-Z\-\.]+( +[a-zA-Z\-\.]+)*\z/,
   # message: "only allows letters", allow_nil: true }
   # validates :tag, format: { with: /\A[a-zA-Z0-9]+\z/,
@@ -29,12 +27,6 @@ class Animal < ApplicationRecord
   # validates :weight_units, inclusion: { in: %w(g kg lbs), allow_nil: true }
   
   # include ImageUploader::Attachment(:profile_pic)  # ImageUploader will attach and manage `profile_pic`
-
-  # def downcase_fields
-  #   self.sex.downcase
-  #   self.neutered.downcase
-  #   self.weight_units.downcase
-  # end
   
   def self.toCSV
       attributes = %w{tag name common_name habitat_num species sex dob age weight weight_units neutered notes instructions am pm dish}
