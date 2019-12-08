@@ -27,5 +27,5 @@ puts 'STARTING TO SEED'
   end
 puts 'DONE SEEDING'
 
-Animal.create([   {habitat_num:"32", common_name:"Brown Bear", name:"Otto", tag: "BBO001", species: "Ursus Arctos", weight: 325, sex: "Male", neutered: "Yes", age: 3, dob: Time.new(2016,1,20) },
-                  {habitat_num:"30", common_name:"Raccoon", name:"Gracie", tag: "RCC001", species: "Procyon lotor megalodous", weight: 12, sex: "Female", neutered: "Yes", age: 4, dob: Time.new(2014,4,15)}  ])
+Animal.create([   {habitat_num:"32", common_name:"Brown Bear", name:"Otto", tag: "BBO001", species: "Ursus Arctos", weight: 325, sex: "Male", neutered: "Yes", dob: Time.new(2016,1,20) },
+                  {habitat_num:"30", common_name:"Raccoon", name:"Gracie", tag: "RCC001", species: "Procyon lotor megalodous", weight: 12, sex: "Female", neutered: "Yes", dob: Time.new(2014,4,15)}  ])
