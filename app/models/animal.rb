@@ -42,7 +42,7 @@ class Animal < ApplicationRecord
   end
   
   def age
-    if dob==nil
+    if dob!=nil
       years = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.year.seconds).floor
       months = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.month.seconds).floor
       days = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.day.seconds).floor
