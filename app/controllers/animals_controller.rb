@@ -18,7 +18,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    id=params[:id]
+    id = params[:id]
     @animal = Animal.find(id)
   end
   
@@ -41,11 +41,11 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find params[:id]
+    @animal = Animal.find(params[:id])
   end
   
   def update
-    @animal = Animal.find params[:id]
+    @animal = Animal.find(params[:id])
     @animal.update!(animal_params)
     # puts "ANIMAL PARAMS: #{animal_params.keys}"
     # puts "DOC ATR: #{animal_params[:documents_attributes]}"
@@ -58,6 +58,16 @@ class AnimalsController < ApplicationController
       flash[:notice] = "#{@animal.name} was successfully updated."
       redirect_to animal_path(@animal)
     end
+    
+    # @animal = Animal.find(params[:id])
+    # @animal.assign_attributes(animal_params)
+
+    # if @animal.valid?
+    #   @animal.save
+    #   redirect_to @animal
+    # else
+    #   render :show
+    # end
   end
   
   def destroy
@@ -76,12 +86,12 @@ class AnimalsController < ApplicationController
   
   private
   
+  def authenticate_animal_image
+    params.require([:animal_id, :image_id]);
+  end
+  
   def animal_params
     params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :weight, :weight_units, :notes, :documents_attributes => {})
     # params.require(:animal).permit!
-  end
-  
-  def authenticate_animal_image
-    params.require([:animal_id, :image_id]);
   end
 end

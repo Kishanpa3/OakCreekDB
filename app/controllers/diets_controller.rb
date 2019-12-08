@@ -4,10 +4,6 @@ class DietsController < ApplicationController
   before_action :authenticate_add_permissions, only: [:create, :new]
   before_action :authenticate_edit_permissions, only: [:update, :edit]
   before_action :authenticate_delete_permissions, only: [:destroy]
-    
-  def diet_params
-    params.require(:diet).permit(:instructions, :am, :pm, :dish, :animal_id)
-  end
   
   def new
     # default: render 'new' template
@@ -52,7 +48,13 @@ class DietsController < ApplicationController
     redirect_to animal_diet_path(@animal)
   end
   
+  private
+  
   def set_animal
     @animal = Animal.find(params[:animal_id]) 
+  end
+  
+  def diet_params
+    params.require(:diet).permit(:instructions, :am, :pm, :dish, :animal_id)
   end
 end
