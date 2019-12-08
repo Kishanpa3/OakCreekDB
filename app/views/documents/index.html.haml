@@ -2,7 +2,6 @@
   /%script{:type => "text/javascript", :src=> "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", :integrity=> "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :crossorigin=> "anonymous"}
   %script{:type => "text/javascript", :src => "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"}
   = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
-  = stylesheet_pack_tag 'application'
 
 %div.header
   %div.container
@@ -57,7 +56,6 @@
   var filterList = new List('filter-list', options);
   
   $('#form-uppy').on('ajax:complete', function() {
-    console.log("ajax:complete!");
     filterList.reIndex();
   });
   
