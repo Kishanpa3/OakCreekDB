@@ -11,9 +11,9 @@ Background: Database Setup
     Given I sign in as an "Admin" with the email "user@email.com" and the password "abc123"
     
     Given the following Animal table
-        | Exhibit       | Common Name   | Name      |
-        | 32            | Brown Bear    | Otto      |
-        | 70            | Panda Bear    | Cleetus   |
+        | Exhibit       | Common Name   | Name      | Tag     |
+        | 32            | Brown Bear    | Otto      | ab12    |
+        | 70            | Panda Bear    | Cleetus   | cd34    |
     
     
     Given I am on the Oak Creek home page
@@ -26,10 +26,10 @@ Scenario: Try to edit an existing diet
     When I click on the first table row of "dtSearch"
     Then I should be on the "Otto" page
     When I click on the "Diet" tab
-    When I follow the link "Edit Diets"
+    When I follow the link "Edit Diet"
     When I fill text field "Dish" with "Blue Bowl"
     When I fill text area "#diet_instructions" with "Blue goldfish"
-    When I press the button "Update Diets"
+    When I press the button "Update Diet"
     Then I should see "Otto's diet was successfully updated."
     Then I should see "Blue Bowl"
     And I should see "Blue goldfish"

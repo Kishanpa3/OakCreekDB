@@ -1,6 +1,6 @@
 Given("the following Animal table") do |table|
   for row in table.rows do
-    Animal.create!(habitat_num: row[0], common_name: row[1], name: row[2])
+    Animal.create!(habitat_num: row[0], common_name: row[1], name: row[2], tag: row[3])
   end
 end
 

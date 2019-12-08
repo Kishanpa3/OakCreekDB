@@ -7,23 +7,23 @@ class Animal < ApplicationRecord
   accepts_nested_attributes_for :documents, allow_destroy: true
   validates_associated :documents
   
-  before_validation :downcase_fields
+  # before_validation :downcase_fields
   
   validates :tag, uniqueness: { case_sensitive: false }
   validates :tag, presence: true
   validates :habitat_num, numericality: { only_integer: true, allow_nil: true }
   validates :weight, numericality: { allow_nil: true }
-  validates :sex, inclusion: { in: %w(male female n/a) }
-  validates :neutered, inclusion: { in: %w(yes no n/a) }
-  validates :weight_units, inclusion: { in: %w(g kg lbs) }
+  # validates :sex, inclusion: { in: %w(male female n/a), allow_nil: true }
+  # validates :neutered, inclusion: { in: %w(yes no n/a), allow_nil: true }
+  # validates :weight_units, inclusion: { in: %w(g kg lbs), allow_nil: true }
   
   # include ImageUploader::Attachment(:profile_pic)  # ImageUploader will attach and manage `profile_pic`
 
-  def downcase_fields
-    self.sex.downcase
-    self.neutered.downcase
-    self.weight_units.downcase
-  end
+  # def downcase_fields
+  #   self.sex.downcase
+  #   self.neutered.downcase
+  #   self.weight_units.downcase
+  # end
   
   def self.toCSV
       attributes = %w{tag name common_name habitat_num species sex dob age weight weight_units neutered notes instructions am pm dish}
