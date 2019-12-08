@@ -11,6 +11,10 @@ class User < ApplicationRecord
   end 
   
   def inactive_message 
-    approved? ? super : :not_approved
+    if (confirmed_at.nil?)
+      :unconfirmed
+    else 
+      approved? ? super : :not_approved  
+    end  
   end
 end
