@@ -32,7 +32,8 @@ class AnimalsController < ApplicationController
       @animal.save
       @animal.diet = Diet.create(animal_id: @animal.id)
       flash[:notice] = "#{@animal.tag} was successfully created."
-      redirect_to animal_path(@animal)
+      redirect_to animals_path
+      # redirect_to animal_path(@animal)
     else
       flash[:alert] = "Failed to create new animal."
       render :new

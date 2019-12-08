@@ -35,7 +35,7 @@ Scenario: Edit an existing animal
     And I select the option "Male" from "Sex" field
     And I fill text field "Date of Birth" with "01202016"
     When I press the button "Update Details"
-    Then I should see "1337 was successfully updated."
+    Then I should see "Scott was successfully updated."
     Then I should see "Hello World"
     Then I should see "1337"
     And I should see "570"

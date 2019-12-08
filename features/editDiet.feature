@@ -30,6 +30,6 @@ Scenario: Try to edit an existing diet
     When I fill text field "Dish" with "Blue Bowl"
     When I fill text area "#diet_instructions" with "Blue goldfish"
     When I press the button "Update Diets"
-    Then I should see "Diet was successfully updated."
+    Then I should see "Otto's diet was successfully updated."
     Then I should see "Blue Bowl"
     And I should see "Blue goldfish"
