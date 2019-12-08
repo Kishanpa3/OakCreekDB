@@ -17,7 +17,7 @@ class DietsController < ApplicationController
     @diet = Diet.new(diet_params)
     if @diet.valid?
       @diet.save
-      redirect_to @diet
+      redirect_to animal_diet_path(@animal)
     else
       render :new
     end
@@ -36,15 +36,15 @@ class DietsController < ApplicationController
       flash[:notice] = "#{@animal.name}'s diet was successfully updated."
       redirect_to animal_diet_path(@animal)
     else
-      flash[:alert] = "Failed to update diet."
-      render :show
+      flash[:alert] = "Failed to update #{@animal.name}'s diet."
+      render :edit
     end
   end
   
   def destroy
     @diet = Diet.find_by(animal_id: params[:animal_id])
     @diet.destroy
-    # flash[:notice] = "Diet for #{@animal.common_name} '#{@animal.name}' deleted."
+    # flash[:notice] = "Diet for #{@animal.name} was successfully deleted."
     redirect_to animal_diet_path(@animal)
   end
   

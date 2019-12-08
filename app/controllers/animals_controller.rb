@@ -31,7 +31,7 @@ class AnimalsController < ApplicationController
     if @animal.valid?
       @animal.save
       @animal.diet = Diet.create(animal_id: @animal.id)
-      flash[:notice] = "#{@animal.tag} was successfully created."
+      flash[:notice] = "Entry for #{@animal.tag} '#{@animal.name}' was successfully created."
       redirect_to animals_path
       # redirect_to animal_path(@animal)
     else
@@ -45,35 +45,52 @@ class AnimalsController < ApplicationController
   end
   
   def update
-    @animal = Animal.find(params[:id])
-    @animal.update!(animal_params)
+    # @animal = Animal.find(params[:id])
+    # @animal.update!(animal_params)
+    
+    # if (animal_params.key?(:documents_attributes))
+    #   respond_to do |format|
+    #     format.html { redirect_back fallback_location: root_path }
+    #     format.js
+    #   end
+    # else
+    #   flash[:notice] = "#{@animal.name} was successfully updated."
+    #   redirect_to animal_path(@animal)
+    # end
+    
     # puts "ANIMAL PARAMS: #{animal_params.keys}"
     # puts "DOC ATR: #{animal_params[:documents_attributes]}"
-    if (animal_params.key?(:documents_attributes))
-      respond_to do |format|
-        format.html { redirect_back fallback_location: root_path }
-        format.js
+    @animal = Animal.find(params[:id])
+    @animal.assign_attributes(animal_params)
+    
+    if @animal.valid?
+      @animal.save
+      if (animal_params.key?(:documents_attributes))
+        respond_to do |format|
+          format.html { redirect_back fallback_location: root_path }
+          format.js
+        end
+      else
+        flash[:notice] = "#{@animal.name} was successfully updated."
+        redirect_to animal_path(@animal)
       end
     else
-      flash[:notice] = "#{@animal.name} was successfully updated."
-      redirect_to animal_path(@animal)
+      if (animal_params.key?(:documents_attributes))
+        respond_to do |format|
+          format.html { redirect_back fallback_location: root_path }
+          format.js
+        end
+      else
+        flash[:alert] = "Failed to update #{@animal.name}."
+        render :edit
+      end
     end
-    
-    # @animal = Animal.find(params[:id])
-    # @animal.assign_attributes(animal_params)
-
-    # if @animal.valid?
-    #   @animal.save
-    #   redirect_to @animal
-    # else
-    #   render :show
-    # end
   end
   
   def destroy
     @animal = Animal.find(params[:id])
     @animal.destroy
-    flash[:notice] = "Entry for #{@animal.common_name} '#{@animal.name}' successfully deleted."
+    flash[:notice] = "Entry for #{@animal.tag} '#{@animal.name}' was successfully deleted."
     redirect_to animals_path
   end
   
