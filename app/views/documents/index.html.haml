@@ -56,12 +56,10 @@
 
   var filterList = new List('filter-list', options);
   
-  $('.file-delete').on('ajax:complete', function() {
-    $(this).closest("li").remove()
-    filterList.filter();
-    filterList.reIndex();
-  });
   $('#form-uppy').on('ajax:complete', function() {
+    console.log("ajax:complete!");
     filterList.reIndex();
   });
+  
+  
   
