@@ -42,20 +42,22 @@ class Animal < ApplicationRecord
   end
   
   def age
-    years = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.year.seconds).floor
-    months = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.month.seconds).floor
-    days = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.day.seconds).floor
-    seconds = (Time.zone.now + Time.zone_offset('CST') - dob.to_time)
-    if years > 0
-      years.to_s.concat(" Year(s)")
-    elsif months > 0
-      months.to_s.concat(" Month(s)")
-    elsif days > 0
-      days.to_s.concat(" Day(s)")
-    elsif seconds > 0
-      "0 Day(s)"
-    else
-      "Not Yet Born"
+    unless dob.nil?
+      years = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.year.seconds).floor
+      months = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.month.seconds).floor
+      days = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.day.seconds).floor
+      seconds = (Time.zone.now + Time.zone_offset('CST') - dob.to_time)
+      if years > 0
+        years.to_s.concat(" Year(s)")
+      elsif months > 0
+        months.to_s.concat(" Month(s)")
+      elsif days > 0
+        days.to_s.concat(" Day(s)")
+      elsif seconds > 0
+        "0 Day(s)"
+      else
+        "Not Yet Born"
+      end
     end
   end
     
