@@ -1,0 +1,32 @@
+%div#aniForm.mb-4
+  = form_tag animal_diet_path(@animal), :method => :put do
+    %div.d-flex.flex-row
+      %div.container.card.mb-3.pl-0.pr-0
+        %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+          %div.form-group.col-sm-11.mb-0
+            %h1.font-weight-bold.mb-2= label :diet, :dish, 'Dish', :class => "mb-1"
+            = text_field :diet, 'dish', :class => "form-control"
+    
+    %div.d-flex.flex-row
+      %div.container.card.mb-3.pl-0.pr-0
+        %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+          %div.form-group.col-sm-11
+            %h1.font-weight-bold.mb-1= label :diet, :instructions, 'Instructions', :class => "mb-0"
+            = text_area :diet, 'instructions', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
+              
+    %div.d-flex.flex-row
+      %div.container.card.mb-3.pl-0.pr-0
+        %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+          %div.form-group.col-sm-11
+            %h1.font-weight-bold.mb-1= label :diet, :am, 'AM Diet', :class => "mb-0"
+            = text_area :diet, 'am', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
+              
+    %div.d-flex.flex-row.mb-3
+      %div.container.card.mb-3.pl-0.pr-0
+        %div.form-row.d-flex.justify-content-center.mt-4.mb-3
+          %div.form-group.col-sm-11
+            %h1.font-weight-bold.mb-1= label :diet, :pm, 'PM Diet', :class => "mb-0"
+            = text_area :diet, 'pm', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
+
+    = submit_tag 'Update Diets', :class => "btn btn-primary"
+    = link_to 'Cancel', animal_diet_path(@animal), :class => "btn btn-secondary ml-4"
