@@ -14,7 +14,7 @@ class Animal < ApplicationRecord
 
 
   def self.toCSV
-      attributes = %w{tag name common_name habitat_num species sex dob weight neutered notes instructions am pm dish}
+      attributes = %w{tag name common_name habitat_num species sex dob age weight neutered notes instructions am pm dish}
       # dietAttributes = %w{instructions am pm dish}
       
       CSV.generate(headers: true) do |csv|
@@ -42,7 +42,7 @@ class Animal < ApplicationRecord
   end
   
   def age
-    unless dob.nil?
+    if !dob.nil?
       years = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.year.seconds).floor
       months = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.month.seconds).floor
       days = ((Time.zone.now + Time.zone_offset('CST') - dob.to_time) / 1.day.seconds).floor
@@ -58,6 +58,8 @@ class Animal < ApplicationRecord
       else
         "Not Yet Born"
       end
+    else
+        ""
     end
   end
     
