@@ -11,5 +11,7 @@ class AddAttributesToAnimals < ActiveRecord::Migration[6.0]
       t.column :name, :string
       t.column :notes, :text
     end
+    
+    add_index :animals, :tag, unique: true
   end
 end
