@@ -50,33 +50,15 @@
 
 :javascript
   var options = {
-    valueNames: [ 'name', 'meta' ]
+    valueNames: [ 'name', 'meta' ],
+    indexAsync: true
   };
 
   var filterList = new List('filter-list', options);
   
-  // // Select the node that will be observed for mutations
-  // const targetNode = document.getElementById('render-list');
-  
-  // // Options for the observer (which mutations to observe)
-  // const config = { childList: true, subtree: false };
-  
-  // // Callback function to execute when mutations are observed
-  // const callback = function(mutationsList, observer) {
-  //   // Use traditional 'for loops' for IE 11
-  //   for(let mutation of mutationsList) {
-  //     // console.log('A child node has been added or removed.');
-  //     filterList.reIndex();
-  //   }
-  // };
-  
-  // // Create an observer instance linked to the callback function
-  // const observer = new MutationObserver(callback);
-  
-  // // Start observing the target node for configured mutations
-  // observer.observe(targetNode, config);
-  $('.file-delete').on('ajax:send', function() {
-    console.log('ajax:complete!');
+  $('.file-delete').on('ajax:complete', function() {
+    $(this).closest("li").remove()
+    filterList.filter();
     filterList.reIndex();
   });
   $('#form-uppy').on('ajax:complete', function() {
