@@ -29,10 +29,8 @@ Scenario: Edit an existing animal
     And I fill text field "Common Name" with "Chinchilla"
     And I fill text field "Habitat #" with "12345"
     And I fill text field "Species" with "Crimson Chin"
-    And I fill text field "Age" with "10"
     And I fill text area "#animal_notes" with "Hello World"
     And I select the option "Yes" from "Neutered" field
-    And I select the option "yr" from "Age Units" field
     And I select the option "lbs" from "Weight Units" field
     And I select the option "Male" from "Sex" field
     And I fill text field "Date of Birth" with "01202016"
