@@ -18,8 +18,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @animal = Animal.find(id)
+    @animal = Animal.find(params[:id])
   end
   
   def new
@@ -88,10 +87,17 @@ class AnimalsController < ApplicationController
   end
   
   def destroy
-    @animal = Animal.find(params[:id])
-    @animal.destroy
-    flash[:notice] = "Entry for #{@animal.tag} '#{@animal.name}' was successfully deleted."
-    redirect_to animals_path
+    begin
+      @animal = Animal.find(params[:id])
+      @animal.destroy
+      flash[:notice] = "Entry for #{@animal.tag} '#{@animal.name}' was successfully deleted."
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Animal has already been deleted."
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+    ensure
+      redirect_to animals_path
+    end
   end
   
   def update_image
