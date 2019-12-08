@@ -11,8 +11,10 @@ class Animal < ApplicationRecord
   
   validates :tag, uniqueness: { case_sensitive: false }
   validates :tag, presence: true
+  
   validates :habitat_num, numericality: { only_integer: true, allow_nil: true }
   validates :weight, numericality: { allow_nil: true }
+  
   validates :common_name, format: { with: /\A[a-zA-Z\-]+( +[a-zA-Z\-]+)*\z/,
     message: "only allows letters and dashes", allow_nil: true }
   validates :species, format: { with: /\A[a-zA-Z\.]+( +[a-zA-Z\.]+)*\z/,
@@ -21,6 +23,7 @@ class Animal < ApplicationRecord
   # message: "only allows letters", allow_nil: true }
   # validates :tag, format: { with: /\A[a-zA-Z0-9]+\z/,
   # message: "only allows letters and numbers" }
+  
   # validates :sex, inclusion: { in: %w(male female n/a), allow_nil: true }
   # validates :neutered, inclusion: { in: %w(yes no n/a), allow_nil: true }
   # validates :weight_units, inclusion: { in: %w(g kg lbs), allow_nil: true }

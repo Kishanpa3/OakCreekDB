@@ -1,6 +1,9 @@
 %div.container 
-  %h1.container.display-4 Editing #{@animal.name}'s Information
-  
+  %div.container
+    %div.card-header.pt-0.pb-0
+      %div.row
+        %h1.display-4 Editing #{@animal.name}'s Information
+    
   %div.container.d-flex.flex-row.justify-content-center
     %div#aniForm.was-validated.col-12.mb-4
       = form_tag animal_path(@animal),:method => :put do
