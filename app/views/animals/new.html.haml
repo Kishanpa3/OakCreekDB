@@ -30,12 +30,20 @@
           = label :animal, :age, 'Age'
           = text_field :animal, 'age', :class => "form-control", :required => "", :oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text"
           .invalid-feedback Animal Age Required
+          = label :animal, :age_units, 'Age Units'
+          %div
+            = select :animal, :age_units, ['d', 'mo', 'yr'],{include_blank: "Select..."}, {class: "form-control", required: true }
+            .invalid-feedback Age Units Required
       %div.form-row
         %div.form-group.col-sm-4.sm-3
           = label :animal, :weight, 'Weight'
           %div
             = text_field :animal, 'weight', :class => "form-control", :required => "",:oninput => "this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\\..*)\\./g, '$1');", :type => "text"
             .invalid-feedback Animal Weight Required
+          = label :animal, :weight_units, 'Weight Units'
+          %div
+            = select :animal, :weight_units, ['g', 'kg', 'lbs'],{include_blank: "Select..."}, {class: "form-control", required: true }
+            .invalid-feedback Weight Units Required
         %div.form-group.col-sm-4.sm-3
           = label :animal, :sex, 'Sex'
           %div

@@ -70,7 +70,7 @@ class AnimalsController < ApplicationController
   private
   
   def animal_params
-    params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :weight, :notes, :documents_attributes => {})
+    params.require(:animal).permit(:habitat_num, :common_name, :dob, :name, :tag, :neutered, :species, :sex, :age, :age_units, :weight, :weight_units, :notes, :documents_attributes => {})
     # params.require(:animal).permit!
   end
   

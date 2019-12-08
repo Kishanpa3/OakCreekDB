@@ -32,10 +32,10 @@
             %div.d-flex.flex-row
               %div.form-group.col-5.mb-1
                 = label_tag 'Weight:', nil , class: "h3 font-weight-bold"
-                %span.h3.text-muted= "#{@animal.weight} lbs"
+                %span.h3.text-muted= "#{@animal.weight} #{@animal.weight_units}"
               %div.form-group.col-4.mb-1
                 = label_tag 'Date of Birth:', nil , class: "h3 font-weight-bold"
                 %span.h3.text-muted= @animal.dob.strftime("%m/%d/%Y") if @animal.dob!=nil
               %div.form-group.col-3.mb-1
                 = label_tag 'Age:', nil , class: "h3 font-weight-bold"
-                %span.h3.text-muted= @animal.age
+                %span.h3.text-muted= "#{@animal.age} #{@animal.age_units}"
