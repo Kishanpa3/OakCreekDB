@@ -1,8 +1,8 @@
 class RemovingAge < ActiveRecord::Migration[6.0]
   def change
     change_table :animals do |t|
-      t.remove :age, :integer
-      t.remove :age_units, :string, limit: 2
+      t.remove :age
+      t.remove :age_units
     end
   end
 end
