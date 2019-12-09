@@ -92,7 +92,7 @@ Now you should be able to navigate to your app's URL.
 ## AWS S3 setup
 
 You'll need to create an AWS S3 bucket, which is where the uploads will be
-stored. See [this walkthrough][https://docs.aws.amazon.com/AmazonS3/latest/dev/walkthrough1.html#walkthrough1-create-bucket] on how to do that.
+stored. See [this walkthrough](https://docs.aws.amazon.com/AmazonS3/latest/dev/walkthrough1.html#walkthrough1-create-bucket) on how to do that.
 
 Next you'll need to configure CORS for that bucket, so that it accepts (multipart) uploads
 directly from the client. In the AWS S3 Console go to your bucket, click on the
