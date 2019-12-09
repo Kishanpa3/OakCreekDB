@@ -130,7 +130,7 @@ CORS settings to be applied.
 ## References
 * [Webpacker](https://github.com/rails/webpacker) - Manages app-like JavaScript modules in Rails
 * [Shrine](https://github.com/shrinerb/shrine) - File attachment toolkit for Ruby applications
-* [Devise](https://github.com/plataformatec/devise) - Devise is a flexible authentication solution for Rails based on Warden
+* [Devise](https://github.com/plataformatec/devise) - Flexible authentication solution for Rails based on Warden
 
 ## License
 This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license.
