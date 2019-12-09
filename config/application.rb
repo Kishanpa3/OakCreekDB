@@ -32,5 +32,7 @@ module OakCreekDB
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    
+    config.exceptions_app = self.routes
   end
 end
