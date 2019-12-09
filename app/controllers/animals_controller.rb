@@ -59,19 +59,6 @@ class AnimalsController < ApplicationController
   end
   
   def update
-    # @animal = Animal.find(params[:id])
-    # @animal.update!(animal_params)
-    
-    # if (animal_params.key?(:documents_attributes))
-    #   respond_to do |format|
-    #     format.html { redirect_back fallback_location: root_path }
-    #     format.js
-    #   end
-    # else
-    #   flash[:notice] = "#{@animal.name} was successfully updated."
-    #   redirect_to animal_path(@animal)
-    # end
-    
     begin
       # puts "ANIMAL PARAMS: #{animal_params.keys}"
       # puts "DOC ATR: #{animal_params[:documents_attributes]}"
@@ -93,7 +80,7 @@ class AnimalsController < ApplicationController
         if (animal_params.key?(:documents_attributes))
           respond_to do |format|
             format.html { redirect_back fallback_location: root_path }
-            format.js
+            format.js { render :js => "window.location = '#{animal_documents_path(@animal)}'" }
           end
         else
           flash[:alert] = "Failed to update #{@animal.name}."
@@ -102,10 +89,16 @@ class AnimalsController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Animal has already been deleted."
-      redirect_to animals_path
+      respond_to do |format|
+        format.html { redirect_to animals_path }
+        format.js { render :js => "window.location = '#{animals_path}'" }
+      end
     rescue StandardError => e
       flash[:alert] = "#{e.message}"
-      redirect_to animals_path
+      respond_to do |format|
+        format.html { redirect_to animals_path }
+        format.js { render :js => "window.location = '#{animals_path}'" }
+      end
     end
   end
   
