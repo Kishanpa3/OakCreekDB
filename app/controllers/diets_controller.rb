@@ -51,15 +51,16 @@ class DietsController < ApplicationController
   private
   
   def set_animal
-    begin
-      @animal = Animal.find(params[:animal_id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "Animal has already been deleted."
-      redirect_to animals_path
-    rescue StandardError => e
-      flash[:alert] = "#{e.message}"
-      redirect_to animals_path
-    end
+    @animal = Animal.find(params[:animal_id])
+    # begin
+    #   @animal = Animal.find(params[:animal_id])
+    # rescue ActiveRecord::RecordNotFound
+    #   flash[:alert] = "Animal has already been deleted."
+    #   redirect_to animals_path
+    # rescue StandardError => e
+    #   flash[:alert] = "#{e.message}"
+    #   redirect_to animals_path
+    # end
   end
   
   def diet_params
