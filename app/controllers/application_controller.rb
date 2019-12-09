@@ -44,6 +44,9 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: '/', alert: 'You are not authorized to delete content - Please contact an adminstrator if this is incorrect.') unless has_delete_permissions
   end
   
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
   
   
   # Define custom paginate renderer for will_paginate
