@@ -1,5 +1,8 @@
 %div.container 
-  %h1.display-4 Editing #{@animal.name}'s Diet
+  %div.container
+    %div.row
+      %h1.display-4 Editing #{@animal.name}'s Diet
+
 
   %div#aniForm.mb-4
     = form_tag animal_diet_path(@animal), :method => :put do
@@ -31,5 +34,7 @@
               %h1.font-weight-bold.mb-1= label :diet, :pm, 'PM Diet', :class => "mb-0"
               = text_area :diet, 'pm', :class => "wysihtml5 form-control", :style => "height: 25vh; overflow-y: auto"
 
-      = submit_tag 'Update Diet', :class => "btn btn-primary"
-      = link_to 'Cancel', animal_diet_path(@animal), :class => "btn btn-secondary ml-4"
+      %div.container
+        %div.row
+          = submit_tag 'Update Diet', :class => "btn btn-primary"
+          = link_to 'Cancel', animal_diet_path(@animal), :class => "btn btn-secondary ml-4"
