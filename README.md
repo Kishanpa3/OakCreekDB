@@ -89,6 +89,44 @@ Now you should be able to navigate to your app's URL.
 
 [Source](https://github.com/saasbook/rottenpotatoes-rails-intro/blob/master/instructions/docs/part_0_B.md)
 
+## AWS S3 setup
+
+You'll need to create an AWS S3 bucket, which is where the uploads will be
+stored. See [this walkthrough][https://docs.aws.amazon.com/AmazonS3/latest/dev/walkthrough1.html#walkthrough1-create-bucket] on how to do that.
+
+Next you'll need to configure CORS for that bucket, so that it accepts (multipart) uploads
+directly from the client. In the AWS S3 Console go to your bucket, click on the
+"Permissions" tab and then on "CORS configuration". There paste in the following:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <CORSRule>
+    <AllowedOrigin>https://my-app.com</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedMethod>PUT</AllowedMethod>
+    <MaxAgeSeconds>3000</MaxAgeSeconds>
+    <AllowedHeader>Authorization</AllowedHeader>
+    <AllowedHeader>x-amz-date</AllowedHeader>
+    <AllowedHeader>x-amz-content-sha256</AllowedHeader>
+    <AllowedHeader>content-type</AllowedHeader>
+    <ExposeHeader>ETag</ExposeHeader>
+  </CORSRule>
+  <CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <MaxAgeSeconds>3000</MaxAgeSeconds>
+  </CORSRule>
+</CORSConfiguration>
+```
+
+Replace `https://my-app.com` with the URL to your app (in development you can
+set this to `*`). Once you've hit "Save", it may take some time for the new
+CORS settings to be applied.
+
+[Source](https://github.com/janko/uppy-s3_multipart/blob/master/README.md)
+
 ## References
 * [Webpacker](https://github.com/rails/webpacker) - Manages app-like JavaScript modules in Rails
 * [Shrine](https://github.com/shrinerb/shrine) - File attachment toolkit for Ruby applications
