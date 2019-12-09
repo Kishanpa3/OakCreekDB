@@ -1,0 +1,14 @@
+- no_content_for :title
+%body.d-flex.align-items-center.bg-auth.border-top.border-top-2.border-primary
+  .container
+    .row.justify-content-center
+      .col-12.col-md-5.col-xl-4.my-5
+        .text-center
+          %h6.text-uppercase.text-muted.mb-4
+            500 error
+          %h1.display-4.mb-3
+            There’s no page here
+          %p.text-muted.mb-4
+            Looks like you ended up here by accident?
+          %a.btn.btn-lg.btn-primary{:href => "#{root_path}"}
+            Return to homepage

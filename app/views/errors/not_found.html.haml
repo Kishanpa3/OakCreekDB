@@ -1,3 +1,4 @@
+- no_content_for :title
 %body.d-flex.align-items-center.bg-auth.border-top.border-top-2.border-primary
   .container
     .row.justify-content-center
@@ -9,5 +10,5 @@
             There’s no page here
           %p.text-muted.mb-4
             Looks like you ended up here by accident?
-          %a.btn.btn-lg.btn-primary{:href => "index.html"}
-            Return to your dashboard
+          %a.btn.btn-lg.btn-primary{:href => "#{root_path}"}
+            Return to homepage
