@@ -32,7 +32,7 @@ Shrine.plugin :derivation_endpoint, metadata: ["mime_type"],   # on-the-fly proc
   secret_key: ENV["SHRINE_SECRET_KEY_BASE"]
 
 Shrine.plugin :uppy_s3_multipart
-Shrine.plugin :url_options, cache: { expires_in: 7*24*60*60 }, store: { expires_in: 7*24*60*60 }
+Shrine.plugin :url_options, cache: { expires_in: 24*60*60 }, store: { expires_in: 24*60*60 }
 
 # delay promoting and deleting files to a background job (`backgrounding` plugin)
 Shrine.plugin :backgrounding

@@ -17,21 +17,24 @@ module DocumentsHelper
       # image_url = image_path("image.svg")
       # image_url = document.file_url(:small) unless document.file_url(:small).nil?
       # return image_url
-      return document.file_url(:small)
+      return "image"
     when /^video\//
-      return image_path("film.svg")
+      return "videocam"
     when /^audio\//
-      return image_path("volume-2.svg")
+      return "volume_up"
     when /^application\//
-      case document.file.mime_type
-      when /\/pdf$/
-        return image_path("volume-2.svg")
-      when /\/zip$/
-      end
+      # case document.file.mime_type
+      # when /\/pdf$/
+      #   return image_path("pdf.svg")
+      # when /\/zip$/
+      #   return image_path("zip.svg")
+      # end
+      return "insert_drive_file"
     when /^text\//
-      return image_path("file-text.svg")
+      return "description"
     else
-      return image_path("volume-2.svg")
+      # return image_path("document.svg")
+      return "insert_drive_file"
     end
   end
   

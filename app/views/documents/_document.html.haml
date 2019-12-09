@@ -6,7 +6,7 @@
           %img.avatar-img.rounded{:src => document.file_url(:small), :alt => "..."}
         - else
           %span.avatar-title.rounded.bg-white.text-secondary
-            %span.material-icons.md-18 search
+            %span.material-icons.md-24= display_file_type(document)
     %div.col.m1-n2
       %h4.card-title.mb-1
         = link_to document.file.original_filename, document.file_url, :class => "name"
