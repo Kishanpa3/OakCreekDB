@@ -14,7 +14,7 @@ class Animal < ApplicationRecord
   validates :weight, numericality: { allow_nil: true }
   
   validates :common_name, format: { with: /\A[a-zA-Z\-]+( +[a-zA-Z\-]+)*\z/,
-    message: "only allows letters and dashes", allow_nil: true }
+    message: "only allows letters", allow_nil: true }
   validates :species, format: { with: /\A[a-zA-Z\.]+( +[a-zA-Z\.]+)*\z/,
     message: "only allows letters", allow_nil: true }
   # validates :name, format: { with: /\A[a-zA-Z\-\.]+( +[a-zA-Z\-\.]+)*\z/,
