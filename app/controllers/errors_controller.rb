@@ -10,7 +10,7 @@ class ErrorsController < ApplicationController
     end
   end
 
-  def not_acceptable
+  def unacceptable
     respond_to do |format|
       format.html { render status: 422 }
       # format.js { render status: 422 }

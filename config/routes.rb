@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/not_acceptable'
-  get 'errors/internal_error'
+  get '/404', to: "errors#not_found"
+  get '/422', to: "errors#unacceptable"
+  get '/500', to: "errors#internal_error"
+  
   devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
