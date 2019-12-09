@@ -82,10 +82,16 @@ class DocumentsController < ApplicationController
       @animal = Animal.find(params[:animal_id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Animal has already been deleted."
-      redirect_to animals_path
+      respond_to do |format|
+        format.html { redirect_to animals_path }
+        format.js { render :js => "window.location = '#{animals_path}'" }
+      end
     rescue StandardError => e
       flash[:alert] = "#{e.message}"
-      redirect_to animals_path
+      respond_to do |format|
+        format.html { redirect_to animals_path }
+        format.js { render :js => "window.location = '#{animals_path}'" }
+      end
     end
   end
  
