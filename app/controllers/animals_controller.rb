@@ -71,6 +71,7 @@ class AnimalsController < ApplicationController
         render :edit
       end
     end
+    raise ActionController::RoutingError.new('Not Found') if @animal.blank?
   end
   
   def destroy
