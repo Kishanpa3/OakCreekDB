@@ -16,7 +16,15 @@ class DocumentsController < ApplicationController
   end
   
   def show
-    @document = Document.find(params[:id])
+    begin
+      @document = Document.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "File has already been deleted."
+      redirect_back fallback_location: root_path
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+      redirect_back fallback_location: root_path
+    end
   end
   
   def destroy
@@ -37,11 +45,19 @@ class DocumentsController < ApplicationController
   end
   
   def download
-    @document = Document.find(params[:id])
-    remote_file = @document.file.download
-    # remote_file.read   #=> "..." 
-    send_file remote_file.path, :filename => @document.file.original_filename, :type => @document.file.mime_type
-    # remote_file.close!
+    begin
+      @document = Document.find(params[:id])
+      remote_file = @document.file.download
+      # remote_file.read   #=> "..." 
+      send_file remote_file.path, :filename => @document.file.original_filename, :type => @document.file.mime_type
+      # remote_file.close!
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "File has already been deleted."
+      redirect_back fallback_location: root_path
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+      redirect_back fallback_location: root_path
+    end
   end
   
   def serve_uploaded_images
@@ -56,7 +72,15 @@ class DocumentsController < ApplicationController
   private
   
   def set_animal
-    @animal = Animal.find(params[:animal_id])
+    begin
+      @animal = Animal.find(params[:animal_id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Animal has already been deleted."
+      redirect_to animals_path
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+      redirect_to animals_path
+    end
   end
  
   def document_params

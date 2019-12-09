@@ -17,7 +17,15 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @animal = Animal.find(params[:id])
+    begin
+      @animal = Animal.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Animal has already been deleted."
+      redirect_to animals_path
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+      redirect_to animals_path
+    end
   end
   
   def new
@@ -39,7 +47,15 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find(params[:id])
+    begin
+      @animal = Animal.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Animal has already been deleted."
+      redirect_to animals_path
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+      redirect_to animals_path
+    end
   end
   
   def update
