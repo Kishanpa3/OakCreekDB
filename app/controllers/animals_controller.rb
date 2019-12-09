@@ -72,32 +72,40 @@ class AnimalsController < ApplicationController
     #   redirect_to animal_path(@animal)
     # end
     
-    # puts "ANIMAL PARAMS: #{animal_params.keys}"
-    # puts "DOC ATR: #{animal_params[:documents_attributes]}"
-    @animal = Animal.find(params[:id])
-    @animal.assign_attributes(animal_params)
-    
-    if @animal.valid?
-      @animal.save
-      if (animal_params.key?(:documents_attributes))
-        respond_to do |format|
-          format.html { redirect_back fallback_location: root_path }
-          format.js
+    begin
+      # puts "ANIMAL PARAMS: #{animal_params.keys}"
+      # puts "DOC ATR: #{animal_params[:documents_attributes]}"
+      @animal = Animal.find(params[:id])
+      @animal.assign_attributes(animal_params)
+      
+      if @animal.valid?
+        @animal.save
+        if (animal_params.key?(:documents_attributes))
+          respond_to do |format|
+            format.html { redirect_back fallback_location: root_path }
+            format.js
+          end
+        else
+          flash[:notice] = "#{@animal.name} was successfully updated."
+          redirect_to animal_path(@animal)
         end
       else
-        flash[:notice] = "#{@animal.name} was successfully updated."
-        redirect_to animal_path(@animal)
-      end
-    else
-      if (animal_params.key?(:documents_attributes))
-        respond_to do |format|
-          format.html { redirect_back fallback_location: root_path }
-          format.js
+        if (animal_params.key?(:documents_attributes))
+          respond_to do |format|
+            format.html { redirect_back fallback_location: root_path }
+            format.js
+          end
+        else
+          flash[:alert] = "Failed to update #{@animal.name}."
+          render :edit
         end
-      else
-        flash[:alert] = "Failed to update #{@animal.name}."
-        render :edit
       end
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Animal has already been deleted."
+      redirect_to animals_path
+    rescue StandardError => e
+      flash[:alert] = "#{e.message}"
+      redirect_to animals_path
     end
   end
   
