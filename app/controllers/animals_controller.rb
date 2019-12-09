@@ -78,6 +78,7 @@ class AnimalsController < ApplicationController
         end
       else
         if (animal_params.key?(:documents_attributes))
+          flash[:alert] = @animal.errors["documents.file"].join(", ")
           respond_to do |format|
             format.html { redirect_back fallback_location: root_path }
             format.js { render :js => "window.location = '#{animal_documents_path(@animal)}'" }
