@@ -60,6 +60,7 @@ bucket: "..."
 secret_key_base "..."
 ```
 -->
+For more information, check out our [project setup guide](https://github.com/Kishanpa3/OakCreekDB/wiki/Project-Setup).
 ## Deployment
 
 If you have deployed to Heroku before, just create a new app container with `heroku create`.  If this is your first time deploying to Heroku, you will need to do two things.  First, sign up for a free [Heroku account](http://heroku.com).  Then set up `ssh` keys to securely communicate with Heroku for app deployments.  The three basic commands you need are the following, but see the [Heroku page](https://devcenter.heroku.com/articles/heroku-cli) for more details.
@@ -100,7 +101,7 @@ Now you should be able to navigate to your app's URL.
 
 [Source](https://github.com/saasbook/rottenpotatoes-rails-intro/blob/master/instructions/docs/part_0_B.md)
 
-## AWS S3 setup
+## AWS S3 Setup
 
 You'll need to create an AWS S3 bucket, which is where the uploads will be
 stored. See [this walkthrough](https://docs.aws.amazon.com/AmazonS3/latest/dev/walkthrough1.html#walkthrough1-create-bucket) on how to do that.
