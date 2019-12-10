@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'users/index_partial', to: 'users#serve_index_partial', as: 'request_index_partial'
   
   #Redirect non-existent routes to animals index page  
-  match '/*paths', :to => 'animals#index', via: [:get, :post]
+  match '/*paths', :to => "errors#not_found", via: [:get, :post]
 
 
   # Example resource route with options:

@@ -25,23 +25,27 @@ class ApplicationController < ActionController::Base
   
   # AUTHENTICATION HELPERS FOR ABSTRACTING PERMISSION CHECKS
   def authenticate_admin
-    redirect_back(fallback_location: '/', alert: 'You are not authorized to view this page  - Please contact an adminstrator if this is incorrect.') unless current_user.admin?
+    redirect_back(fallback_location: root_path, alert: 'You are not authorized to view this page  - Please contact an adminstrator if this is incorrect.') unless current_user.admin?
   end
     
   def authenticate_view_permissions
-    redirect_back(fallback_location: '/', alert: 'You are not authorized to view this page  - Please contact an adminstrator if this is incorrect.') unless has_view_permissions
+    redirect_back(fallback_location: root_path, alert: 'You are not authorized to view this page  - Please contact an adminstrator if this is incorrect.') unless has_view_permissions
   end
   
   def authenticate_add_permissions
-    redirect_back(fallback_location: '/', alert: 'You are not authorized to add content - Please contact an adminstrator if this is incorrect.') unless has_add_permissions
+    redirect_back(fallback_location: root_path, alert: 'You are not authorized to add content - Please contact an adminstrator if this is incorrect.') unless has_add_permissions
   end
   
   def authenticate_edit_permissions
-    redirect_back(fallback_location: '/', alert: 'You are not authorized to edit content - Please contact an adminstrator if this is incorrect.') unless has_edit_permissions
+    flash[:alert] = 'You are not authorized to edit content - Please contact an adminstrator if this is incorrect.'
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) unless has_edit_permissions }
+      format.js { render inline: "location.reload();" unless has_edit_permissions }
+    end
   end
   
   def authenticate_delete_permissions
-    redirect_back(fallback_location: '/', alert: 'You are not authorized to delete content - Please contact an adminstrator if this is incorrect.') unless has_delete_permissions
+    redirect_back(fallback_location: root_path, alert: 'You are not authorized to delete content - Please contact an adminstrator if this is incorrect.') unless has_delete_permissions
   end
   
   
