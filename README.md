@@ -38,6 +38,8 @@ $ rails db:migrate
 $ rails db:seed
 ```
 
+If using Amazon S3 for file uploads, put your S3 credentials in `application.yml`, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
+<!--
 If using Amazon S3 for file uploads, run `rails credentials:edit` and put your S3 credentials, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
 
 ```yaml
@@ -48,7 +50,7 @@ bucket: "..."
 
 secret_key_base "..."
 ```
-
+-->
 ## Deployment
 
 If you have deployed to Heroku before, just create a new app container with `heroku create`.  If this is your first time deploying to Heroku, you will need to do two things.  First, sign up for a free [Heroku account](http://heroku.com).  Then set up `ssh` keys to securely communicate with Heroku for app deployments.  The three basic commands you need are the following, but see the [Heroku page](https://devcenter.heroku.com/articles/heroku-cli) for more details.
