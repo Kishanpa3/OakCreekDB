@@ -113,8 +113,8 @@ Rails.application.configure do
   
   
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'https://oakcreekdb1.herokuapp.com/'}
-  # config.action_mailer.default_url_options = { :host => 'https://oakcreekdb.herokuapp.com/'}
+  # config.action_mailer.default_url_options = { :host => 'https://oakcreekdb1.herokuapp.com/'}
+  config.action_mailer.default_url_options = { :host => 'https://stormy-everglades-94070.herokuapp.com/'}
   
   
   ActionMailer::Base.delivery_method = :smtp
