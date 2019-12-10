@@ -39,6 +39,15 @@ $ rails db:seed
 ```
 
 If using Amazon S3 for file uploads, put your S3 credentials in `application.yml`, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
+```yaml
+S3_BUCKET: "..."
+S3_ACCESS_KEY_ID: "..."
+S3_SECRET_ACCESS_KEY: "..."
+S3_REGION: "..."
+
+SHRINE_SECRET_KEY_BASE: "..."
+```
+
 <!--
 If using Amazon S3 for file uploads, run `rails credentials:edit` and put your S3 credentials, and [setup CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html):
 
