@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   match '/404', to: "errors#not_found", via: :all
+  match '/422', to: "errors#unacceptable", via: :all
+  match '/500', to: "errors#internal_error", via: :all
   # get '/404', to: "errors#not_found"
-  get '/422', to: "errors#unacceptable"
-  get '/500', to: "errors#internal_error"
+  # get '/422', to: "errors#unacceptable"
+  # get '/500', to: "errors#internal_error"
   
   devise_for :users, :controllers => { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
   get 'documents/uploaded_images', to: 'documents#serve_uploaded_images', as: 'request_uploaded_images'
   
   
-  #GET '/animals/showEntry'
+  # GET '/animals/showEntry'
   get 'users/index'
   match 'users/:id' => 'users#update', :via => :patch, :as => :users_update
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :users_destroy
@@ -42,7 +44,7 @@ Rails.application.routes.draw do
   get 'users/index_partial', to: 'users#serve_index_partial', as: 'request_index_partial'
   
   # Redirect non-existent routes to 404 page  
-  match '/*paths', :to => "errors#not_found", via: [:get, :post]
+  match '/*paths', :to => "errors#not_found", via: :all # via: [:get, :post] 
 
 
   # Example resource route with options:
