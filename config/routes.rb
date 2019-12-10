@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/404', to: "errors#not_found"
+  match '/404', to: "errors#not_found", via: :all
+  # get '/404', to: "errors#not_found"
   get '/422', to: "errors#unacceptable"
   get '/500', to: "errors#internal_error"
   
@@ -40,7 +41,7 @@ Rails.application.routes.draw do
   get '/update_form' => "application#update_form_partial", as: :update_form
   get 'users/index_partial', to: 'users#serve_index_partial', as: 'request_index_partial'
   
-  #Redirect non-existent routes to animals index page  
+  # Redirect non-existent routes to 404 page  
   match '/*paths', :to => "errors#not_found", via: [:get, :post]
 
 
