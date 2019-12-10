@@ -5,8 +5,7 @@ class ErrorsController < ApplicationController
   def not_found
     respond_to do |format|
       format.html { render status: 404 }
-      # format.js { render status: 404 }
-      # or maybe { render :js => "window.location = '#{root_path}'" }
+      # format.js { render :js => "window.location = '#{error_not_found_path}'" }
     end
   end
 

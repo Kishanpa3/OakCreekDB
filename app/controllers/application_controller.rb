@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   
   def authenticate_edit_permissions
     unless has_edit_permissions
-    flash[:alert] = 'You are not authorized to edit content - Please contact an adminstrator if this is incorrect.'
+      flash[:alert] = 'You are not authorized to edit content - Please contact an adminstrator if this is incorrect.'
       respond_to do |format|
         format.html { redirect_back fallback_location: root_path }
         format.js { render inline: "location.reload();" }
