@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   
   before_action :set_animal
+  before_action :authenticate_edit_permissions, only: [:destroy]
   
   def create
     # puts "CREATING DOCUMENT #{@animal.id}"
