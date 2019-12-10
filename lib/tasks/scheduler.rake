@@ -13,5 +13,5 @@ task :clear_unconfirmed_users => :environment do
   
   #PG VALID QUERY
   users = User.where("confirmed_at IS NULL AND created_at < CURRENT_DATE - INTERVAL '15 days'") 
-  users.destroy_all unless users.blank? # delete unconfirmed users older than 2 weeks 
+  users.destroy_all unless users.empty? # delete unconfirmed users older than 2 weeks 
 end
