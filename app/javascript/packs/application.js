@@ -61,10 +61,10 @@ const uppy = Uppy({
   // note: 'Images and video only, 2–3 files, up to 1 MB',
   note: 'Up to 10 files, up to 1 GB',
   height: 470,
-  metaFields: [
-    { id: 'name', name: 'Name', placeholder: 'file name' },
-    { id: 'caption', name: 'Caption', placeholder: 'describe what the file is about' }
-  ],
+  // metaFields: [
+  //   { id: 'name', name: 'Name', placeholder: 'file name' },
+  //   { id: 'caption', name: 'Caption', placeholder: 'describe what the file is about' }
+  // ],
   browserBackButtonClose: true,
   closeModalOnClickOutside: true,
   closeAfterFinish: false
@@ -73,7 +73,7 @@ const uppy = Uppy({
 // .use(Dropbox, { target: Dashboard, companionUrl: '/' })
 // .use(Facebook, { target: Dashboard, companionUrl: '/' })
 // .use(Instagram, { target: Dashboard, companionUrl: '/' })
-.use(Webcam, { target: Dashboard, mirror: false, facingMode: 'environment' })
+.use(Webcam, { target: Dashboard })
 .use(AwsS3Multipart, { companionUrl: '/' })
 
 //Assumes temporary Shrine S3 storage has prefix: "cache" set
