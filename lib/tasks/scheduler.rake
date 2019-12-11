@@ -1,5 +1,5 @@
-# if [ "$(date +%u)" = 7 ]; then rake clear_cache; fi   # only run on Sundays
-# if [ "$(date +%u)" = 7 ]; then rake clear_unconfirmed_users; fi   # only run on Sundays
+# if [ "$(date +%u)" = 6 ]; then rake clear_cache; fi   # only run on Saturdays
+# if [ "$(date +%u)" = 6 ]; then rake clear_unconfirmed_users; fi   # only run on Saturdays
 desc "This task is called by the Heroku scheduler add-on"
 task :clear_cache => :environment do
   # S3 storage 
