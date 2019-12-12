@@ -3,7 +3,7 @@
 OakCreekDB is a web-based DBMS for managing Oak Creek Zoological Conservatory's animal information.
 ## Installation
 
-Make sure you have installed all of the following prerequisites on your Linux machine:
+Make sure you have installed all of the following prerequisites on your (Ubuntu) Linux machine:
 * [Ruby](https://www.ruby-lang.org/en/) - You should have Ruby 2.6.3 installed.
 * [Rails](https://rubyonrails.org/) - You should have Rails 6.0.0 installed.
 * [Node.js 8.16.0+](https://nodejs.org/en/) - You should have Node.js installed.
