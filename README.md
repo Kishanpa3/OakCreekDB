@@ -1,6 +1,6 @@
 # OakCreekDB
 
-OakCreekDB is a web-based DBMS for managing Oak Creek Zoological Conservatory's animal information. You can checkout the status of this repository's progress at * [Trello](https://trello.com/b/AlsJbePS/oakcreekdb).
+OakCreekDB is a web-based DBMS for managing Oak Creek Zoological Conservatory's animal information. You can checkout the status of this repository's progress at [Trello](https://trello.com/b/AlsJbePS/oakcreekdb).
 
 ## Installation
 
