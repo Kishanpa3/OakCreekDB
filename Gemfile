@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Shrine to upload files
-gem "shrine", "~> 3.0"
+gem "shrine", "~> 3.3"
 gem "fastimage"                     # analyze image dimensions
 gem "image_processing", "~> 1.8"
 gem "marcel", "~> 0.3"              # extract MIME type from file content 
