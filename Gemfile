@@ -35,7 +35,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Shrine to upload files
 gem "shrine", "~> 3.0"
 gem "fastimage"                     # analyze image dimensions
-gem "image_processing", "~> 1.8"
+gem "image_processing", "~> 1.12"
 gem "marcel", "~> 0.3"              # extract MIME type from file content 
 gem "aws-sdk-s3", "~> 1.14"         # for AWS S3 storage
 gem "uppy-s3_multipart", "~> 0.3"   # resumable direct upload
